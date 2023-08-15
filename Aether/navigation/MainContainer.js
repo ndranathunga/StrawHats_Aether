@@ -22,34 +22,46 @@ function MainContainer() {
         <NavigationContainer>
             <Tab.Navigator
                 initialRouteName={homeName}
-                screenOptions={({ route }) => ({
-                    tabBarIcon: ({ focused, color, size }) => {
-                        let iconName;
-                        let rn = route.name;
 
-                        if (rn === homeName) {
-                            iconName = focused ? 'home' : 'home-outline';
+                screenOptions={({ route }) => (
 
-                        } else if (rn === FlightsName) {
-                            iconName = focused ? 'paper-plane' : 'paper-plane-outline';
+                    {
+                        tabBarIcon: ({ focused, color, size }) => {
+                            let iconName;
+                            let rn = route.name;
 
-                        } else if (rn === ExploreName) {
-                            iconName = focused ? 'settings' : 'settings-outline';
+                            if (rn === homeName) {
+                                iconName = focused ? 'home' : 'home-outline';
 
-                        } else if (rn === profileName) {
-                            iconName = focused ? 'person' : 'person-outline';
-                        }
+                            } else if (rn === FlightsName) {
+                                iconName = focused ? 'paper-plane' : 'paper-plane-outline';
 
-                        // You can return any component that you like here!
-                        return <Ionicons name={iconName} size={size} color={color} />;
-                    },
-                })}
-                tabBarOptions={{
-                    activeTintColor: 'tomato',
-                    inactiveTintColor: 'grey',
-                    labelStyle: { paddingBottom: 10, fontSize: 10 },
-                    style: { padding: 10, height: 70 }
-                }}>
+                            } else if (rn === ExploreName) {
+                                iconName = focused ? 'compass-sharp' : 'compass-outline';
+
+                            } else if (rn === profileName) {
+                                iconName = focused ? 'person' : 'person-outline';
+                            }
+
+                            // You can return any component that you like here!
+                            return <Ionicons name={iconName} size={size} color={color} />;
+                        },
+
+                        tabBarActiveTintColor: "tomato",
+                        tabBarInactiveTintColor: "grey",
+                        tabBarLabelStyle: {
+                            paddingBottom: 10,
+                            fontSize: 10
+                        },
+                        tabBarStyle: [
+                            {
+                                display: "flex"
+                            },
+                            null
+                        ]
+                    }
+                )
+                }>
 
                 <Tab.Screen name={homeName} component={HomeScreen} />
                 <Tab.Screen name={FlightsName} component={MyFlightsScreen} />
