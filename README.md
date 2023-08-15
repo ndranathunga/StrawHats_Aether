@@ -1,5 +1,9 @@
 # StrawHats_Aether
 
+## Instructions to install
+
+- Clone the repo
+- navigate to the Aether folder and use `npm install`
 ## Instructions to run
 
-navigate to the Aether folder and use `npx expo start`
+- Navigate to the Aether folder and use `npx expo start`
