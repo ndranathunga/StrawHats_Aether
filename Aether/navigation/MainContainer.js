@@ -5,13 +5,15 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 // Screens
 import HomeScreen from '../pages/HomeScreen';
-import DetailsScreen from '../pages/DetailsScreen';
-import SettingsScreen from '../pages/SettingsScreen';
+import MyFlightsScreen from '../pages/MyFlightsScreen';
+import ExploreScreen from '../pages/ExploreScreen';
+import ProfileScreen from '../pages/ProfileScreen';
 
 //Screen names
 const homeName = "Home";
-const detailsName = "Details";
-const settingsName = "Settings";
+const FlightsName = "My Flights";
+const ExploreName = "Explore";
+const profileName = "Profile";
 
 const Tab = createBottomTabNavigator();
 
@@ -28,11 +30,14 @@ function MainContainer() {
                         if (rn === homeName) {
                             iconName = focused ? 'home' : 'home-outline';
 
-                        } else if (rn === detailsName) {
-                            iconName = focused ? 'list' : 'list-outline';
+                        } else if (rn === FlightsName) {
+                            iconName = focused ? 'paper-plane' : 'paper-plane-outline';
 
-                        } else if (rn === settingsName) {
+                        } else if (rn === ExploreName) {
                             iconName = focused ? 'settings' : 'settings-outline';
+
+                        } else if (rn === profileName) {
+                            iconName = focused ? 'person' : 'person-outline';
                         }
 
                         // You can return any component that you like here!
@@ -47,8 +52,9 @@ function MainContainer() {
                 }}>
 
                 <Tab.Screen name={homeName} component={HomeScreen} />
-                <Tab.Screen name={detailsName} component={DetailsScreen} />
-                <Tab.Screen name={settingsName} component={SettingsScreen} />
+                <Tab.Screen name={FlightsName} component={MyFlightsScreen} />
+                <Tab.Screen name={ExploreName} component={ExploreScreen} />
+                <Tab.Screen name={profileName} component={ProfileScreen} />
 
             </Tab.Navigator>
         </NavigationContainer>
