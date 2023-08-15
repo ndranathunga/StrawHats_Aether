@@ -38,17 +38,12 @@ https://www.figma.com/file/qHEIX9aWKrSiyBTGJMDe8k/Aether?type=design&node-id=65-
     - Modal.js
     - Text.js
   - navigation
-    - AppNavigator.js
-    - AuthNavigator.js
-    - index.js
+    - MainContainer.js
   - pages
-    - AuthScreen.js
+    - ExploreScreen.js
     - HomeScreen.js
-    - LoginScreen.js
+    - MyFlightsScreen.js
     - ProfileScreen.js
-    - RegisterScreen.js
-    - SettingsScreen.js
-    - WelcomeScreen.js
   - utils
     - colors.js
     - constants.js
