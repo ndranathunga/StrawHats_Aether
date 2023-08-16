@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, ScrollView, Text, TextInput, Button, StyleSheet, Animated } from 'react-native';
 
 const passengerCount = 3; // Change this to the desired number of passengers
 
@@ -16,6 +16,8 @@ const PersonalInfoForm = () => {
     }))
   );
 
+  const slideValue = new Animated.Value(0);
+
   const handleInputChange = (field, value) => {
     const updatedDetails = [...passengerDetails];
     updatedDetails[currentPassengerIndex][field] = value;
@@ -24,28 +26,27 @@ const PersonalInfoForm = () => {
 
   const handleNextPassenger = () => {
     if (currentPassengerIndex < passengerCount - 1) {
-      setCurrentPassengerIndex(currentPassengerIndex + 1);
-      // if this passenger has not been filled out yet, give him a clear form
-        if (passengerDetails[currentPassengerIndex + 1].email === '') {
-            setPassengerDetails([
-                ...passengerDetails.slice(0, currentPassengerIndex + 1),
-                {
-                email: '',
-                address: '',
-                passport: '',
-                dob: '',
-                country: '',
-                phone: '',
-                },
-                ...passengerDetails.slice(currentPassengerIndex + 2),
-            ]);
-            }
+      Animated.timing(slideValue, {
+        toValue: -1,
+        duration: 300,
+        useNativeDriver: true,
+      }).start(() => {
+        setCurrentPassengerIndex(currentPassengerIndex + 1);
+        slideValue.setValue(0);
+      });
     }
   };
 
   const handlePreviousPassenger = () => {
     if (currentPassengerIndex > 0) {
-      setCurrentPassengerIndex(currentPassengerIndex - 1);
+      Animated.timing(slideValue, {
+        toValue: 1,
+        duration: 300,
+        useNativeDriver: true,
+      }).start(() => {
+        setCurrentPassengerIndex(currentPassengerIndex - 1);
+        slideValue.setValue(0);
+      });
     }
   };
 
@@ -56,11 +57,27 @@ const PersonalInfoForm = () => {
 
   const currentPassengerData = passengerDetails[currentPassengerIndex];
 
+  const animatedContainerStyle = {
+    transform: [
+      { translateX: slideValue.interpolate({
+        inputRange: [-1, 0, 1],
+        outputRange: [-300, 0, 300],
+      }) },
+    ],
+  };
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.passengerContainer}>
-
-        <TextInput
+        <Animated.View style={[styles.animatedPassengerContainer, animatedContainerStyle]}>
+          <TextInput
+            placeholder="Email"
+            onChangeText={(value) => handleInputChange('email', value)}
+            value={currentPassengerData.email}
+            style={styles.input}
+          />
+          {/* Other input fields */}
+          <TextInput
           placeholder="Email"
           onChangeText={(value) => handleInputChange('email', value)}
           value={currentPassengerData.email}
@@ -96,7 +113,7 @@ const PersonalInfoForm = () => {
           value={currentPassengerData.phone}
           style={styles.input}
         />
-  
+        </Animated.View>
         <View style={styles.navigationButtons}>
           <Button title="<" onPress={handlePreviousPassenger} disabled={currentPassengerIndex === 0} />
           <Text> Passenger {currentPassengerIndex + 1} </Text>
@@ -119,6 +136,9 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 20,
   },
+  animatedPassengerContainer: {
+    overflow: 'hidden',
+  },
   input: {
     borderWidth: 1,
     borderColor: 'gray',
@@ -134,5 +154,6 @@ const styles = StyleSheet.create({
 });
 
 export default PersonalInfoForm;
+
 
 
