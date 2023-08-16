@@ -3,18 +3,20 @@
 ## Design
 https://www.figma.com/file/qHEIX9aWKrSiyBTGJMDe8k/Aether?type=design&node-id=65-762&mode=design&t=3ZcbQRyEpn0WYahN-0
 
+Code Formatter : Prettier (extension id : esbenp.prettier-vscode)
 ## TO-DO
 
-- [ ] Home Page
-- [ ] Destination Search
-- [ ] Select Date
-- [ ] Select Passengers
-- [ ] Search 
-- [ ] Flight Description
-- [ ] Choose pod
-- [ ] Personal info
-- [ ] Payment
-- [ ] Boarding pass
+- [ ] Home Page - Thulasi
+- [ ] Destination Search - Isuru
+- [ ] Select Date - Ginushmal
+- [ ] Select Passengers - Ginushmal
+- [ ] Search - results - Dan
+- [ ] Search - filters - Dan
+- [ ] Flight Description - Dilshan
+- [ ] Choose pod - Isuru
+- [ ] Personal info - Isuru
+- [ ] Payment - Nisal
+- [ ] Boarding pass - Nisal
 ## Instructions to install
 
 - Clone the repo
@@ -30,20 +32,20 @@ https://www.figma.com/file/qHEIX9aWKrSiyBTGJMDe8k/Aether?type=design&node-id=65-
     - fonts
     - images
   - components
-    - Button.js
-    - Card.js
-    - Header.js
-    - Input.js
-    - Loading.js
-    - Modal.js
-    - Text.js
+    - atoms
+    - molecules
+    - organisms
+    - pages
+    - templates
+    - pages
+      - ExploreScreen.js
+      - HomeScreen.js
+      - MyFlightsScreen.js
+      - ProfileScreen.js
+  
   - navigation
     - MainContainer.js
-  - pages
-    - ExploreScreen.js
-    - HomeScreen.js
-    - MyFlightsScreen.js
-    - ProfileScreen.js
+  
   - utils
     - colors.js
     - constants.js
