@@ -15,6 +15,7 @@ const homeName = "Home";
 const FlightsName = "My Flights";
 const ExploreName = "Explore";
 const profileName = "Profile";
+const PersonalInfoName = "Personal Info";
 
 const Tab = createBottomTabNavigator();
 
@@ -68,6 +69,7 @@ function MainContainer() {
                 <Tab.Screen name={FlightsName} component={MyFlightsScreen} />
                 <Tab.Screen name={ExploreName} component={ExploreScreen} />
                 <Tab.Screen name={profileName} component={ProfileScreen} />
+                <Tab.Screen name={PersonalInfoName} component={PersonalInfoScreen} />
 
             </Tab.Navigator>
         </NavigationContainer>
