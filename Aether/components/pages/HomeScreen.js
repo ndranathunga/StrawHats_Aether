@@ -1,8 +1,8 @@
 import * as React from "react";
 import { View, Text } from "react-native";
 
-import Title1 from "../components/atoms/Text/Title1";
-import Title3 from "../components/atoms/Text/Title3";
+import Title1 from "../atoms/Text/Title1";
+import Title3 from "../atoms/Text/Title3";
 
 export default function HomeScreen({ navigation }) {
 	return (
