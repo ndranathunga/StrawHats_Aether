@@ -3,6 +3,7 @@
 ## Design
 https://www.figma.com/file/qHEIX9aWKrSiyBTGJMDe8k/Aether?type=design&node-id=65-762&mode=design&t=3ZcbQRyEpn0WYahN-0
 
+Code Formatter : Prettier (extension id : esbenp.prettier-vscode)
 ## TO-DO
 
 - [ ] Home Page
