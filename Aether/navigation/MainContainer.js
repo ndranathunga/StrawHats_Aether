@@ -69,6 +69,8 @@ function MainContainer() {
                 <Tab.Screen name={FlightsName} component={MyFlightsScreen} />
                 <Tab.Screen name={ExploreName} component={ExploreScreen} />
                 <Tab.Screen name={profileName} component={ProfileScreen} />
+
+                {/* tabs bellow this point should be hidden, working on that */}
                 <Tab.Screen name={PersonalInfoName} component={PersonalInfoScreen} />
 
             </Tab.Navigator>
