@@ -2,25 +2,27 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { createStackNavigator } from '@react-navigation/stack';
 
 // Screens
 import HomeScreen from '../components/pages/HomeScreen';
 import MyFlightsScreen from '../components/pages/MyFlightsScreen';
 import ExploreScreen from '../components/pages/ExploreScreen';
 import ProfileScreen from '../components/pages/ProfileScreen';
+import PersonalInfoScreen from '../components/pages/PersonalInfoScreen';
 
 //Screen names
 const homeName = "Home";
 const FlightsName = "My Flights";
 const ExploreName = "Explore";
 const profileName = "Profile";
+const personalInfoName = "Personal Info";
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
-function MainContainer() {
-    return (
-        <NavigationContainer>
-            <Tab.Navigator
+const MainTabNavigator = () => (
+    <Tab.Navigator
                 initialRouteName={homeName}
 
                 screenOptions={({ route }) => (
@@ -69,6 +71,16 @@ function MainContainer() {
                 <Tab.Screen name={profileName} component={ProfileScreen} />
 
             </Tab.Navigator>
+  );
+
+
+function MainContainer() {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator>
+      <Stack.Screen name="Main" component={MainTabNavigator} options={{ headerShown: false }} />
+      <Stack.Screen name={personalInfoName} component={PersonalInfoScreen} options={{ tabBarVisible: false }} />
+    </Stack.Navigator>
         </NavigationContainer>
     );
 }
