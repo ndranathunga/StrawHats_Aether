@@ -7,9 +7,9 @@ Code Formatter : Prettier (extension id : esbenp.prettier-vscode)
 ## TO-DO
 
 - [ ] Home Page - Thulasi
-- [ ] Destination Search
-- [ ] Select Date
-- [ ] Select Passengers
+- [ ] Destination Search - Isuru
+- [ ] Select Date - Ginushmal
+- [ ] Select Passengers - Ginushmal
 - [ ] Search - results - Dan
 - [ ] Search - filters - Dan
 - [ ] Flight Description - Dilshan
