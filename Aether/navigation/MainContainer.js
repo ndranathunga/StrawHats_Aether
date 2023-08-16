@@ -8,6 +8,7 @@ import HomeScreen from '../components/pages/HomeScreen';
 import MyFlightsScreen from '../components/pages/MyFlightsScreen';
 import ExploreScreen from '../components/pages/ExploreScreen';
 import ProfileScreen from '../components/pages/ProfileScreen';
+import PersonalInfoScreen from '../components/pages/PersonalInfoScreen';
 
 //Screen names
 const homeName = "Home";
