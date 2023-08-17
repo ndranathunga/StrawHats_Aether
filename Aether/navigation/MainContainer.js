@@ -17,7 +17,7 @@ import ProfileScreen from "../components/pages/ProfileScreen";
 import PersonalInfoScreen from "../components/pages/PersonalInfoScreen";
 import SearchResultsScreen from "../components/pages/SearchResultsScreen";
 import ChoosePodScreen from "../components/pages/ChoosePodScreen";
-import DatePickerScreen from "../components/pages/DatePickerScreen";
+import PaymentsScreen from "../components/pages/PaymentsScreen";import DatePickerScreen from "../components/pages/DatePickerScreen";
 import DestinationSearchScreen from "../components/pages/DestinationSearchScreen";
 import SearchResultsFilterScreen from "../components/pages/SearchResultsFilterScreen";
 import NebulaScreen from "../components/pages/NebulaScreen";
@@ -67,6 +67,7 @@ const personalInfoName = "Personal Info";
 const choosePodName = "Choose Pod";
 const datePicker = "Date Picker";
 const searchResultsName = "Search Results";
+const paymentsName = "Payments";
 const destinationSearchName = "Destination Search";
 const searchResultFilterName = "Sort & Filter";
 const nebulaName = "Nebula";
@@ -194,11 +195,6 @@ function MainContainer() {
             options={{ tabBarVisible: false }}
           />
           <Stack.Screen
-            name={datePicker}
-            component={DatePickerScreen}
-            options={{ tabBarVisible: false }}
-          />
-          <Stack.Screen
             name={searchResultsName}
             component={SearchResultsScreen}
             options={{ tabBarVisible: false }}
@@ -226,6 +222,11 @@ function MainContainer() {
 						component={SelectPassengersScreen}
 						options={{ tabBarVisible: false }}
 					/>
+          <Stack.Screen
+            name={paymentsName}
+            component={PaymentsScreen}
+            options={{ tabBarVisible: false }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
