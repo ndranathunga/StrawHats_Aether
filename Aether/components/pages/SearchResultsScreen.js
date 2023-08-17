@@ -14,6 +14,13 @@ export default function SearchResultsScreen({ navigation }) {
 		flightClass: "Economy",
 	});
 
+	const [filters, setFilters] = useState({
+		company: "All",
+		spaceshipType: "All",
+		maxPrice: "All",
+		sortType: "price-lowest",
+	});
+
 	return (
 		<CenterViewContainer>
 			<View
@@ -27,7 +34,12 @@ export default function SearchResultsScreen({ navigation }) {
 				<IconButton
 					icon={"filter"}
 					size={25}
-					onPress={() => navigation.navigate("Sort & Filter")}
+					onPress={() =>
+						navigation.navigate("Sort & Filter", {
+							filters: filters,
+							searchQuery: searchQuery,
+						})
+					}
 				/>
 			</View>
 
