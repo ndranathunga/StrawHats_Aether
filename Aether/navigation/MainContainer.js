@@ -17,6 +17,7 @@ import PersonalInfoScreen from "../components/pages/PersonalInfoScreen";
 import SearchResultsScreen from "../components/pages/SearchResultsScreen";
 import ChoosePodScreen from "../components/pages/ChoosePodScreen";
 import PaymentsScreen from "../components/pages/PaymentsScreen";
+import BoardingPassScreen from "../components/pages/BoardingPassScreen";
 
 // Theming
 import { DarkTheme as NavigationDarkTheme } from "@react-navigation/native";
@@ -56,6 +57,7 @@ const personalInfoName = "Personal Info";
 const choosePodName = "Choose Pod";
 const searchResultsName = "Search Results";
 const paymentsName = "Payments";
+const boardingPassName = "Boarding Pass";
 
 const MainTabNavigator = () => (
   <Tab.Navigator
@@ -181,6 +183,11 @@ function MainContainer() {
           <Stack.Screen
             name={paymentsName}
             component={PaymentsScreen}
+            options={{ tabBarVisible: false }}
+          />
+          <Stack.Screen
+            name={boardingPassName}
+            component={BoardingPassScreen}
             options={{ tabBarVisible: false }}
           />
         </Stack.Navigator>

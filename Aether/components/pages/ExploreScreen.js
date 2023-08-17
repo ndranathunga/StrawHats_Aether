@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View } from "react-native";
-import { Text } from "react-native-paper";
+import { Button, Text } from "react-native-paper";
 
 export default function ExploreScreen({ navigation }) {
 	return (
@@ -11,12 +11,12 @@ export default function ExploreScreen({ navigation }) {
 			>
 				Explore Screen
 			</Text>
-			<Text
-				onPress={() => navigation.navigate("Payments")}
-				style={{ fontSize: 26, fontWeight: "bold" }}
-			>
-				Payments Screen
-			</Text>
+			<Button onPress={() => {navigation.navigate("Payments")}}>
+				<Text>Payments</Text>
+			</Button>
+			<Button onPress={() => {navigation.navigate("Boarding Pass")}}>
+				<Text>Boarding Pass</Text>
+			</Button>
 		</View>
 	);
 }
