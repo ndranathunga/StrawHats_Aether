@@ -1,8 +1,12 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import { Text, BottomNavigation } from "react-native-paper";
+import { CommonActions } from "@react-navigation/native";
+
 import { createStackNavigator } from "@react-navigation/stack";
+// import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import Icon from "react-native-vector-icons/Ionicons";
 
 // Screens
 import HomeScreen from "../components/pages/HomeScreen";
@@ -52,43 +56,89 @@ const MainTabNavigator = () => (
 		initialRouteName={homeName}
 		screenOptions={({ route }) => ({
 			header: (props) => <CustomNavigationBar {...props} />,
-			tabBarIcon: ({ focused, color, size }) => {
-				let iconName;
-				let rn = route.name;
-
-				if (rn === homeName) {
-					iconName = focused ? "home" : "home-outline";
-				} else if (rn === FlightsName) {
-					iconName = focused ? "paper-plane" : "paper-plane-outline";
-				} else if (rn === ExploreName) {
-					iconName = focused ? "compass-sharp" : "compass-outline";
-				} else if (rn === profileName) {
-					iconName = focused ? "person" : "person-outline";
-				}
-
-				// You can return any component that you like here!
-				return <Ionicons name={iconName} size={size} color={color} />;
-			},
-
-			// tabBarActiveTintColor: "tomato",
-			// tabBarInactiveTintColor: "grey",
-			// tabBarLabelStyle: {
-			// 	paddingBottom: 10,
-			// 	fontSize: 10,
-			// },
-			// tabBarStyle: [
-			// 	{
-			// 		paddingTop: 10,
-			// 		display: "flex",
-			// 	},
-			// 	null,
-			// ],
 		})}
+		tabBar={({ navigation, state, descriptors, insets }) => (
+			<BottomNavigation.Bar
+				navigationState={state}
+				safeAreaInsets={insets}
+				onTabPress={({ route, preventDefault }) => {
+					const event = navigation.emit({
+						type: "tabPress",
+						target: route.key,
+						canPreventDefault: true,
+					});
+
+					if (event.defaultPrevented) {
+						preventDefault();
+					} else {
+						navigation.dispatch({
+							...CommonActions.navigate(route.name, route.params),
+							target: state.key,
+						});
+					}
+				}}
+				renderIcon={({ route, focused, color }) => {
+					const { options } = descriptors[route.key];
+					if (options.tabBarIcon) {
+						return options.tabBarIcon({ focused, color, size: 24 });
+					}
+
+					return null;
+				}}
+				getLabelText={({ route }) => {
+					const { options } = descriptors[route.key];
+					const label =
+						options.tabBarLabel !== undefined
+							? options.tabBarLabel
+							: options.title !== undefined
+							? options.title
+							: route.title;
+
+					return label;
+				}}
+			/>
+		)}
 	>
-		<Tab.Screen name={homeName} component={HomeScreen} />
-		<Tab.Screen name={FlightsName} component={MyFlightsScreen} />
-		<Tab.Screen name={ExploreName} component={ExploreScreen} />
-		<Tab.Screen name={profileName} component={ProfileScreen} />
+		<Tab.Screen
+			name={homeName}
+			component={HomeScreen}
+			options={{
+				tabBarLabel: homeName,
+				tabBarIcon: ({ color, size }) => {
+					return <Icon name="home-outline" size={size} color={color} />;
+				},
+			}}
+		/>
+		<Tab.Screen
+			name={FlightsName}
+			component={MyFlightsScreen}
+			options={{
+				tabBarLabel: FlightsName,
+				tabBarIcon: ({ color, size }) => {
+					return <Icon name="paper-plane-outline" size={size} color={color} />;
+				},
+			}}
+		/>
+		<Tab.Screen
+			name={ExploreName}
+			component={ExploreScreen}
+			options={{
+				tabBarLabel: ExploreName,
+				tabBarIcon: ({ color, size }) => {
+					return <Icon name="compass-outline" size={size} color={color} />;
+				},
+			}}
+		/>
+		<Tab.Screen
+			name={profileName}
+			component={ProfileScreen}
+			options={{
+				tabBarLabel: profileName,
+				tabBarIcon: ({ color, size }) => {
+					return <Icon name="person-outline" size={size} color={color} />;
+				},
+			}}
+		/>
 	</Tab.Navigator>
 );
 
