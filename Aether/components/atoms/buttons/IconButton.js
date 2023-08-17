@@ -1,30 +1,14 @@
-import React from 'react';
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import * as React from "react";
+import { IconButton as IconBtn } from "react-native-paper";
 
-const IconButton = ({ icon, label, onPress }) => {
-  return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Text style={styles.iconContainer}>{icon}</Text>
-      <Text style={styles.label}>{label}</Text>
-    </TouchableOpacity>
-  );
+const IconButton = ({
+	icon,
+	size = 20,
+	onPress = () => {
+		return;
+	},
+}) => {
+	return <IconBtn icon={icon} size={size} onPress={() => onPress()} />;
 };
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-  },
-  iconContainer: {
-    backgroundColor: '#007AFF',
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  label: {
-    marginTop: 5,
-  },
-});
 
 export default IconButton;
