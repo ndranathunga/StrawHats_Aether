@@ -20,12 +20,34 @@ export default function ChoosePod({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <SeatRow
+        level={"level 4"}
+        handleSeatPress={handleSeatPress}
+        selectedSeats={selectedSeats}
+        numberSetL={[25, 26, 27, 28]}
+        numberSetR={[29, 30, 31, 32]}
+      />
+      <SeatRow
+        level={"level 3"}
+        handleSeatPress={handleSeatPress}
+        selectedSeats={selectedSeats}
+        numberSetL={[17, 18, 19, 20]}
+        numberSetR={[21, 22, 23, 24]}
+      />
+      <SeatRow
+        level={"level 2"}
+        handleSeatPress={handleSeatPress}
+        selectedSeats={selectedSeats}
+        numberSetL={[9, 10, 11, 12]}
+        numberSetR={[13, 14, 15, 16]}
+      />
+      <SeatRow
         level={"level 1"}
         handleSeatPress={handleSeatPress}
         selectedSeats={selectedSeats}
         numberSetL={[1, 2, 3, 4]}
         numberSetR={[5, 6, 7, 8]}
       />
+
       <Button title="Submit" onPress={handleSubmit} />
     </View>
   );
