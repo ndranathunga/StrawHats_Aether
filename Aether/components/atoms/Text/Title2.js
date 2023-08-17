@@ -1,4 +1,4 @@
-import { Text } from "react-native";
+import { Text } from "react-native-paper";
 import textStyles from "./Styles";
 
 const Title2 = (props) => {
