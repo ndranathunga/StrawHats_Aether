@@ -4,7 +4,6 @@ import SeatButton from "../atoms/buttons/SeatButton";
 
 export default function SeatBlock({
   handleSeatPress,
-  handleSubmit,
   selectedSeats,
   SeatNumbers,
 }) {
