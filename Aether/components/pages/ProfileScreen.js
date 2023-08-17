@@ -13,9 +13,8 @@ export default function ProfileScreen({ navigation }) {
 				Profile Screen
 			</Text>
 			<Button
-				icon="camera"
 				mode="outlined"
-				onPress={() => console.log("Pressed")}
+				onPress={() => navigation.navigate("Search Results")}
 			>
 				Press me
 			</Button>
