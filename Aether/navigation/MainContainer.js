@@ -22,6 +22,7 @@ import DestinationSearchScreen from "../components/pages/DestinationSearchScreen
 import SearchResultsFilterScreen from "../components/pages/SearchResultsFilterScreen";
 import NebulaScreen from "../components/pages/NebulaScreen";
 import SelectPassengersScreen from "../components/pages/SelectPassengersScreen";
+import BoardingPassScreen from "../components/pages/BoardingPassScreen";
 
 // Theming
 import { DarkTheme as NavigationDarkTheme } from "@react-navigation/native";
@@ -68,6 +69,7 @@ const choosePodName = "Choose Pod";
 const datePicker = "Date Picker";
 const searchResultsName = "Search Results";
 const paymentsName = "Payments";
+const boardingPassName = "Boarding Pass";
 const destinationSearchName = "Destination Search";
 const searchResultFilterName = "Sort & Filter";
 const nebulaName = "Nebula";
@@ -225,6 +227,11 @@ function MainContainer() {
           <Stack.Screen
             name={paymentsName}
             component={PaymentsScreen}
+            options={{ tabBarVisible: false }}
+          />
+          <Stack.Screen
+            name={boardingPassName}
+            component={BoardingPassScreen}
             options={{ tabBarVisible: false }}
           />
         </Stack.Navigator>

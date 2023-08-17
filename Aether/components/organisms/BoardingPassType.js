@@ -12,21 +12,11 @@ import {
 // import SearchResultCard from "../molecules/SearchResultCard";
 import BookingInfoCard from "../molecules/BookingInfoCard";
 
-export default function BookingInfoContainer({ data }) {
+export default function BoardingPassType({ data }) {
   return (
-    //     <SafeAreaView style={styles.container}>
-
-    //     </SafeAreaView>
-    <View style={styles.container}>
-      <View
-        style={{
-          width: "100%",
-          paddingLeft: 10,
-          paddingRight: 10,
-        }}
-      >
-        <BookingInfoCard result={data} />
-      </View>
+    <View>
+      <Text>{data.name}</Text>
+      <Text>{data.type}</Text>
     </View>
   );
 }

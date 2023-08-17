@@ -3,17 +3,22 @@ import { View, StyleSheet, ScrollView } from "react-native";
 import { Divider, Text } from "react-native-paper";
 import BookingInfoContainer from "../organisms/BookingInfoContainer";
 import CenterViewContainer from "../atoms/view-containers/CenterViewContainer";
-import SearchResultList from "../organisms/SearchResultList";
-import PaymentFormContainer from "../organisms/PaymentFormContainer";
+import BoardingPassType from "../organisms/BoardingPassType";
 
-export default function PaymentsScreen({ navigation }) {
+export default function BoardingPassScreen({ navigation }) {
   return (
     <CenterViewContainer>
+      <BoardingPassType data={user_info} />
       <BookingInfoContainer data={flight_info} />
-      <PaymentFormContainer navigation={navigation} />
     </CenterViewContainer>
   );
 }
+const user_info = {
+      id: "1",
+      name: "John Doe",
+      email: "johndoe@gmail.com",
+      type: "user",
+}; 
 
 const flight_info = {
   id: "1",
