@@ -14,8 +14,10 @@ import MyFlightsScreen from "../components/pages/MyFlightsScreen";
 import ExploreScreen from "../components/pages/ExploreScreen";
 import ProfileScreen from "../components/pages/ProfileScreen";
 import PersonalInfoScreen from "../components/pages/PersonalInfoScreen";
+import SearchResultsScreen from "../components/pages/SearchResultsScreen";
 import ChoosePodScreen from "../components/pages/ChoosePodScreen";
 import DatePickerScreen from "../components/pages/DatePickerScreen";
+
 
 // Theming
 import { DarkTheme as NavigationDarkTheme } from "@react-navigation/native";
@@ -54,6 +56,7 @@ const profileName = "Profile";
 const personalInfoName = "Personal Info";
 const choosePodName = "Choose Pod";
 const datePicker = "Date Picker";
+const searchResultsName = "Search Results";
 
 const MainTabNavigator = () => (
   <Tab.Navigator
@@ -176,6 +179,12 @@ function MainContainer() {
             component={DatePickerScreen}
             options={{ tabBarVisible: false }}
           />
+          <Stack.Screen
+						name={searchResultsName}
+						component={SearchResultsScreen}
+						options={{ tabBarVisible: false }}
+					/>
+
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
