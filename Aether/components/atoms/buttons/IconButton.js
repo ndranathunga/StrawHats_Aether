@@ -7,8 +7,16 @@ const IconButton = ({
 	onPress = () => {
 		return;
 	},
+	style,
 }) => {
-	return <IconBtn icon={icon} size={size} onPress={() => onPress()} />;
+	return (
+		<IconBtn
+			style={{ margin: 10, ...style }}
+			icon={icon}
+			size={size}
+			onPress={() => onPress()}
+		/>
+	);
 };
 
 export default IconButton;
