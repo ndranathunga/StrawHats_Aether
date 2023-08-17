@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Button } from "react-native";
 import SeatRow from "../organisms/SeatRow";
+import CustomButton from "../atoms/buttons/CustomButton";
 
 export default function ChoosePod({ navigation }) {
   const [selectedSeats, setSelectedSeats] = useState([]);
@@ -48,7 +49,7 @@ export default function ChoosePod({ navigation }) {
         numberSetR={[5, 6, 7, 8]}
       />
 
-      <Button title="Submit" onPress={handleSubmit} />
+      <CustomButton title="Submit" onPress={handleSubmit} />
     </View>
   );
 }
