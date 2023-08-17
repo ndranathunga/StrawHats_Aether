@@ -10,6 +10,7 @@ import MyFlightsScreen from '../components/pages/MyFlightsScreen';
 import ExploreScreen from '../components/pages/ExploreScreen';
 import ProfileScreen from '../components/pages/ProfileScreen';
 import PersonalInfoScreen from '../components/pages/PersonalInfoScreen';
+import ChoosePod from '../components/pages/ChoosePod';
 
 //Screen names
 const homeName = "Home";
@@ -17,6 +18,7 @@ const FlightsName = "My Flights";
 const ExploreName = "Explore";
 const profileName = "Profile";
 const personalInfoName = "Personal Info";
+const choosePodName = "Choose Pod";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -80,6 +82,7 @@ function MainContainer() {
             <Stack.Navigator>
       <Stack.Screen name="Main" component={MainTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name={personalInfoName} component={PersonalInfoScreen} options={{ tabBarVisible: false }} />
+      <Stack.Screen name={choosePodName} component={ChoosePod} options={{ tabBarVisible: false }} />
     </Stack.Navigator>
         </NavigationContainer>
     );
