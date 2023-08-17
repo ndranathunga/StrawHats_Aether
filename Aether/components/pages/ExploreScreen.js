@@ -11,6 +11,12 @@ export default function ExploreScreen({ navigation }) {
 			>
 				Explore Screen
 			</Text>
+			<Text
+				onPress={() => navigation.navigate("Payments")}
+				style={{ fontSize: 26, fontWeight: "bold" }}
+			>
+				Payments Screen
+			</Text>
 		</View>
 	);
 }
