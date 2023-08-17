@@ -24,7 +24,11 @@ export default function SearchResultsScreen({ navigation }) {
 				}}
 			>
 				<SearchQueryCard query={searchQuery} />
-				<IconButton icon={"filter"} size={25} />
+				<IconButton
+					icon={"filter"}
+					size={25}
+					onPress={() => navigation.navigate("Sort & Filter")}
+				/>
 			</View>
 
 			<SearchResultList data={SEARCH_RESULT_DATA} />
