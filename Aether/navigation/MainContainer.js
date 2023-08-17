@@ -50,6 +50,9 @@ const FlightsName = "My Flights";
 const ExploreName = "Explore";
 const profileName = "Profile";
 const personalInfoName = "Personal Info";
+const choosePodName = "Choose Pod";
+
+
 
 const MainTabNavigator = () => (
 	<Tab.Navigator
