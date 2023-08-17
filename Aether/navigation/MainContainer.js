@@ -14,7 +14,9 @@ import MyFlightsScreen from "../components/pages/MyFlightsScreen";
 import ExploreScreen from "../components/pages/ExploreScreen";
 import ProfileScreen from "../components/pages/ProfileScreen";
 import PersonalInfoScreen from "../components/pages/PersonalInfoScreen";
+import SearchResultsScreen from "../components/pages/SearchResultsScreen";
 import ChoosePodScreen from "../components/pages/ChoosePodScreen";
+
 
 // Theming
 import { DarkTheme as NavigationDarkTheme } from "@react-navigation/native";
@@ -52,6 +54,7 @@ const ExploreName = "Explore";
 const profileName = "Profile";
 const personalInfoName = "Personal Info";
 const choosePodName = "Choose Pod";
+const searchResultsName = "Search Results";
 
 const MainTabNavigator = () => (
   <Tab.Navigator
@@ -169,6 +172,11 @@ function MainContainer() {
             component={ChoosePodScreen}
             options={{ tabBarVisible: false }}
           />
+          <Stack.Screen
+						name={searchResultsName}
+						component={SearchResultsScreen}
+						options={{ tabBarVisible: false }}
+					/>
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
