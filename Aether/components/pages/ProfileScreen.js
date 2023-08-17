@@ -16,7 +16,7 @@ export default function ProfileScreen({ navigation }) {
 				mode="outlined"
 				onPress={() => navigation.navigate("Search Results")}
 			>
-				Press me
+				Go to Search Results
 			</Button>
 		</View>
 	);
