@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Button } from "react-native-paper";
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import { Text } from "react-native-paper";
 
 export default function ProfileScreen({ navigation }) {
 	return (
