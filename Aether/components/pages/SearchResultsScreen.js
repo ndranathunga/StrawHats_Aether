@@ -1,19 +1,7 @@
 import { useState } from "react";
-import {
-	View,
-	SafeAreaView,
-	FlatList,
-	StyleSheet,
-	StatusBar,
-} from "react-native";
-
-import TextContainer from "../atoms/text-container/TextContainer";
-import Title3 from "../atoms/text/Title3";
-import Title4 from "../atoms/text/Title4";
-import Body1 from "../atoms/text/Body1";
-import Body2 from "../atoms/text/Body2";
-
-import { Card, Text, Divider, Avatar, Button } from "react-native-paper";
+import CenterViewContainer from "../atoms/view-containers/CenterViewContainer";
+import SearchQueryCard from "../molecules/SearchQueryCard";
+import SearchResultList from "../organisms/SearchResultList";
 
 export default function SearchResultsScreen({ navigation }) {
 	const [searchQuery, setSearchQuery] = useState({
@@ -24,28 +12,15 @@ export default function SearchResultsScreen({ navigation }) {
 		flightClass: "Economy",
 	});
 
-	const searchQueryTitle = (
-		<Title3>
-			{searchQuery.startingLocation} - {searchQuery.destination} |{" "}
-			{searchQuery.departureDate}
-		</Title3>
-	);
-
-	const searchQueryContent = (
-		<Body2>
-			{searchQuery.noOfPassengers} | {searchQuery.flightClass}
-		</Body2>
-	);
-
 	return (
-		<View style={{ flex: 1, alignItems: "center" }}>
-			<TextContainer title={searchQueryTitle} content={searchQueryContent} />
-			<ListOfItems />
-		</View>
+		<CenterViewContainer>
+			<SearchQueryCard query={searchQuery} />
+			<SearchResultList data={SEARCH_RESULT_DATA} />
+		</CenterViewContainer>
 	);
 }
 
-const DATA = [
+const SEARCH_RESULT_DATA = [
 	{
 		id: "1",
 		flightCompany: "Blue Origin",
@@ -77,113 +52,3 @@ const DATA = [
 		price: "$340,000",
 	},
 ];
-
-const SearchResultCard = ({ result }) => (
-	<Card>
-		<Card.Content>
-			<View
-				style={{
-					flexDirection: "row",
-					marginBottom: 10,
-				}}
-			>
-				<View
-					style={{
-						flexDirection: "row",
-						flex: 3,
-					}}
-				>
-					<Avatar.Image
-						size={40}
-						style={{ justifyContent: "center" }}
-						source={require("../../assets/images/flight-companies/blue-origin.jpeg")}
-					/>
-					<View style={{ marginLeft: 5, justifyContent: "center" }}>
-						<Title4>{result.flightCompany}</Title4>
-						<Body1>{result.flightName}</Body1>
-					</View>
-				</View>
-
-				<View
-					style={{
-						flex: 3,
-						alignItems: "flex-end",
-						justifyContent: "center",
-					}}
-				>
-					<Body1>{result.duration}</Body1>
-				</View>
-			</View>
-			<Divider />
-			<View style={{ flexDirection: "row", marginTop: 20, marginBottom: 20 }}>
-				<View style={{ flex: 4 }}>
-					<Title3>{result.date}</Title3>
-					<Body2>{result.launchLocation}</Body2>
-				</View>
-				<View
-					style={{
-						flex: 2,
-						alignItems: "flex-end",
-						justifyContent: "center",
-					}}
-				>
-					<Title3>{result.price}</Title3>
-				</View>
-			</View>
-		</Card.Content>
-		<Button
-			onPress={() => console.log("Hello")}
-			mode="outlined"
-			theme={{ roundness: 100 }}
-			style={{
-				width: "100%",
-				borderRadius: 0,
-				borderTopRightRadius: 0,
-				borderTopLeftRadius: 0,
-				borderBottomRightRadius: 10,
-				borderBottomLeftRadius: 10,
-			}}
-			labelStyle={{
-				paddingBottom: 5,
-				paddingTop: 5,
-			}}
-			contentStyle={{
-				borderRadius: 0,
-				borderTopRightRadius: 0,
-				borderTopLeftRadius: 0,
-				borderBottomRightRadius: 10,
-				borderBottomLeftRadius: 10,
-			}}
-		>
-			Book Flight
-		</Button>
-	</Card>
-);
-
-const ListOfItems = () => {
-	return (
-		<SafeAreaView style={styles.container}>
-			<FlatList
-				style={{
-					width: "100%",
-					paddingLeft: 10,
-					paddingRight: 10,
-				}}
-				data={DATA}
-				renderItem={({ item }) => <SearchResultCard result={item} />}
-				keyExtractor={(item) => item.id}
-				ItemSeparatorComponent={() => <Divider style={{ margin: 12 }} />}
-			/>
-		</SafeAreaView>
-	);
-};
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		width: "95%",
-		padding: 10,
-		marginTop: 10,
-		justifyContent: "center",
-	},
-});
