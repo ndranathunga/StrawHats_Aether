@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Button } from "react-native";
 import SeatRow from "../organisms/SeatRow";
 import CustomButton from "../atoms/buttons/CustomButton";
 
-export default function ChoosePod({ navigation }) {
+export default function ChoosePodScreen({ navigation }) {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const handleSeatPress = (seatNumber) => {
     if (selectedSeats.includes(seatNumber)) {
@@ -16,7 +16,7 @@ export default function ChoosePod({ navigation }) {
   const handleSubmit = () => {
     // Logic to submit selected seats
     console.log("Selected Seats:", selectedSeats);
-    navigation.navigate("My Flights");
+    navigation.navigate("Personal Info");
   };
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
