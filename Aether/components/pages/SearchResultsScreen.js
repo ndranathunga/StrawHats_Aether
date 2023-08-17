@@ -2,6 +2,8 @@ import { useState } from "react";
 import CenterViewContainer from "../atoms/view-containers/CenterViewContainer";
 import SearchQueryCard from "../molecules/SearchQueryCard";
 import SearchResultList from "../organisms/SearchResultList";
+import IconButton from "../atoms/buttons/IconButton";
+import { View } from "react-native";
 
 export default function SearchResultsScreen({ navigation }) {
 	const [searchQuery, setSearchQuery] = useState({
@@ -14,7 +16,17 @@ export default function SearchResultsScreen({ navigation }) {
 
 	return (
 		<CenterViewContainer>
-			<SearchQueryCard query={searchQuery} />
+			<View
+				style={{
+					flexDirection: "row",
+					justifyContent: "center",
+					alignItems: "center",
+				}}
+			>
+				<SearchQueryCard query={searchQuery} />
+				<IconButton icon={"filter"} size={25} />
+			</View>
+
 			<SearchResultList data={SEARCH_RESULT_DATA} />
 		</CenterViewContainer>
 	);
