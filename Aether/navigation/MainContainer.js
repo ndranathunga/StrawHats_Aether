@@ -1,4 +1,5 @@
 import * as React from "react";
+import { StyleSheet, ImageBackground } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text, BottomNavigation } from "react-native-paper";
@@ -58,6 +59,8 @@ const choosePodName = "Choose Pod";
 const datePicker = "Date Picker";
 const searchResultsName = "Search Results";
 
+
+const image = {uri: 'https://legacy.reactjs.org/logo-og.png'};
 const MainTabNavigator = () => (
   <Tab.Navigator
     initialRouteName={homeName}
@@ -152,6 +155,7 @@ const MainTabNavigator = () => (
 function MainContainer() {
   return (
     <PaperProvider theme={theme}>
+      <ImageBackground source={image} style={styles.image}>
       <NavigationContainer theme={theme}>
         <Stack.Navigator
           initialRouteName="Main"
@@ -187,9 +191,17 @@ function MainContainer() {
 
         </Stack.Navigator>
       </NavigationContainer>
+      </ImageBackground>
     </PaperProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+});
 
 export default MainContainer;
 

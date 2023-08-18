@@ -13,7 +13,7 @@ import TransparentCard from "../molecules/TransparentCard";
 
 export default function HomeScreen({ navigation }) {
 	return (
-		<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+		<View style={{   flex: 1, alignItems: "right", justifyContent: "top"}}>
 			<Title3>Hello there, John</Title3>
 			<Title1>Let's Explore Space</Title1>
 
@@ -37,3 +37,4 @@ export default function HomeScreen({ navigation }) {
 		</View>
 	);
 }
+

@@ -1,123 +1,173 @@
-import { Card, Divider, Avatar, Button, Text } from "react-native-paper";
-
-import Title3 from "../atoms/Text/Title3";
-import Title4 from "../atoms/Text/Title4";
-
-import Body1 from "../atoms/Text/Body1";
-import Body2 from "../atoms/Text/Body2";
-
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+  Switch,
+} from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import { StyleSheet, View } from "react-native";
+import { Card, Divider, Button } from "react-native-paper";
 
-const TransparentCard = ({ result }) => (
-  <Card>
-    <Card.Content>
-      <View style={styles.header}>
-        <Button
-          onPress={() => console.log("One Way")}
-          mode="outlined"
-          theme={styles.btnTheme}
-          style={styles.TripBtn}
-          labelStyle={styles.btnLabel}
-          contentStyle={styles.btnContent}
+const TransparentCard = (navigation) => {
+  const [selectedOption, setSelectedOption] = useState("oneWay");
+  const [showReturnDate, setShowReturnDate] = useState(false);
+
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+    setShowReturnDate(option === "roundTrip");
+  };
+
+  return (
+    <Card style={{ ...styles.card, padding: "20" }}>
+      <View style={styles.cardHeader}>
+        <TouchableOpacity
+          style={[
+            styles.optionButton,
+            selectedOption === "oneWay" && styles.selectedOption,
+          ]}
+          onPress={() => handleOptionSelect("oneWay")}
         >
-          One Way
-        </Button>
-        <Button
-          onPress={() => console.log("Round Trip")}
-          mode="outlined"
-          theme={styles.btnTheme}
-          style={{ ...styles.TripBtn, marginLeft: 30 }}
-          labelStyle={styles.btnLabel}
-          contentStyle={styles.btnContent}
+          <Text style={styles.optionButtonText}>One way</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[
+            styles.optionButton,
+            selectedOption === "roundTrip" && styles.selectedOption,
+          ]}
+          onPress={() => handleOptionSelect("roundTrip")}
         >
-          Round Trip
-        </Button>
+          <Text style={styles.optionButtonText}>Round Trip</Text>
+        </TouchableOpacity>
       </View>
 
       <Divider />
-
-      <View style={styles.cardContent}>
-        <View style={styles.cardOptions}>
+      <View style={styles.locationContainer}>
+        <View style={styles.location}>
+          <Icon name="location-outline" color={"black"} size={16}></Icon>
+          <Text>Your Location</Text>
+        </View>
+        <View style={styles.arrows}>
+          <Icon name="arrow-forward" color={"black"} size={10}></Icon>
+          <Icon name="arrow-back" color={"black"} size={10}></Icon>
+        </View>
+        <View style={styles.location}>
           <Icon
             name="location-outline"
-            color={"white"}
+            color={"black"}
+            size={16}
             style={styles.icon}
           ></Icon>
-          <Body1>
-            <Text onPress={() => console.log("Going to your location")}>
-              {"Your Location"}
-            </Text>
-          </Body1>
-        </View>
-        <View style={{flexDirection:"column",marginTop:10}}>
-        <Icon name="arrow-forward" color={"white"} size={10}></Icon>
-        <Icon name="arrow-back" color={"white"} size={10}></Icon>
-        </View>
-        <View style={styles.cardOptions}>
-          <Body1>
-            <Text onPress={() => console.log("Going to select destination")}>
-              {"Select Destination"}
-            </Text>
-          </Body1>
+          <Text>Select Destination</Text>
         </View>
       </View>
       <Divider />
-      <View style={styles.cardContent}>
-        <View style={styles.date}>
-          <Title3>{"foo2"}</Title3>
-          <Body2>{"h"}</Body2>
+      <View style={styles.dateContainer}>
+      <Icon name="calendar-outline" 
+        color={"black"} 
+        size={16}
+        >
+        </Icon>
+        <View style={styles.dateInputContainer}>
+
+          {/* Date picker does not work. Need to fix */}
+
+          <Text
+          onPress={() => navigation.navigate("Date Picker")}
+          title={"date picker"} >Departure Date:</Text>
+          <TextInput
+            style={styles.dateInput}
+            placeholder="Select departure date"
+          />
         </View>
-        <View style={styles.price}>
-          <Title3>{"heh"}</Title3>
-        </View>
+        {showReturnDate && (
+          <View style={styles.dateInputContainer}>
+            <Text>Return Date:</Text>
+            <TextInput
+              style={styles.dateInput}
+              placeholder="Select return date"
+            />
+          </View>
+        )}
       </View>
-    </Card.Content>
-    <Button
-      onPress={() => console.log("Hello")}
-      mode="outlined"
-      theme={styles.btnTheme}
-      style={styles.btn}
-      labelStyle={styles.btnLabel}
-      contentStyle={styles.btnContent}
-    >
-      Search Flights
-    </Button>
-  </Card>
-);
+      <Divider />
+
+      <Button
+        onPress={() => console.log("Hello")}
+        mode="outlined"
+        theme={styles.btnTheme}
+        style={styles.btn}
+        labelStyle={styles.btnLabel}
+        contentStyle={styles.btnContent}
+      >
+        Search Flights
+      </Button>
+    </Card>
+  );
+};
 
 const styles = StyleSheet.create({
-  header: {
-    flexDirection: "row",
-    marginBottom: 10,
-    justifyContent: "center",
-  },
-  tripBtn: {
-    width: "100%",
+  card: {
+    padding: 15,
+    margin: 10,
     borderRadius: 10,
   },
-  cardContent: {
+  cardHeader: {
     flexDirection: "row",
-    marginTop: 20,
-    marginBottom: 20,
-    justifyContent: "space-around",
+    justifyContent: "space-evenly",
+    margin: 15,
+    marginTop: 30,
   },
-  cardOptions: {
+  optionButton: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 50,
+    borderWidth: 1,
+    borderColor: "#ccc",
+  },
+  selectedOption: {
+    backgroundColor: "lightblue",
+  },
+  optionButtonText: {
+    color:"white",
+    fontSize: 16,
+  },
+  locationContainer: {
     flexDirection: "row",
     alignItems: "center",
-    padding: 10,
+    justifyContent: "space-evenly",
+    margin: 15,
   },
-  icon: {
-    marginRight: 10, // Add margin to the right of the icon
+  location: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  arrows: {
+    marginTop: 10,
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  dateContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between", // Space items evenly
+    alignItems: "center", // Center items vertically
+    margin: 20,
+  },
+  dateInputContainer: {
+    justifyContent: "center",
+    flex: 1,
+    marginRight: 10, // Add spacing between departure and return date inputs
+  },
+  dateInput: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 10,
   },
   btnTheme: {
     roundness: 100,
-  },
-  date: { flex: 4 },
-  price: {
-    flex: 2,
-    alignItems: "flex-end",
-    justifyContent: "center",
   },
   btn: {
     width: "100%",
