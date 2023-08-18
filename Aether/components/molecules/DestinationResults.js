@@ -21,6 +21,18 @@ const DestinationResults = () => {
         title="DestinationCard 4"
         content="This is the content of DestinationCard 4."
       />
+      <DestinationCard
+        title="DestinationCard 5"
+        content="This is the content of DestinationCard 5."
+      />
+      <DestinationCard
+        title="DestinationCard 6"
+        content="This is the content of DestinationCard 6."
+      />
+      <DestinationCard
+        title="DestinationCard 7"
+        content="This is the content of DestinationCard 7."
+      />
     </ScrollView>
   );
 };

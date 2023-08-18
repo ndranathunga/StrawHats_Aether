@@ -48,7 +48,10 @@ const DestinationSearchBlock = () => {
         </View>
         <IconButton icon={"swap-vertical"} size={25} onPress={handleFlip} />
       </View>
+      <Title3>we'll probably have to get rid of the submit button</Title3>
       <CustomButton title="Search" onPress={handleSearch} />
+      <Title3>Results for "Mars"</Title3>
+
       <DestinationResults />
     </View>
   );
