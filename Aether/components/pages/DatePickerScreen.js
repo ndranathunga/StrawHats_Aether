@@ -57,8 +57,6 @@ export default function DatePickerScreen() {
   );
 }
 
-// Rest of your styles...
-
 
 const styles = StyleSheet.create({
   container: {
