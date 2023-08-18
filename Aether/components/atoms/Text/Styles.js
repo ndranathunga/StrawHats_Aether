@@ -13,18 +13,22 @@ const textStyles = {
 		color : 'white',
 		fontSize: 24,
 		fontFamily: FONT_FAMILY_SEMI_BOLD,
+		textAlign: 'center',
 	},
 	title2: {
 		fontSize: 18,
 		fontFamily: FONT_FAMILY_SEMI_BOLD,
+		textAlign: 'center',
 	},
 	title3: {
 		fontSize: 15,
 		fontFamily: FONT_FAMILY_SEMI_BOLD,
+		textAlign: 'center',
 	},
 	title4: {
 		fontSize: 12,
 		fontFamily: FONT_FAMILY_SEMI_BOLD,
+		textAlign: 'center',
 	},
 	headline: {
 		fontSize: 18,
