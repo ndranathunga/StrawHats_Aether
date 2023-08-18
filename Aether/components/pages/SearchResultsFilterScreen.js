@@ -7,6 +7,7 @@ import { Card, RadioButton } from "react-native-paper";
 import SearchFilterRadioCard from "../organisms/SearchFilterRadioCard";
 
 import SelectInput from "../molecules/SelectInput";
+import NumSlider from "../molecules/NumSlider";
 
 export default function SearchResultsFilterScreen({ route, navigation }) {
 	const { filters, searchQuery } = route.params;
@@ -31,13 +32,7 @@ export default function SearchResultsFilterScreen({ route, navigation }) {
 
 	return (
 		<CenterViewContainer>
-			<View
-				style={{
-					flexDirection: "row",
-					justifyContent: "center",
-					alignItems: "center",
-				}}
-			>
+			<View style={styles.container}>
 				<SearchQueryCard query={searchQuery} />
 			</View>
 			<SearchFilterRadioCard value={filterValue} setValue={setFilterValue} />
@@ -53,24 +48,23 @@ export default function SearchResultsFilterScreen({ route, navigation }) {
 				setValue={setSpaceshipTypeValue}
 				items={spaceshipTypeItems}
 			/>
+			<NumSlider
+				label={"Max Price"}
+				minValue={0}
+				maxValue={1000000}
+				value={maxPriceValue}
+				setValue={setMaxPriceValue}
+				valueLabel={"$0 - $" + maxPriceValue}
+				step={50000}
+			/>
 		</CenterViewContainer>
 	);
 }
 
 const styles = StyleSheet.create({
-	radioGroupCard: {
-		margin: 10,
-		padding: 10,
-		width: "80%",
-	},
-	radioGroup: {
+	container: {
 		flexDirection: "row",
+		justifyContent: "center",
 		alignItems: "center",
-	},
-	radioLabel: { flex: 5, flexDirection: "row", alignItems: "center" },
-	radioBtn: { flex: 1, justifyContent: "flex-end", alignItems: "center" },
-	icon: {
-		margin: 10,
-		color: "white",
 	},
 });
