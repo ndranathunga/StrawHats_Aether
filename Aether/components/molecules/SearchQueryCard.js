@@ -1,6 +1,6 @@
 import TextContainer from "../atoms/text-container/TextContainer";
-import Title3 from "../atoms/text/Title3";
-import Body2 from "../atoms/text/Body2";
+import Title3 from "../atoms/Text/Title3";
+import Body2 from "../atoms/Text/Body2";
 
 const SearchQueryCard = ({ query }) => {
 	const searchQueryTitle = (
