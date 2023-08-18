@@ -10,7 +10,24 @@ import SelectInput from "../molecules/SelectInput";
 
 export default function SearchResultsFilterScreen({ route, navigation }) {
 	const { filters, searchQuery } = route.params;
-	const [value, setValue] = useState("price-lowest");
+	const [filterValue, setFilterValue] = useState("price-lowest");
+	const [companyValue, setCompanyValue] = useState("any");
+	const [spaceshipTypeValue, setSpaceshipTypeValue] = useState("any");
+	const [maxPriceValue, setMaxPriceValue] = useState(1000000);
+
+	const [companyItems, setCompanyItems] = useState([
+		{ label: "Any", value: "any" },
+		{ label: "Space X", value: "space-x" },
+		{ label: "Blue Origin", value: "blue-origin" },
+		{ label: "Virigin Galactic", value: "virgin-galactic" },
+	]);
+
+	const [spaceshipTypeItems, setSpaceshipTypeItems] = useState([
+		{ label: "Any", value: "any" },
+		{ label: "Rocket", value: "rocket" },
+		{ label: "Spaceplane", value: "spaceplane" },
+		{ label: "Capsule", value: "capsule" },
+	]);
 
 	return (
 		<CenterViewContainer>
@@ -23,8 +40,19 @@ export default function SearchResultsFilterScreen({ route, navigation }) {
 			>
 				<SearchQueryCard query={searchQuery} />
 			</View>
-			<SearchFilterRadioCard value={value} setValue={setValue} />
-			<SelectInput />
+			<SearchFilterRadioCard value={filterValue} setValue={setFilterValue} />
+			<SelectInput
+				label={"Company"}
+				value={companyValue}
+				setValue={setCompanyValue}
+				items={companyItems}
+			/>
+			<SelectInput
+				label={"Spaceship Type"}
+				value={spaceshipTypeValue}
+				setValue={setSpaceshipTypeValue}
+				items={spaceshipTypeItems}
+			/>
 		</CenterViewContainer>
 	);
 }
