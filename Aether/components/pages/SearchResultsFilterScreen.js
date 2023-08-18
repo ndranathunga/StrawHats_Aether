@@ -1,9 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CenterViewContainer from "../atoms/view-containers/CenterViewContainer";
 import SearchQueryCard from "../molecules/SearchQueryCard";
 import { StyleSheet, View } from "react-native";
-import { Card, RadioButton } from "react-native-paper";
-
 import SearchFilterRadioCard from "../organisms/SearchFilterRadioCard";
 
 import SelectInput from "../molecules/SelectInput";
@@ -11,10 +9,19 @@ import NumSlider from "../molecules/NumSlider";
 
 export default function SearchResultsFilterScreen({ route, navigation }) {
 	const { filters, searchQuery } = route.params;
-	const [filterValue, setFilterValue] = useState("price-lowest");
-	const [companyValue, setCompanyValue] = useState("any");
-	const [spaceshipTypeValue, setSpaceshipTypeValue] = useState("any");
-	const [maxPriceValue, setMaxPriceValue] = useState(1000000);
+
+	useEffect(() => {
+		navigation.addListener("blur", () => {
+			navigation.navigate("Search Results", { filters1: filters });
+		});
+	}, []);
+
+	const [filterValue, setFilterValue] = useState(filters.sortType);
+	const [companyValue, setCompanyValue] = useState(filters.company);
+	const [spaceshipTypeValue, setSpaceshipTypeValue] = useState(
+		filters.spaceshipType
+	);
+	const [maxPriceValue, setMaxPriceValue] = useState(filters.maxPrice);
 
 	const [companyItems, setCompanyItems] = useState([
 		{ label: "Any", value: "any" },
@@ -29,6 +36,13 @@ export default function SearchResultsFilterScreen({ route, navigation }) {
 		{ label: "Spaceplane", value: "spaceplane" },
 		{ label: "Capsule", value: "capsule" },
 	]);
+
+	useEffect(() => {
+		filters.sortType = filterValue;
+		filters.company = companyValue;
+		filters.spaceshipType = spaceshipTypeValue;
+		filters.maxPrice = maxPriceValue;
+	}, [filterValue, companyValue, spaceshipTypeValue, maxPriceValue]);
 
 	return (
 		<CenterViewContainer>
