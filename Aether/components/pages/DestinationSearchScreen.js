@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, TextInput, Button, TouchableOpacity, Text } from "react-native";
-import IconButton from "../atoms/buttons/IconButton";
+import DestinationSearchBlock from "../organisms/DestinationSearchBlock";
 
 const DestinationSearchScreen = () => {
   const [startLocation, setStartLocation] = useState("");
@@ -17,27 +17,7 @@ const DestinationSearchScreen = () => {
   };
 
   return (
-    <View style={{ padding: 20 }}>
-      <TextInput
-        placeholder="Enter start location"
-        value={isFlipped ? endLocation : startLocation}
-        onChangeText={(text) =>
-          isFlipped ? setEndLocation(text) : setStartLocation(text)
-        }
-        style={{ marginBottom: 10, borderBottomWidth: 1 }}
-      />
-      <TextInput
-        placeholder="Enter end location"
-        value={isFlipped ? startLocation : endLocation}
-        onChangeText={(text) =>
-          isFlipped ? setStartLocation(text) : setEndLocation(text)
-        }
-        style={{ marginBottom: 10, borderBottomWidth: 1 }}
-      />
-      <IconButton icon={"swap-vertical"} size={25} onPress={handleFlip} />
-
-      <Button title="Search" onPress={handleSearch} />
-    </View>
+    <DestinationSearchBlock/>
   );
 };
 
