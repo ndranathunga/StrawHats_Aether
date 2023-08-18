@@ -24,7 +24,9 @@ export default function HomeScreen({ navigation }) {
 			</Text>
 
 			{/* This works */}
-			<CustomButton title={"hi"} />
+			<CustomButton
+			onPress={() => navigation.navigate("Date Picker")}
+			title={"date picker"} />
 
 			{/* WIP, not sure how this works */}
 			<IconButton icon={"filter"} size={25} />

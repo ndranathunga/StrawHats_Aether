@@ -16,6 +16,7 @@ import ProfileScreen from "../components/pages/ProfileScreen";
 import PersonalInfoScreen from "../components/pages/PersonalInfoScreen";
 import SearchResultsScreen from "../components/pages/SearchResultsScreen";
 import ChoosePodScreen from "../components/pages/ChoosePodScreen";
+import DatePickerScreen from "../components/pages/DatePickerScreen";
 
 
 // Theming
@@ -54,6 +55,7 @@ const ExploreName = "Explore";
 const profileName = "Profile";
 const personalInfoName = "Personal Info";
 const choosePodName = "Choose Pod";
+const datePicker = "Date Picker";
 const searchResultsName = "Search Results";
 
 const MainTabNavigator = () => (
@@ -173,10 +175,16 @@ function MainContainer() {
             options={{ tabBarVisible: false }}
           />
           <Stack.Screen
+            name={datePicker}
+            component={DatePickerScreen}
+            options={{ tabBarVisible: false }}
+          />
+          <Stack.Screen
 						name={searchResultsName}
 						component={SearchResultsScreen}
 						options={{ tabBarVisible: false }}
 					/>
+
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
