@@ -30,14 +30,14 @@ const DestinationSearchBlock = () => {
       <View style={styles.textAndFlip}>
         <View style={styles.justTextInput}>
           <TextInputContainer
-            label={isFlipped ? "End" : "Start"}
+            label={"Start"}
             value={isFlipped ? endLocation : startLocation}
             onChange={(text) =>
               isFlipped ? setEndLocation(text) : setStartLocation(text)
             }
           />
           <TextInputContainer
-            label={isFlipped ? "Start" : "End"}
+            label={"End"}
             value={isFlipped ? startLocation : endLocation}
             onChange={(text) =>
               isFlipped ? setStartLocation(text) : setEndLocation(text)
