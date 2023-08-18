@@ -3,6 +3,8 @@ import { View, StyleSheet } from "react-native";
 import TextInputContainer from "../atoms/text-container/TextInputContainer";
 import IconButton from "../atoms/buttons/IconButton";
 import CustomButton from "../atoms/buttons/CustomButton";
+import DestinationResults from "../molecules/DestinationResults";
+import Title3 from "../atoms/text/Title3";
 
 const DestinationSearchBlock = () => {
   const [startLocation, setStartLocation] = useState("");
@@ -47,6 +49,7 @@ const DestinationSearchBlock = () => {
         <IconButton icon={"swap-vertical"} size={25} onPress={handleFlip} />
       </View>
       <CustomButton title="Search" onPress={handleSearch} />
+      <DestinationResults />
     </View>
   );
 };
@@ -68,5 +71,10 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+  },
+  formattedLabel: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 18,
   },
 });
