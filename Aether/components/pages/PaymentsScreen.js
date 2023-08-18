@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView, SafeAreaView } from "react-native";
 import { Divider, Text } from "react-native-paper";
 import BookingInfoContainer from "../organisms/BookingInfoContainer";
 import CenterViewContainer from "../atoms/view-containers/CenterViewContainer";
@@ -8,10 +8,12 @@ import PaymentFormContainer from "../organisms/PaymentFormContainer";
 
 export default function PaymentsScreen({ navigation }) {
   return (
-    <CenterViewContainer>
-      <BookingInfoContainer data={flight_info} />
-      <PaymentFormContainer navigation={navigation} />
-    </CenterViewContainer>
+    <SafeAreaView style={styles.container}>
+      <CenterViewContainer>
+        <BookingInfoContainer data={flight_info} />
+        <PaymentFormContainer navigation={navigation} />
+      </CenterViewContainer>
+    </SafeAreaView>
   );
 }
 
@@ -32,7 +34,7 @@ const flight_info = {
 
 const styles = StyleSheet.create({
   container: {
-    // marginBottom: 16,
+    // // marginBottom: 16,
     paddingLeft: 15,
     paddingRight: 15,
     flex: 1,
