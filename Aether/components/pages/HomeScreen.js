@@ -11,26 +11,32 @@ import IconButton from "../atoms/buttons/IconButton";
 import TextContainer from "../atoms/text-container/TextContainer";
 
 export default function HomeScreen({ navigation }) {
-	return (
-		<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-			<Title3>Hello there, John</Title3>
-			<Title1>Let's Explore Space</Title1>
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Title3>Hello there, John</Title3>
+      <Title1>Let's Explore Space</Title1>
 
-			<Text
-				onPress={() => alert('This is the "Home" screen.')}
-				style={{ fontSize: 26, fontWeight: "bold" }}
-			>
-				Home Screen
-			</Text>
+      <Text
+        onPress={() => alert('This is the "Home" screen.')}
+        style={{ fontSize: 26, fontWeight: "bold" }}
+      >
+        Home Screen
+      </Text>
 
-			{/* This works */}
-			<CustomButton
-			onPress={() => navigation.navigate("Date Picker")}
-			title={"date picker"} />
+      {/* This works */}
+      <CustomButton
+        onPress={() => navigation.navigate("Date Picker")}
+        title={"date picker"}
+      />
 
-			{/* WIP, not sure how this works */}
-			<IconButton icon={"filter"} size={25} />
-			<TextContainer title={"hi"} />
-		</View>
-	);
+      {/* WIP, not sure how this works */}
+      <IconButton icon={"filter"} size={25} />
+      <TextContainer title={"hi"} />
+
+      <CustomButton
+        onPress={() => navigation.navigate("Destination Search")}
+        title={"Destination Search"}
+      />
+    </View>
+  );
 }
