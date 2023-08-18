@@ -29,10 +29,7 @@ export default function HomeScreen({ navigation }) {
 			title={"date picker"} />
 
 			{/* WIP, not sure how this works */}
-			<IconButton
-				label={"test"}
-				icon={<Ionicons icon="compass-sharp" size={10} color={"grey"} />}
-			/>
+			<IconButton icon={"filter"} size={25} />
 			<TextContainer title={"hi"} />
 		</View>
 	);
