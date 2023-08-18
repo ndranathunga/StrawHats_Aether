@@ -1,6 +1,6 @@
 import React from "react";
 import { View, ScrollView, Text, StyleSheet } from "react-native";
-import DestinationCard from "../atoms/DestinationCard";
+import DestinationCard from "../atoms/cards/DestinationCard";
 
 const DestinationResults = () => {
   return (
