@@ -13,14 +13,16 @@ export default function CustomNavigationBar({
 	var title = getHeaderTitle(options, route.name);
 	var headerStyle = styles.header;
 
-	if (title === "Home") {
+	const home = route.name === "Home";
+
+	if (home) {
 		title = (
-			<View style={{ padding: 20 }}>
+			<View style={styles.homeTitle}>
 				<Title3>Hello there, John</Title3>
 				<Title1>Let's Explore Space</Title1>
 			</View>
 		);
-		headerStyle = { ...headerStyle, height: 100 };
+		headerStyle = styles.headerHome;
 	}
 
 	return (
@@ -31,6 +33,15 @@ export default function CustomNavigationBar({
 				style={styles.appBarContent}
 				titleStyle={styles.appBarTitle}
 			/>
+			{home ? (
+				<Appbar.Action
+					icon="bell-outline"
+					style={styles.appBarAction}
+					onPress={() => {
+						console.log("bell pressed");
+					}}
+				/>
+			) : null}
 		</Appbar.Header>
 	);
 }
@@ -38,6 +49,10 @@ export default function CustomNavigationBar({
 const styles = StyleSheet.create({
 	header: {
 		backgroundColor: "transparent",
+	},
+	headerHome: {
+		backgroundColor: "transparent",
+		height: 100,
 	},
 	appBarContent: {
 		marginLeft: 0,
@@ -51,4 +66,11 @@ const styles = StyleSheet.create({
 		fontSize: 24,
 		fontFamily: "Inter-SemiBold",
 	},
+	appBarAction: {
+		display: "flex",
+		flex: 1,
+		alignItems: "flex-end",
+		paddingRight: 10,
+	},
+	homeTitle: { padding: 20 },
 });
