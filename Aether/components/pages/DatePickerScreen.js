@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, TouchableOpacity, Text ,Image} from 'react-native';
+import { View, StyleSheet} from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 import CustomButton from '../atoms/buttons/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 import moment from 'moment';
-import Icon from "react-native-vector-icons/Ionicons";
+import CenterViewContainer from "../atoms/view-containers/CenterViewContainer";
+import SelectedDateCard from "../atoms/cards/SelectedDateCard"
+import textStyles from "../atoms/text/Styles";
 
 
 import { defultBoxStyle } from '../atoms/Styles/defultBoxStyle';
-import Title1 from "../atoms/text/Title1";
-import Title3 from "../atoms/text/Title3";
-import Body1 from '../atoms/text/Body1';
-import Body2 from '../atoms/text/Body2';
 
 export default function DatePickerScreen() {
   const navigation = useNavigation();
@@ -62,29 +60,20 @@ export default function DatePickerScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <CenterViewContainer style={{padding: 20,}}>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: 10 }}>
-        <View style={[defultBoxStyle.container, { margin: 5, padding: 0, marginTop: 0, marginBottom: 0, paddingTop: 5 ,paddingBottom:5}]}>
-          <Body1>Departure</Body1>
-          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: 0 }}>
-            <Icon name="calendar-outline" size={20} color={"white"} style={{paddingRight:10}}/>
-            <Title3 style={[styles.textStyle, { textAlign: 'center' }]}>
-            {selectedStartDate ? formatDate(selectedStartDate) : 'Select Date'}
-            </Title3>
-            </View>
-        </View>
-        <TouchableOpacity
-          style={[defultBoxStyle.container, { margin: 5, padding: 0, marginTop: 0, marginBottom: 0, paddingTop: 5,paddingBottom:5 }]}
+
+        <SelectedDateCard
+          title={'Departure'}
+          content={selectedStartDate ? formatDate(selectedStartDate) : 'Select Date'}
+        />
+
+        <SelectedDateCard
           onPress={toggleReturnDatePicker}
-        >
-          <Body1>Return</Body1>
-          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: 0 }}>
-            <Icon name="calendar-outline" size={20} color={"white"} style={{paddingRight:10}}/>
-            <Title3 style={{ textAlign: 'center' }}>
-              {selectedReturnDate ? formatDate(selectedReturnDate) : 'Select Date'}
-            </Title3>
-          </View>
-        </TouchableOpacity>
+          title={'Return'}
+          content={selectedReturnDate ? formatDate(selectedReturnDate) : 'Select Date'}
+        />
+
       </View>
 
       <View style={{flex:1}}>
@@ -93,7 +82,7 @@ export default function DatePickerScreen() {
             <CalendarPicker
               width={280}
               selectedDayColor={'#84BCFF'}
-              textStyle={styles.textStyle}
+              textStyle={[textStyles.title3,{color:"white"}]}
               onDateChange={(date) => onDateChange(date, 'START_DATE')}
               disabledDates={(date) => isDateDisabled(date, 'START_DATE')}
             />
@@ -106,7 +95,7 @@ export default function DatePickerScreen() {
               <CalendarPicker
                 width={280}
                 selectedDayColor={'#84BCFF'}
-                textStyle={styles.textStyle}
+                textStyle={[textStyles.title3,{color:"white"}]}
                 onDateChange={(date) => onDateChange(date, 'RETURN_DATE')}
                 disabledDates={(date) => isDateDisabled(date, 'RETURN_DATE')}
               />
@@ -116,29 +105,13 @@ export default function DatePickerScreen() {
       </View>
 
       <CustomButton onPress={handleSelectPress} title={'Select'} />
-    </View>
+    </CenterViewContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  label: {
-    color: 'white',
-    fontSize: 12,
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  textStyle: {
-    color: 'white',
-    fontSize: 15,
-    fontWeight: '500',
-    letterSpacing: 0.45,
-  },
+
+
   iconContainer: {
     position: 'absolute',
     left: 0,
