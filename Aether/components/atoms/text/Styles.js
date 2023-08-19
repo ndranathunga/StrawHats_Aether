@@ -10,7 +10,7 @@ const FONT_FAMILY_BLACK = "Inter-Black";
 
 const textStyles = {
 	title1: {
-		color : 'white',
+		color: "white",
 		fontSize: 24,
 		fontFamily: FONT_FAMILY_SEMI_BOLD,
 	},

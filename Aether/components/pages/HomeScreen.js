@@ -10,6 +10,7 @@ import CustomButton from "../atoms/buttons/CustomButton";
 import IconButton from "../atoms/buttons/IconButton";
 import TextContainer from "../atoms/text-container/TextContainer";
 import TransparentCard from "../molecules/TransparentCard";
+import TransparentCard from "../molecules/TransparentCard";
 
 export default function HomeScreen({ navigation }) {
 	return (
@@ -25,12 +26,21 @@ export default function HomeScreen({ navigation }) {
 			</Text>
 
 			<TransparentCard title={"hi"} content={"hi"} />
-			{/* This works
-			<CustomButton title={"hi"} /> */}
+
+			{/* This works */}
+			<CustomButton
+				onPress={() => navigation.navigate("Date Picker")}
+				title={"date picker"}
+			/>
 
 			{/* WIP, not sure how this works */}
-			{/* <IconButton icon={"filter"} size={25} />
-			<TextContainer title={"hi"} /> */}
+			<IconButton icon={"filter"} size={25} />
+			<TextContainer title={"hi"} />
+
+			<CustomButton
+				onPress={() => navigation.navigate("Destination Search")}
+				title={"Destination Search"}
+			/>
 		</View>
 	);
 }
