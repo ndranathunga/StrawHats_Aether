@@ -3,8 +3,8 @@ import { View } from "react-native";
 import { Text } from "react-native-paper";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import Title1 from "../atoms/Text/Title1";
-import Title3 from "../atoms/Text/Title3";
+import Title1 from "../atoms/text/Title1";
+import Title3 from "../atoms/text/Title3";
 
 import CustomButton from "../atoms/buttons/CustomButton";
 import IconButton from "../atoms/buttons/IconButton";
@@ -23,7 +23,7 @@ export default function HomeScreen({ navigation }) {
 			>
 				Home Screen
 			</Text>
-			
+
 			<TransparentCard title={"hi"} content={"hi"} />
 			{/* This works
 			<CustomButton title={"hi"} /> */}
