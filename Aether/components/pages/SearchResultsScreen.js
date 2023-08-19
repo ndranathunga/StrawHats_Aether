@@ -4,7 +4,6 @@ import SearchQueryCard from "../molecules/SearchQueryCard";
 import SearchResultList from "../organisms/SearchResultList";
 import IconButton from "../atoms/buttons/IconButton";
 import { View, StyleSheet } from "react-native";
-import DynamicBackground from "../templates/DynamicBackground";
 
 export default function SearchResultsScreen({ route, navigation }) {
 	const [searchQuery, setSearchQuery] = useState({
@@ -92,7 +91,6 @@ export default function SearchResultsScreen({ route, navigation }) {
 	}, [route]);
 
 	return (
-		<DynamicBackground>
 		<CenterViewContainer>
 			<View style={styles.container}>
 				<SearchQueryCard query={searchQuery} />
@@ -110,7 +108,6 @@ export default function SearchResultsScreen({ route, navigation }) {
 
 			<SearchResultList data={searchResultsFiltered} />
 		</CenterViewContainer>
-		</DynamicBackground>
 	);
 }
 

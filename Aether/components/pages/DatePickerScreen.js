@@ -7,7 +7,6 @@ import moment from 'moment';
 import CenterViewContainer from "../atoms/view-containers/CenterViewContainer";
 import SelectedDateCard from "../atoms/cards/SelectedDateCard"
 import textStyles from "../atoms/text/Styles";
-import DynamicBackground from "../templates/DynamicBackground";
 
 
 import { defultBoxStyle } from '../atoms/Styles/defultBoxStyle';
@@ -61,8 +60,7 @@ export default function DatePickerScreen() {
   };
 
   return (
-    <DynamicBackground>
-    <View style={styles.container}>
+    <CenterViewContainer style={{padding: 20,}}>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: 10 }}>
 
         <SelectedDateCard
@@ -107,8 +105,7 @@ export default function DatePickerScreen() {
       </View>
 
       <CustomButton onPress={handleSelectPress} title={'Select'} />
-    </View>
-    </DynamicBackground>
+    </CenterViewContainer>
   );
 }
 
