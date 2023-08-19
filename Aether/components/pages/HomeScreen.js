@@ -34,6 +34,11 @@ export default function HomeScreen({ navigation }) {
 				title={"date picker"}
 			/>
 
+			<CustomButton
+				onPress={() => navigation.navigate("Select Passengers")}
+				title={"Select Passengers"}
+			/>
+
 			{/* WIP, not sure how this works */}
 			<IconButton icon={"filter"} size={25} />
 			<TextContainer title={"hi"} />

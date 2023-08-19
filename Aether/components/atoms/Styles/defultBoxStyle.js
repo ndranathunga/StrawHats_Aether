@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 
 export const defultBoxStyle = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.25)',
     borderRadius: 7,
     borderWidth: 0.5,
@@ -13,6 +12,10 @@ export const defultBoxStyle = StyleSheet.create({
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 7,
+
+  },
+  sizes: {
+    flex: 1,
     margin: 20,
     paddingLeft: 20,
     paddingRight: 20,

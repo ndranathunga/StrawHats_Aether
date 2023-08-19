@@ -74,7 +74,7 @@ const TransparentCard = (navigation) => {
 				</View>
 			</View>
 			<Divider style={styles.divider} />
-			<View style={styles.dateContainer}>
+			<TouchableOpacity style={styles.dateContainer}>
 				<View style={styles.dateInputContainer}>
 					<Icon
 						name="calendar-outline"
@@ -107,7 +107,7 @@ const TransparentCard = (navigation) => {
 						{/* ... */}
 					</View>
 				)}
-			</View>
+			</TouchableOpacity>
 
 			<Divider style={styles.divider} />
 

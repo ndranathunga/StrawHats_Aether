@@ -10,9 +10,11 @@ import {
 } from "react-native";
 import DestinationSearchBlock from "../organisms/DestinationSearchBlock";
 import MarsBg from "../../assets/images/backgrounds/mars-bg-temp.jpeg";
+import DynamicBackground from "../templates/DynamicBackground";
 
 const DestinationSearchScreen = () => {
   return (
+    <DynamicBackground>
     <ImageBackground
       style={styles.imageContainer}
       imageStyle={styles.image}
@@ -20,6 +22,7 @@ const DestinationSearchScreen = () => {
     >
       <DestinationSearchBlock />
     </ImageBackground>
+    </DynamicBackground>
   );
 };
 

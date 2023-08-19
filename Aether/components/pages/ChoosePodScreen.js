@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Button } from "react-native";
 import SeatRow from "../organisms/SeatRow";
 import CustomButton from "../atoms/buttons/CustomButton";
+import DynamicBackground from "../templates/DynamicBackground";
 
 export default function ChoosePodScreen({ navigation }) {
   const [selectedSeats, setSelectedSeats] = useState([]);
@@ -19,6 +20,7 @@ export default function ChoosePodScreen({ navigation }) {
     navigation.navigate("Personal Info");
   };
   return (
+    <DynamicBackground>
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <SeatRow
         level={"level 4"}
@@ -51,5 +53,6 @@ export default function ChoosePodScreen({ navigation }) {
 
       <CustomButton title="Submit" onPress={handleSubmit} />
     </View>
+    </DynamicBackground>
   );
 }

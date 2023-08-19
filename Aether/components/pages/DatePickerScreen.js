@@ -10,6 +10,7 @@ import textStyles from "../atoms/text/Styles";
 
 
 import { defultBoxStyle } from '../atoms/Styles/defultBoxStyle';
+import DynamicBackground from '../templates/DynamicBackground';
 
 export default function DatePickerScreen() {
   const navigation = useNavigation();
@@ -60,6 +61,7 @@ export default function DatePickerScreen() {
   };
 
   return (
+    <DynamicBackground>
     <CenterViewContainer style={{padding: 20,}}>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: 10 }}>
 
@@ -78,7 +80,7 @@ export default function DatePickerScreen() {
 
       <View style={{flex:1}}>
         <View style={{flex:0.5}}>
-          <View style={[defultBoxStyle.container, { marginTop: 1, marginBottom: 5 }]}>
+          <View style={[defultBoxStyle.container,defultBoxStyle.sizes, { marginTop: 1, marginBottom: 5 }]}>
             <CalendarPicker
               width={280}
               selectedDayColor={'#84BCFF'}
@@ -91,7 +93,7 @@ export default function DatePickerScreen() {
 
         <View style={{flex:0.5}}>
           {showReturnDatePicker && (
-            <View style={[defultBoxStyle.container, { marginTop: 1, marginBottom: 5 }]}>
+            <View style={[defultBoxStyle.container,defultBoxStyle.sizes, { marginTop: 1, marginBottom: 5 }]}>
               <CalendarPicker
                 width={280}
                 selectedDayColor={'#84BCFF'}
@@ -106,6 +108,7 @@ export default function DatePickerScreen() {
 
       <CustomButton onPress={handleSelectPress} title={'Select'} />
     </CenterViewContainer>
+    </DynamicBackground>
   );
 }
 

@@ -6,6 +6,7 @@ import SearchFilterRadioCard from "../organisms/SearchFilterRadioCard";
 
 import SelectInput from "../molecules/SelectInput";
 import NumSlider from "../molecules/NumSlider";
+import DynamicBackground from "../templates/DynamicBackground";
 
 export default function SearchResultsFilterScreen({ route, navigation }) {
 	const { filters, searchQuery } = route.params;
@@ -45,6 +46,7 @@ export default function SearchResultsFilterScreen({ route, navigation }) {
 	}, [filterValue, companyValue, spaceshipTypeValue, maxPriceValue]);
 
 	return (
+		<DynamicBackground>
 		<CenterViewContainer>
 			<View style={styles.container}>
 				<SearchQueryCard query={searchQuery} />
@@ -72,6 +74,7 @@ export default function SearchResultsFilterScreen({ route, navigation }) {
 				step={50000}
 			/>
 		</CenterViewContainer>
+		</DynamicBackground>
 	);
 }
 
