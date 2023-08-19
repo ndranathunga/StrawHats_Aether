@@ -1,4 +1,5 @@
 import * as React from "react";
+import { StyleSheet, ImageBackground } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text, BottomNavigation } from "react-native-paper";
@@ -61,6 +62,8 @@ const searchResultsName = "Search Results";
 const destinationSearchName = "Destination Search";
 const searchResultFilterName = "Sort & Filter";
 
+
+const image = {uri: 'https://legacy.reactjs.org/logo-og.png'};
 const MainTabNavigator = () => (
 	<Tab.Navigator
 		initialRouteName={homeName}
@@ -153,36 +156,38 @@ const MainTabNavigator = () => (
 );
 
 function MainContainer() {
-	return (
-		<PaperProvider theme={theme}>
-			<NavigationContainer theme={theme}>
-				<Stack.Navigator
-					initialRouteName="Main"
-					screenOptions={{
-						header: (props) => <CustomNavigationBar {...props} />,
-					}}
-				>
-					<Stack.Screen
-						name="Main"
-						component={MainTabNavigator}
-						options={{ headerShown: false }}
-					/>
-					<Stack.Screen
-						name={personalInfoName}
-						component={PersonalInfoScreen}
-						options={{ tabBarVisible: false }}
-					/>
-					<Stack.Screen
-						name={choosePodName}
-						component={ChoosePodScreen}
-						options={{ tabBarVisible: false }}
-					/>
-					<Stack.Screen
-						name={datePicker}
-						component={DatePickerScreen}
-						options={{ tabBarVisible: false }}
-					/>
-					<Stack.Screen
+
+  return (
+    <PaperProvider theme={theme}>
+      <ImageBackground source={image} style={styles.image}>
+      <NavigationContainer theme={theme}>
+        <Stack.Navigator
+          initialRouteName="Main"
+          screenOptions={{
+            header: (props) => <CustomNavigationBar {...props} />,
+          }}
+        >
+          <Stack.Screen
+            name="Main"
+            component={MainTabNavigator}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name={personalInfoName}
+            component={PersonalInfoScreen}
+            options={{ tabBarVisible: false }}
+          />
+          <Stack.Screen
+            name={choosePodName}
+            component={ChoosePodScreen}
+            options={{ tabBarVisible: false }}
+          />
+          <Stack.Screen
+            name={datePicker}
+            component={DatePickerScreen}
+            options={{ tabBarVisible: false }}
+          />
+          <Stack.Screen
 						name={searchResultsName}
 						component={SearchResultsScreen}
 						options={{ tabBarVisible: false }}
@@ -203,7 +208,15 @@ function MainContainer() {
 			</NavigationContainer>
 		</PaperProvider>
 	);
+
 }
+
+const styles = StyleSheet.create({
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+});
 
 export default MainContainer;
 
