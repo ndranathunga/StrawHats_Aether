@@ -10,7 +10,6 @@ import CustomButton from "../atoms/buttons/CustomButton";
 import IconButton from "../atoms/buttons/IconButton";
 import TextContainer from "../atoms/text-container/TextContainer";
 import TransparentCard from "../molecules/TransparentCard";
-import TransparentCard from "../molecules/TransparentCard";
 
 export default function HomeScreen({ navigation }) {
 	return (
