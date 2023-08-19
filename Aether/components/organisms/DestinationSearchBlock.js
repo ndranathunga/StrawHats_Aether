@@ -51,8 +51,9 @@ const DestinationSearchBlock = () => {
       <Title3>we'll probably have to get rid of the submit button</Title3>
       <CustomButton title="Search" onPress={handleSearch} />
       <Title3>Results for "Mars"</Title3>
-
-      <DestinationResults />
+      <View style={styles.resultCards}>
+        <DestinationResults />
+      </View>
     </View>
   );
 };
@@ -79,5 +80,10 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     fontSize: 18,
+  },
+  resultCards: {
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
