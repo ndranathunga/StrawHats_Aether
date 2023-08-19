@@ -9,7 +9,7 @@ export default function HomeScreen({ navigation }) {
 	return (
 		<DynamicBackground>
 			<View style={styles.container}>
-				<TransparentCard title={"hi"} content={"hi"} />
+				<TransparentCard />
 
 				<CustomButton
 					onPress={() => navigation.navigate("Date Picker")}
