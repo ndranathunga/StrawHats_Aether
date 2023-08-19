@@ -3,6 +3,8 @@ import MainContainer from "./navigation/MainContainer";
 import { useCallback } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import { BackgroundProvider } from "./context/BackgroundContext";
+import { StatusBar } from "expo-status-bar";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -31,7 +33,10 @@ export default function App() {
 
 	return (
 		<View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-			<MainContainer />
+			<StatusBar animated={true} backgroundColor="transparent" />
+			<BackgroundProvider>
+				<MainContainer />
+			</BackgroundProvider>
 		</View>
 	);
 }

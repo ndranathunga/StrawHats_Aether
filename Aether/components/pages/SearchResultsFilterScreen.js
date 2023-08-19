@@ -77,6 +77,7 @@ export default function SearchResultsFilterScreen({ route, navigation }) {
 
 const styles = StyleSheet.create({
 	container: {
+		marginTop: 30,
 		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",

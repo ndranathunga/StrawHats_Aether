@@ -3,7 +3,7 @@ import CenterViewContainer from "../atoms/view-containers/CenterViewContainer";
 import SearchQueryCard from "../molecules/SearchQueryCard";
 import SearchResultList from "../organisms/SearchResultList";
 import IconButton from "../atoms/buttons/IconButton";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 
 export default function SearchResultsScreen({ route, navigation }) {
 	const [searchQuery, setSearchQuery] = useState({
@@ -92,13 +92,7 @@ export default function SearchResultsScreen({ route, navigation }) {
 
 	return (
 		<CenterViewContainer>
-			<View
-				style={{
-					flexDirection: "row",
-					justifyContent: "center",
-					alignItems: "center",
-				}}
-			>
+			<View style={styles.container}>
 				<SearchQueryCard query={searchQuery} />
 				<IconButton
 					icon={"filter"}
@@ -152,3 +146,12 @@ const SEARCH_RESULT_DATA = [
 		price: 340000,
 	},
 ];
+
+const styles = StyleSheet.create({
+	container: {
+		marginTop: 30,
+		flexDirection: "row",
+		justifyContent: "center",
+		alignItems: "center",
+	},
+});

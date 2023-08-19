@@ -10,7 +10,7 @@ export default function CustomNavigationBar({
 	const title = getHeaderTitle(options, route.name);
 
 	return (
-		<Appbar.Header>
+		<Appbar.Header style={{ backgroundColor: "black" }}>
 			{back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
 			<Appbar.Content title={title} />
 		</Appbar.Header>

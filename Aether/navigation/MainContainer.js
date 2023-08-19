@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, ImageBackground } from "react-native";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text, BottomNavigation } from "react-native-paper";
@@ -27,6 +27,7 @@ import {
 	MD3DarkTheme,
 	adaptNavigationTheme,
 	PaperProvider,
+	configureFonts,
 } from "react-native-paper";
 import merge from "deepmerge";
 
@@ -45,9 +46,14 @@ const { DarkTheme } = adaptNavigationTheme({
 
 const CombinedDarkTheme = merge(MD3DarkTheme, DarkTheme);
 
+const fontConfig = {
+	fontFamily: "Inter-Regular",
+};
+
 const theme = {
 	...CombinedDarkTheme,
-	colors: customPallete.colors, // Copy it from the color codes scheme and then use it here
+	colors: customPallete.colors,
+	fonts: configureFonts({ config: fontConfig }),
 };
 
 //Screen names
@@ -62,7 +68,6 @@ const searchResultsName = "Search Results";
 const destinationSearchName = "Destination Search";
 const searchResultFilterName = "Sort & Filter";
 
-const image = { uri: "https://legacy.reactjs.org/logo-og.png" };
 const MainTabNavigator = () => (
 	<Tab.Navigator
 		initialRouteName={homeName}
@@ -71,6 +76,11 @@ const MainTabNavigator = () => (
 		})}
 		tabBar={({ navigation, state, descriptors, insets }) => (
 			<BottomNavigation.Bar
+				activeColor="white"
+				inactiveColor="grey"
+				barStyle={{ backgroundColor: "black" }}
+				style={{ backgroundColor: "black" }}
+				// theme={{ colors: { secondaryContainer: "transparent" } }}
 				navigationState={state}
 				safeAreaInsets={insets}
 				onTabPress={({ route, preventDefault }) => {
@@ -157,64 +167,55 @@ const MainTabNavigator = () => (
 function MainContainer() {
 	return (
 		<PaperProvider theme={theme}>
-			<ImageBackground source={image} style={styles.image}>
-				<NavigationContainer theme={theme}>
-					<Stack.Navigator
-						initialRouteName="Main"
-						screenOptions={{
-							header: (props) => <CustomNavigationBar {...props} />,
-						}}
-					>
-						<Stack.Screen
-							name="Main"
-							component={MainTabNavigator}
-							options={{ headerShown: false }}
-						/>
-						<Stack.Screen
-							name={personalInfoName}
-							component={PersonalInfoScreen}
-							options={{ tabBarVisible: false }}
-						/>
-						<Stack.Screen
-							name={choosePodName}
-							component={ChoosePodScreen}
-							options={{ tabBarVisible: false }}
-						/>
-						<Stack.Screen
-							name={datePicker}
-							component={DatePickerScreen}
-							options={{ tabBarVisible: false }}
-						/>
-						<Stack.Screen
-							name={searchResultsName}
-							component={SearchResultsScreen}
-							options={{ tabBarVisible: false }}
-						/>
+			<NavigationContainer theme={theme}>
+				<Stack.Navigator
+					initialRouteName="Main"
+					screenOptions={{
+						header: (props) => <CustomNavigationBar {...props} />,
+					}}
+				>
+					<Stack.Screen
+						name="Main"
+						component={MainTabNavigator}
+						options={{ headerShown: false }}
+					/>
+					<Stack.Screen
+						name={personalInfoName}
+						component={PersonalInfoScreen}
+						options={{ tabBarVisible: false }}
+					/>
+					<Stack.Screen
+						name={choosePodName}
+						component={ChoosePodScreen}
+						options={{ tabBarVisible: false }}
+					/>
+					<Stack.Screen
+						name={datePicker}
+						component={DatePickerScreen}
+						options={{ tabBarVisible: false }}
+					/>
+					<Stack.Screen
+						name={searchResultsName}
+						component={SearchResultsScreen}
+						options={{ tabBarVisible: false }}
+					/>
 
-						<Stack.Screen
-							name={destinationSearchName}
-							component={DestinationSearchScreen}
-							options={{ tabBarVisible: false }}
-						/>
+					<Stack.Screen
+						name={destinationSearchName}
+						component={DestinationSearchScreen}
+						options={{ tabBarVisible: false }}
+					/>
 
-						<Stack.Screen
-							name={searchResultFilterName}
-							component={SearchResultsFilterScreen}
-							options={{ tabBarVisible: false }}
-						/>
-					</Stack.Navigator>
-				</NavigationContainer>
-			</ImageBackground>
+					<Stack.Screen
+						name={searchResultFilterName}
+						component={SearchResultsFilterScreen}
+						options={{ tabBarVisible: false }}
+					/>
+				</Stack.Navigator>
+			</NavigationContainer>
 		</PaperProvider>
 	);
 }
-
-const styles = StyleSheet.create({
-	image: {
-		flex: 1,
-		justifyContent: "center",
-	},
-});
 
 export default MainContainer;
 
