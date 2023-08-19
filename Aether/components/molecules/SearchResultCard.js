@@ -1,8 +1,8 @@
 import { Card, Divider, Avatar, Button } from "react-native-paper";
-import Title3 from "../atoms/Text/Title3";
-import Title4 from "../atoms/Text/Title4";
-import Body1 from "../atoms/Text/Body1";
-import Body2 from "../atoms/Text/Body2";
+import Title3 from "../atoms/text/Title3";
+import Title4 from "../atoms/text/Title4";
+import Body1 from "../atoms/text/Body1";
+import Body2 from "../atoms/text/Body2";
 import { StyleSheet, View } from "react-native";
 
 const SearchResultCard = ({ result }) => (

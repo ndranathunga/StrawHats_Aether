@@ -3,8 +3,8 @@ import { View } from "react-native";
 import { Text } from "react-native-paper";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import Title1 from "../atoms/Text/Title1";
-import Title3 from "../atoms/Text/Title3";
+import Title1 from "../atoms/text/Title1";
+import Title3 from "../atoms/text/Title3";
 
 import CustomButton from "../atoms/buttons/CustomButton";
 import IconButton from "../atoms/buttons/IconButton";
@@ -13,7 +13,7 @@ import TransparentCard from "../molecules/TransparentCard";
 
 export default function HomeScreen({ navigation }) {
 	return (
-		<View style={{   flex: 1, alignItems: "right", justifyContent: "top"}}>
+		<View style={{ flex: 1, alignItems: "right", justifyContent: "top" }}>
 			<Title3>Hello there, John</Title3>
 			<Title1>Let's Explore Space</Title1>
 
@@ -28,8 +28,9 @@ export default function HomeScreen({ navigation }) {
 
 			{/* This works */}
 			<CustomButton
-			onPress={() => navigation.navigate("Date Picker")}
-			title={"date picker"} />
+				onPress={() => navigation.navigate("Date Picker")}
+				title={"date picker"}
+			/>
 
 			{/* WIP, not sure how this works */}
 			<IconButton icon={"filter"} size={25} />
@@ -37,4 +38,3 @@ export default function HomeScreen({ navigation }) {
 		</View>
 	);
 }
-
