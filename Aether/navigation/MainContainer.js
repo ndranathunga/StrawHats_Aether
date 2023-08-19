@@ -70,6 +70,11 @@ const MainTabNavigator = () => (
 		})}
 		tabBar={({ navigation, state, descriptors, insets }) => (
 			<BottomNavigation.Bar
+				activeColor="white"
+				inactiveColor="grey"
+				barStyle={{ backgroundColor: "black" }}
+				style={{ backgroundColor: "black" }}
+				// theme={{ colors: { secondaryContainer: "transparent" } }}
 				navigationState={state}
 				safeAreaInsets={insets}
 				onTabPress={({ route, preventDefault }) => {
