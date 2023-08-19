@@ -37,6 +37,7 @@ const DestinationSearchBlock = () => {
             onChange={(text) =>
               isFlipped ? setEndLocation(text) : setStartLocation(text)
             }
+            holderColor={"#E0E2EB"}
           />
           <TextInputContainer
             label={"End"}
@@ -44,6 +45,7 @@ const DestinationSearchBlock = () => {
             onChange={(text) =>
               isFlipped ? setStartLocation(text) : setEndLocation(text)
             }
+            holderColor={"#E0E2EB"}
           />
         </View>
         <IconButton icon={"swap-vertical"} size={25} onPress={handleFlip} />
