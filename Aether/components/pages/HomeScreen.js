@@ -12,17 +12,18 @@ import TextContainer from "../atoms/text-container/TextContainer";
 import TransparentCard from "../molecules/TransparentCard";
 
 export default function HomeScreen({ navigation }) {
+
 	return (
 		<View style={{ flex: 1, alignItems: "right", justifyContent: "top" }}>
 			<Title3>Hello there, John</Title3>
 			<Title1>Let's Explore Space</Title1>
 
-			<Text
-				onPress={() => alert('This is the "Home" screen.')}
-				style={{ fontSize: 26, fontWeight: "bold" }}
-			>
-				Home Screen
-			</Text>
+      <Text
+        onPress={() => alert('This is the "Home" screen.')}
+        style={{ fontSize: 26, fontWeight: "bold" }}
+      >
+        Home Screen
+      </Text>
 
 			<TransparentCard title={"hi"} content={"hi"} />
 
@@ -32,9 +33,14 @@ export default function HomeScreen({ navigation }) {
 				title={"date picker"}
 			/>
 
-			{/* WIP, not sure how this works */}
-			<IconButton icon={"filter"} size={25} />
-			<TextContainer title={"hi"} />
-		</View>
-	);
+      {/* WIP, not sure how this works */}
+      <IconButton icon={"filter"} size={25} />
+      <TextContainer title={"hi"} />
+
+      <CustomButton
+        onPress={() => navigation.navigate("Destination Search")}
+        title={"Destination Search"}
+      />
+    </View>
+  );
 }

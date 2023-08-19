@@ -18,6 +18,7 @@ import PersonalInfoScreen from "../components/pages/PersonalInfoScreen";
 import SearchResultsScreen from "../components/pages/SearchResultsScreen";
 import ChoosePodScreen from "../components/pages/ChoosePodScreen";
 import DatePickerScreen from "../components/pages/DatePickerScreen";
+import DestinationSearchScreen from "../components/pages/DestinationSearchScreen";
 
 
 // Theming
@@ -58,6 +59,7 @@ const personalInfoName = "Personal Info";
 const choosePodName = "Choose Pod";
 const datePicker = "Date Picker";
 const searchResultsName = "Search Results";
+const destinationSearchName = "Destination Search";
 
 
 const image = {uri: 'https://legacy.reactjs.org/logo-og.png'};
@@ -188,6 +190,12 @@ function MainContainer() {
 						component={SearchResultsScreen}
 						options={{ tabBarVisible: false }}
 					/>
+
+          <Stack.Screen
+            name={destinationSearchName}
+            component={DestinationSearchScreen}
+            options={{ tabBarVisible: false }}
+          />
 
         </Stack.Navigator>
       </NavigationContainer>
