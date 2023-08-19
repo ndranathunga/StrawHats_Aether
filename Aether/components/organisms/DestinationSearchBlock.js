@@ -51,6 +51,7 @@ const DestinationSearchBlock = () => {
       <Title3>we'll probably have to get rid of the submit button</Title3>
       <CustomButton title="Search" onPress={handleSearch} />
       <Title3>Results for "Mars"</Title3>
+
       <View style={styles.resultCards}>
         <DestinationResults />
       </View>

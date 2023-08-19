@@ -11,23 +11,27 @@ const DestinationResults = () => {
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <DestinationCard
         title="Valles Base Space Center - Mars"
-        content="384.4 Mm - Polar - Wellness and Relaxation"  
+        content="384.4 Mm - Polar - Wellness and Relaxation"
         image={VallesBase}
+        rating={4.5}
       />
       <DestinationCard
-        title="DestinationCard 2"
-        content="This is the content of DestinationCard 2."
+        title="Marsport Hub - Mars"
+        content="43.26 Gm - Dry - Adventure and Exploration"
         image={MarsportHub}
+        rating={2.5}
       />
       <DestinationCard
-        title="DestinationCard 3"
-        content="This is the content of DestinationCard 3."
+        title="Ascendant Launch - Mars"
+        content="1.314 Tm - Tropical - Naturalistic and Eco-Friendly"
         image={AscendantLaunch}
+        rating={4.8}
       />
       <DestinationCard
-        title="DestinationCard 4"
-        content="This is the content of DestinationCard 4."
+        title="Aitken basin Water Park - Moon"
+        content="1.23 Tm - Polar - Wellness and Relaxation"
         image={AitkenBasin}
+        rating={2.8}
       />
     </ScrollView>
   );

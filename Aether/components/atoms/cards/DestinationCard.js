@@ -11,7 +11,7 @@ import Title3 from "../text/Title3";
 import Title4 from "../text/Title4";
 import RatingCircle from "../rating-container/RatingCircle";
 
-const DestinationCard = ({ title, content, image }) => (
+const DestinationCard = ({ title, content, image, rating }) => (
   <View style={styles.container}>
     <ImageBackground
       source={image}
@@ -22,7 +22,7 @@ const DestinationCard = ({ title, content, image }) => (
         <Title3>{title}</Title3>
         <View style={styles.descriptionRating}>
           <Title4>{content}</Title4>
-          <RatingCircle rating="4.5" />
+          <RatingCircle rating={rating} />
         </View>
       </View>
     </ImageBackground>
