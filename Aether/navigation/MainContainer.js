@@ -27,6 +27,7 @@ import {
 	MD3DarkTheme,
 	adaptNavigationTheme,
 	PaperProvider,
+	configureFonts,
 } from "react-native-paper";
 import merge from "deepmerge";
 
@@ -45,9 +46,14 @@ const { DarkTheme } = adaptNavigationTheme({
 
 const CombinedDarkTheme = merge(MD3DarkTheme, DarkTheme);
 
+const fontConfig = {
+	fontFamily: "Inter-Regular",
+};
+
 const theme = {
 	...CombinedDarkTheme,
-	colors: customPallete.colors, // Copy it from the color codes scheme and then use it here
+	colors: customPallete.colors,
+	fonts: configureFonts({ config: fontConfig }),
 };
 
 //Screen names
