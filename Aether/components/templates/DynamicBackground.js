@@ -1,5 +1,5 @@
 import { useBackground } from "../../context/BackgroundContext";
-import { ImageBackground, StyleSheet } from "react-native";
+import { ImageBackground, StyleSheet, Dimensions } from "react-native";
 
 const DynamicBackground = ({ children, ...props }) => {
 	const { backgroundColor, backgroundImage, setBackground } = useBackground();
@@ -15,6 +15,9 @@ const DynamicBackground = ({ children, ...props }) => {
 	);
 };
 
+// Get screen heihgt and width
+const { width, height } = Dimensions.get("window");
+
 const styles = StyleSheet.create({
 	image: {
 		flex: 1,
@@ -26,6 +29,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "flex-end",
 		borderRadius: 8,
+		paddingTop: (15 / 100) * height,
 	},
 });
 

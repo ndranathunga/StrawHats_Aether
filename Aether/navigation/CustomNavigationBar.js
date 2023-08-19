@@ -2,7 +2,9 @@ import { Appbar } from "react-native-paper";
 import { getHeaderTitle } from "@react-navigation/elements";
 import Title3 from "../components/atoms/text/Title3";
 import Title1 from "../components/atoms/text/Title1";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Dimensions } from "react-native";
+
+const { width, height } = Dimensions.get("window");
 
 export default function CustomNavigationBar({
 	navigation,
@@ -49,10 +51,17 @@ export default function CustomNavigationBar({
 const styles = StyleSheet.create({
 	header: {
 		backgroundColor: "transparent",
+		position: "absolute",
+		top: (10 / 100) * height,
+		left: 0,
+		right: 0,
 	},
 	headerHome: {
 		backgroundColor: "transparent",
-		height: 100,
+		position: "absolute",
+		top: (10 / 100) * height,
+		left: 0,
+		right: 0,
 	},
 	appBarContent: {
 		marginLeft: 0,
