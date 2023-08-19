@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import TextInputContainer from "../atoms/text-container/TextInputContainer";
 import IconButton from "../atoms/buttons/IconButton";
-import CustomButton from "../atoms/buttons/CustomButton";
 import DestinationResults from "../molecules/DestinationResults";
 import Title3 from "../atoms/text/Title3";
 
@@ -50,9 +49,10 @@ const DestinationSearchBlock = () => {
         </View>
         <IconButton icon={"swap-vertical"} size={25} onPress={handleFlip} />
       </View>
-      <Title3>we'll probably have to get rid of the submit button</Title3>
-      <CustomButton title="Search" onPress={handleSearch} />
-      <Title3>Results for "Mars"</Title3>
+      <View style={styles.resultText}>
+        <Title3>Results for "Mars"</Title3>
+        <IconButton icon={"filter"} size={25} />
+      </View>
 
       <View style={styles.resultCards}>
         <DestinationResults />
@@ -88,5 +88,12 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
+  },
+  resultText: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingLeft: 20,
+    width: "100%",
   },
 });
