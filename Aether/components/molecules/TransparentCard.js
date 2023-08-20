@@ -93,7 +93,10 @@ export default function TransparentCard({ navigation }) {
         </TouchableOpacity>
       </View>
       <Divider style={styles.divider} />
-      <View style={styles.dateContainer}>
+        <TouchableOpacity
+        style={styles.dateContainer}
+        onPress={handleDatePicker}
+      >
         <View style={styles.dateInputContainer}>
           <Icon
             name="calendar-outline"
@@ -101,7 +104,7 @@ export default function TransparentCard({ navigation }) {
             size={25}
             style={styles.icon}
           />
-          <Text onPress={handleDatePicker} title={"date picker"}>
+          <Text title={"date picker"}>
             <Body1>Add Departure Date</Body1>
           </Text>
           {/* ... */}
@@ -120,7 +123,7 @@ export default function TransparentCard({ navigation }) {
             {/* ... */}
           </View>
         )}
-      </View>
+      </TouchableOpacity>
 
       <Divider style={styles.divider} />
 

@@ -18,6 +18,10 @@ export default function ExploreScreen({ navigation }) {
 					onPress={() => navigation.navigate("Help")}
 					title={"Go to help screen"}
 				/>
+				<CustomButton
+					onPress={() => navigation.navigate("Login")}
+					title={"Go to Login screen"}
+				/>
 			</View>
 		</DynamicBackground>
 	);
