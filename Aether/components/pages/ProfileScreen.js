@@ -30,22 +30,10 @@ export default function ProfileScreen({ navigation }) {
         <Title1>Under Construction</Title1>
         <Button mode="outlined" onPress={() => navigation.navigate("Home")}>
           <Text>Go back to Home Screen</Text>
-          <Icon name="arrow-forward-outline" size={20}></Icon>
+          <Icon name="arrow-forward-outline" style={{color:"white"}} size={20}></Icon>
         </Button>
       </View>
 
-      {/* <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-				<Text
-					onPress={() => navigation.navigate("Home")}
-					style={{ fontSize: 26, fontWeight: "bold" }}
-				>
-					Explore Screen
-				</Text>
-				<CustomButton
-					onPress={() => navigation.navigate("Help")}
-					title={"Go to help screen"}
-				/>
-			</View> */}
     </DynamicBackground>
   );
 }
