@@ -51,15 +51,15 @@ export default function ExploreScreen({ navigation }) {
 						</View>
 						<NumberedSelectButtonRow
 							handlePress={(buttonNumber) => {
-								setAdults(buttonNumber);
+								setChildren(buttonNumber);
 							}}
-							selectedButton={adults}
+							selectedButton={children}
 							ButtonNumbers={[0, 1, 2, 3, 4, 5, 6, 7, 8]}
 							numberOfButtons={10}
 						/>
 					</View>
 
-					{/* <View style={styles.container}>
+					<View style={styles.container}>
 						<View style={styles.textContainer}>
 							<View style={{ flex: 3 }}>
 								<Title4>Infants</Title4>
@@ -70,13 +70,13 @@ export default function ExploreScreen({ navigation }) {
 						</View>
 						<NumberedSelectButtonRow
 							handlePress={(buttonNumber) => {
-								setAdults(buttonNumber);
+								setInfants(buttonNumber);
 							}}
-							selectedButton={adults}
+							selectedButton={infants}
 							ButtonNumbers={[0, 1, 2, 3, 4]}
 							numberOfButtons={10}
 						/>
-					</View> */}
+					</View>
 				</View>
 			</CenterViewContainer>
 		</DynamicBackground>
@@ -86,10 +86,10 @@ export default function ExploreScreen({ navigation }) {
 const styles = StyleSheet.create({
 	container: {
 		// flex: 3,
-		marginTop: 0,
+		marginBottom: 50,
 		// flexDirection: "column",
-		justifyContent: "center",
-		alignItems: "center",
+		// justifyContent: "center",
+		// alignItems: "center",
 	},
 	textContainer: {
 		flexDirection: "row",
