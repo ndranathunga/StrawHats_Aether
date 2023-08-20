@@ -99,7 +99,7 @@ const PersonalInfoForm = () => {
             holderColor={"#E0E2EB"}
           />
           <TextInputContainer
-            label="Passport Number"
+            label="Intergalactic Passport"
             onChange={(value) => handleInputChange("passport", value)}
             value={currentPassengerData.passport}
             holderColor={"#E0E2EB"}
