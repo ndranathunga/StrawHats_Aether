@@ -5,6 +5,7 @@ import Body1 from "../atoms/text/Body1";
 import Body2 from "../atoms/text/Body2";
 import { StyleSheet, View, Text } from "react-native";
 import { Icon } from 'react-native-elements';
+import { Ionicons } from '@expo/vector-icons';
 
 
 const BookingInfCard = ({ result }) => (
@@ -41,18 +42,21 @@ const BookingInfCard = ({ result }) => (
           <Avatar.Image
             size={40}
             style={styles.avatar}
-            source={require("../../assets/images/worlds/earth.png")}
+            source={result.startWorldImage}
           />
           <Body1>Earth</Body1>
         </View>
 
         {/* <Icon name="arrow-right" size={30}  /> */}
+        <Ionicons name="arrow-forward-outline"></Ionicons>
 
         <View style={{ alignItems: "center", justifyContent: "center" }}>
         <Avatar.Image
           size={40}
           style={styles.avatar}
-          source={require("../../assets/images/worlds/mars.png")}
+          //get source form result object's endWorldImage property
+          // get text out from the path and give to source
+          source={result.endWorldImage}
         />
         <Body1>Mars</Body1>
         </View>

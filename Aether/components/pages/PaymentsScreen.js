@@ -28,8 +28,8 @@ const flight_info = {
   price: "$280,000",
   startWorld: "Earth",
   endWorld: "Mars",
-  startWorldImage: "../../assets/images/worlds/earth.png",
-  endWorldImage: "../../assets/images/worlds/mars.png",
+  startWorldImage: require("../../assets/images/worlds/earth.png"),
+  endWorldImage: require("../../assets/images/worlds/mars.png"),
 };
 
 const styles = StyleSheet.create({
