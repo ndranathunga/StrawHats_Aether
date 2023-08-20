@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import Body1 from "../atoms/text/Body1";
 import Body2 from "../atoms/text/Body2";
+import CustomButton from "../atoms/buttons/CustomButton";
 import Icon from "react-native-vector-icons/Ionicons";
 import { Card, Divider, Button } from "react-native-paper";
 
@@ -22,7 +23,7 @@ const TransparentCard = (navigation) => {
 	};
 
 	return (
-		<Card style={{ ...styles.card, padding: "20" }}>
+		<Card style={{ ...styles.card, padding: "1" }}>
 			<View style={styles.cardHeader}>
 				<TouchableOpacity
 					style={[
@@ -131,14 +132,14 @@ const TransparentCard = (navigation) => {
 
 			<Divider style={{ ...styles.divider, marginBottom: 0 }} />
 
-			<View>
-				<Button
+			<View style={{alignItems:"center"}}>
+				<CustomButton
 					onPress={() => console.log("Hello")}
-					style={styles.btn}
-					labelStyle={styles.btnLabel}
+					title={"Search Flights"}
+					style={{ width: '100%' }}					
 				>
 					Search Flights
-				</Button>
+				</CustomButton>
 			</View>
 		</Card>
 	);
@@ -146,24 +147,19 @@ const TransparentCard = (navigation) => {
 
 const styles = StyleSheet.create({
 	card: {
+		// justifyContent: "center",
+		// alignItems: "center",
 		padding: 15,
 		margin: 10,
+		backgroundColor: 'rgba(129, 194, 255, 0.25)',
 		borderColor: "white",
 		borderWidth: 1,
 		borderRadius: 10,
-		shadowColor: "white",
-		shadowOpacity: 0.5,
-		shadowRadius: 2,
-		shadowOffset: {
-			height: 1,
-			width: 1,
-		},
 	},
 	cardHeader: {
 		flexDirection: "row",
 		justifyContent: "space-evenly",
 		margin: 15,
-		marginTop: 30,
 	},
 	optionButton: {
 		paddingHorizontal: 20,
@@ -182,7 +178,6 @@ const styles = StyleSheet.create({
 		backgroundColor: "white", // Set the color to white
 		height: 1, // Adjust the height as needed
 		width: "100%", // Adjust the width as needed
-		marginVertical: 5, // Add spacing around the divider
 	},
 	locationContainer: {
 		flexDirection: "row",
@@ -211,19 +206,6 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		alignItems: "center",
 		justifyContent: "space-around",
-	},
-	btn: {
-		padding: 5,
-		width: "100%",
-		// backgroundColor: "lightblue",
-		borderRadius: 10,
-		borderTopRightRadius: 0,
-		borderTopLeftRadius: 0,
-	},
-	btnLabel: {
-		padding: 5,
-		color: "white",
-		fontWeight: "bold",
 	},
 	passengerContainer: {
 		margin: 10,
