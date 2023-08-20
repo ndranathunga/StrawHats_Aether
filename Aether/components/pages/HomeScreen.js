@@ -1,53 +1,41 @@
 import * as React from "react";
-import { View, ImageBackground, StyleSheet } from "react-native";
-import { Text } from "react-native-paper";
-
-import Title1 from "../atoms/text/Title1";
-import Title3 from "../atoms/text/Title3";
-
+import { View, StyleSheet } from "react-native";
 import CustomButton from "../atoms/buttons/CustomButton";
-import IconButton from "../atoms/buttons/IconButton";
 import TextContainer from "../atoms/text-container/TextContainer";
 import TransparentCard from "../molecules/TransparentCard";
 import DynamicBackground from "../templates/DynamicBackground";
 
-
 export default function HomeScreen({ navigation }) {
 	return (
-    <DynamicBackground>
-		<View style={{ flex: 1, alignItems: "right", justifyContent: "top" }}>
-			<Title3>Hello there, John</Title3>
-			<Title1>Let's Explore Space</Title1>
+		<DynamicBackground>
+			<View style={styles.container}>
+				<TransparentCard />
 
-			<Text
-				onPress={() => alert('This is the "Home" screen.')}
-				style={{ fontSize: 26, fontWeight: "bold" }}
-			>
-				Home Screen
-			</Text>
+				<CustomButton
+					onPress={() => navigation.navigate("Date Picker")}
+					title={"date picker"}
+				/>
 
-			<TransparentCard title={"hi"} content={"hi"} />
+				<CustomButton
+					onPress={() => navigation.navigate("Select Passengers")}
+					title={"Select Passengers"}
+				/>
 
-			{/* This works */}
-			<CustomButton
-				onPress={() => navigation.navigate("Date Picker")}
-				title={"date picker"}
-			/>
+				<TextContainer title={"hi"} />
 
-			<CustomButton
-				onPress={() => navigation.navigate("Select Passengers")}
-				title={"Select Passengers"}
-			/>
-
-			{/* WIP, not sure how this works */}
-			<IconButton icon={"filter"} size={25} />
-			<TextContainer title={"hi"} />
-
-			<CustomButton
-				onPress={() => navigation.navigate("Destination Search")}
-				title={"Destination Search"}
-			/>
-		</View>
-</DynamicBackground>
+				<CustomButton
+					onPress={() => navigation.navigate("Destination Search")}
+					title={"Destination Search"}
+				/>
+			</View>
+		</DynamicBackground>
 	);
 }
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		alignItems: "center",
+		justifyContent: "top",
+	},
+});

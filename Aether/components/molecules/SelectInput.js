@@ -32,22 +32,22 @@ function SelectInput({ label, value, setValue, items }) {
 
 const styles = StyleSheet.create({
 	container: {
-		width: "80%",
+		width: "90%",
 		marginVertical: 10,
 	},
 	title: {
 		marginBottom: 5,
 	},
 	selectBox: {
-		borderColor: "#202529",
-		backgroundColor: "#202529",
+		borderColor: "rgba(255, 255, 255, 0.4)",
+		backgroundColor: "rgba(0, 0, 0, 0.70)",
 		borderRadius: 10,
 	},
 	selectLabel: {
 		textAlign: "center",
 	},
 	selectDropdown: {
-		backgroundColor: "#363a3e",
+		backgroundColor: "#333333",
 		zIndex: 100000,
 	},
 	selectText: {

@@ -93,23 +93,23 @@ export default function SearchResultsScreen({ route, navigation }) {
 
 	return (
 		<DynamicBackground>
-		<CenterViewContainer>
-			<View style={styles.container}>
-				<SearchQueryCard query={searchQuery} />
-				<IconButton
-					icon={"filter"}
-					size={25}
-					onPress={() =>
-						navigation.navigate("Sort & Filter", {
-							filters: filters,
-							searchQuery: searchQuery,
-						})
-					}
-				/>
-			</View>
+			<CenterViewContainer>
+				<View style={styles.container}>
+					<SearchQueryCard query={searchQuery} />
+					<IconButton
+						icon={"filter"}
+						size={25}
+						onPress={() =>
+							navigation.navigate("Sort & Filter", {
+								filters: filters,
+								searchQuery: searchQuery,
+							})
+						}
+					/>
+				</View>
 
-			<SearchResultList data={searchResultsFiltered} />
-		</CenterViewContainer>
+				<SearchResultList data={searchResultsFiltered} />
+			</CenterViewContainer>
 		</DynamicBackground>
 	);
 }
@@ -152,7 +152,6 @@ const SEARCH_RESULT_DATA = [
 
 const styles = StyleSheet.create({
 	container: {
-		marginTop: 30,
 		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",

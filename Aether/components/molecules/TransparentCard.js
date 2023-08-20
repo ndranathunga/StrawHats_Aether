@@ -146,6 +146,7 @@ const TransparentCard = (navigation) => {
 
 const styles = StyleSheet.create({
 	card: {
+		width: "90%",
 		padding: 15,
 		margin: 10,
 		borderColor: "white",

@@ -5,15 +5,29 @@ import Body1 from "../atoms/text/Body1";
 import Body2 from "../atoms/text/Body2";
 import { StyleSheet, View } from "react-native";
 
+import blueOrigin from "../../assets/images/flight-companies/blue-origin.jpeg";
+import spaceX from "../../assets/images/flight-companies/space-x.jpeg";
+import virginGalactic from "../../assets/images/flight-companies/virgin-galactic.png";
+
+const flightCompanies = {
+	"Blue Origin": blueOrigin,
+	SpaceX: spaceX,
+	"Virgin Galactic": virginGalactic,
+};
+
+const numberWithCommas = (x) => {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 const SearchResultCard = ({ result }) => (
-	<Card>
+	<Card mode="outlined" style={styles.card}>
 		<Card.Content>
 			<View style={styles.cardHeader}>
 				<View style={styles.headerLeft}>
 					<Avatar.Image
 						size={40}
 						style={styles.avatar}
-						source={require("../../assets/images/flight-companies/blue-origin.jpeg")}
+						source={flightCompanies[result.flightCompany]}
 					/>
 					<View style={styles.flightDetails}>
 						<Title4>{result.flightCompany}</Title4>
@@ -31,7 +45,7 @@ const SearchResultCard = ({ result }) => (
 					<Body2>{result.launchLocation}</Body2>
 				</View>
 				<View style={styles.price}>
-					<Title3>{result.price}</Title3>
+					<Title3>${numberWithCommas(result.price)}</Title3>
 				</View>
 			</View>
 		</Card.Content>
@@ -49,6 +63,11 @@ const SearchResultCard = ({ result }) => (
 );
 
 const styles = StyleSheet.create({
+	card: {
+		borderRadius: 10,
+		backgroundColor: "rgba(0, 0, 0, 0.70)",
+		borderColor: "rgba(255, 255, 255, 0.40)",
+	},
 	cardHeader: {
 		flexDirection: "row",
 		marginBottom: 10,
@@ -75,6 +94,8 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 	},
 	btn: {
+		backgroundColor: "rgba(129, 194, 255, 0.25)",
+		borderColor: "rgba(255, 255, 255, 0.3)",
 		width: "100%",
 		borderRadius: 0,
 		borderTopRightRadius: 0,
@@ -83,6 +104,8 @@ const styles = StyleSheet.create({
 		borderBottomLeftRadius: 10,
 	},
 	btnLabel: {
+		color: "#fff",
+		fontFamily: "Inter-SemiBold",
 		paddingBottom: 5,
 		paddingTop: 5,
 	},

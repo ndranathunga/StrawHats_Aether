@@ -3,6 +3,7 @@ import CenterViewContainer from "../atoms/view-containers/CenterViewContainer";
 import SearchQueryCard from "../molecules/SearchQueryCard";
 import { StyleSheet, View } from "react-native";
 import SearchFilterRadioCard from "../organisms/SearchFilterRadioCard";
+import DynamicBackground from "../templates/DynamicBackground";
 
 import SelectInput from "../molecules/SelectInput";
 import NumSlider from "../molecules/NumSlider";
@@ -47,40 +48,39 @@ export default function SearchResultsFilterScreen({ route, navigation }) {
 
 	return (
 		<DynamicBackground>
-		<CenterViewContainer>
-			<View style={styles.container}>
-				<SearchQueryCard query={searchQuery} />
-			</View>
-			<SearchFilterRadioCard value={filterValue} setValue={setFilterValue} />
-			<SelectInput
-				label={"Company"}
-				value={companyValue}
-				setValue={setCompanyValue}
-				items={companyItems}
-			/>
-			<SelectInput
-				label={"Spaceship Type"}
-				value={spaceshipTypeValue}
-				setValue={setSpaceshipTypeValue}
-				items={spaceshipTypeItems}
-			/>
-			<NumSlider
-				label={"Max Price"}
-				minValue={0}
-				maxValue={1000000}
-				value={maxPriceValue}
-				setValue={setMaxPriceValue}
-				valueLabel={"$0 - $" + maxPriceValue}
-				step={50000}
-			/>
-		</CenterViewContainer>
+			<CenterViewContainer>
+				<View style={styles.container}>
+					<SearchQueryCard query={searchQuery} />
+				</View>
+				<SearchFilterRadioCard value={filterValue} setValue={setFilterValue} />
+				<SelectInput
+					label={"Company"}
+					value={companyValue}
+					setValue={setCompanyValue}
+					items={companyItems}
+				/>
+				<SelectInput
+					label={"Spaceship Type"}
+					value={spaceshipTypeValue}
+					setValue={setSpaceshipTypeValue}
+					items={spaceshipTypeItems}
+				/>
+				<NumSlider
+					label={"Max Price"}
+					minValue={0}
+					maxValue={1000000}
+					value={maxPriceValue}
+					setValue={setMaxPriceValue}
+					valueLabel={"$0 - $" + maxPriceValue}
+					step={50000}
+				/>
+			</CenterViewContainer>
 		</DynamicBackground>
 	);
 }
 
 const styles = StyleSheet.create({
 	container: {
-		marginTop: 30,
 		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",
