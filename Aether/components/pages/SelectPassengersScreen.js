@@ -27,7 +27,8 @@ export default function ExploreScreen({ navigation }) {
   // Render the ExploreScreen UI
   return (
     <DynamicBackground>
-      <CenterViewContainer>
+		<View style={styles.outerContainer}>
+		<View style={{flex:1,flexDirection: "raw", }}>
         <View style={{ flex: 1, flexDirection: "column" }}>
           <View style={styles.container}>
             <View style={styles.textContainer}>
@@ -101,13 +102,16 @@ export default function ExploreScreen({ navigation }) {
             />
           </View>
         </View>
-        <CustomButton
+
+		</View>
+		
+		        <CustomButton
           onPress={() => {
             navigation.navigate("Search Results");
           }}
           title={"Next"}
         />
-      </CenterViewContainer>
+		</View>
     </DynamicBackground>
   );
 }
@@ -125,5 +129,9 @@ const styles = StyleSheet.create({
   textContainer: {
     flexDirection: "row",
     marginBottom: 15,
+  },
+  outerContainer: {
+	flex: 1,
+	padding:30,
   },
 });

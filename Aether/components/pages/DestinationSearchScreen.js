@@ -32,4 +32,5 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     borderRadius: 8,
   },
+  
 });

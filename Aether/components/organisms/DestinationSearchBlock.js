@@ -27,7 +27,7 @@ export default function DestinationSearchBlock({ navigation }) {
 	};
 
 	return (
-		<View style={styles.container}>
+		<View style={styles.outerContainer}>
 			<View style={styles.textAndFlip}>
 				<View style={styles.justTextInput}>
 					<TextInputContainer
@@ -99,4 +99,8 @@ const styles = StyleSheet.create({
 		paddingLeft: 20,
 		width: "100%",
 	},
+	outerContainer: {
+		flex: 1,
+		padding:10,
+	  },
 });

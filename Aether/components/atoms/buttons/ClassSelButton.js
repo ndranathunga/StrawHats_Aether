@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   seatText: {
     color: "white",
-    fontSize: 18,
+    fontSize: 15,
   },
 });
 

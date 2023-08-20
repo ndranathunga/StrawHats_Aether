@@ -59,7 +59,7 @@ export default function BoardingPassScreen({ navigation }) {
             navigation.navigate("Boarding Pass");
           }}
         />
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={[styles.button]}>
           <Text
             style={styles.buttonText}
             onPress={() => {
@@ -138,6 +138,7 @@ const styles = StyleSheet.create({
     height: 60,
     alignContent: "center",
     justifyContent: "center",
+    flex:1,
   },
   buttonText: {
     textAlign: "center",
