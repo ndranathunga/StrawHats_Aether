@@ -46,7 +46,7 @@ const SlideItem = ({ item }) => {
 					<Image
 						source={logo}
 						style={{
-							display: "block",
+							// display: "block",
 							position: "absolute",
 							top: 80,
 							left: 30,
