@@ -63,7 +63,6 @@ export default function TransparentCard({ navigation }) {
 					</Text>
 				</TouchableOpacity>
 			</View>
-
 			<Divider style={styles.divider} />
 			<View style={styles.locationContainer}>
 				<View style={styles.location}>

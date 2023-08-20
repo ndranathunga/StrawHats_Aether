@@ -25,6 +25,8 @@ import NebulaScreen from "../components/pages/NebulaScreen";
 import SelectPassengersScreen from "../components/pages/SelectPassengersScreen";
 import HelpScreen from "../components/pages/HelpScreen";
 import NotificaitonsScreen from "../components/pages/NotificationsScreen";
+import LoginScreen from "../components/pages/LoginScreen";
+import RegisterScreen from "../components/pages/RegisterScreen";
 
 import PaymentsScreen from "../components/pages/PaymentsScreen";
 import BoardingPassScreen from "../components/pages/BoardingPassScreen";
@@ -84,6 +86,8 @@ const nebulaName = "Nebula";
 const SelectPassengersName = "Select Passengers";
 const HelpScreenName = "Help";
 const notificationsName = "Notifications";
+const loginName = "Login";
+const registerName = "Register";
 
 const paymentsName = "Payments";
 const boardingPassName = "Boarding Pass";
@@ -264,6 +268,20 @@ function MainContainer() {
           />
 
           <Stack.Screen
+						name={HelpScreenName}
+						component={HelpScreen}
+						options={{ tabBarVisible: false, headerShown: false }}
+					/>
+          <Stack.Screen
+            name={loginName}
+            component={LoginScreen}
+            options={{ tabBarVisible: false, headerShown: false }}
+          />
+          <Stack.Screen
+            name={registerName}
+            component={RegisterScreen}
+            options={{ tabBarVisible: false, headerShown: false }}
+          />
             name={HelpScreenName}
             component={HelpScreen}
             options={{ tabBarVisible: false, headerShown: false }}

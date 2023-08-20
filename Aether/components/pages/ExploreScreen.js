@@ -6,6 +6,7 @@ import CustomButton from "../atoms/buttons/CustomButton";
 import Headline from "../atoms/text/Headline";
 import Title1 from "../atoms/text/Title1";
 import Icon from "react-native-vector-icons/Ionicons";
+
 export default function ExploreScreen({ navigation }) {
 
   const scaleValue = useRef(new Animated.Value(0)).current;
