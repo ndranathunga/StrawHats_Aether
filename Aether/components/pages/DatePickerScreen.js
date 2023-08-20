@@ -13,9 +13,9 @@ import { defultBoxStyle } from "../atoms/Styles/defultBoxStyle";
 
 // DatePickerScreen component
 export default function DatePickerScreen() {
-  const navigation = useNavigation();
+	const navigation = useNavigation();
 
-  // State variables to manage selected dates and calendar visibility
+// State variables to manage selected dates and calendar visibility
   const [selectedStartDate, setSelectedStartDate] = useState(null);
   const [selectedReturnDate, setSelectedReturnDate] = useState(null);
   const [showReturnDatePicker, setShowReturnDatePicker] = useState(false);
@@ -70,88 +70,109 @@ export default function DatePickerScreen() {
     return date.isBefore(today, "day");
   };
 
-  return (
-    <DynamicBackground>
-      <CenterViewContainer style={{ padding: 20 }}>
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: 10,
-          }}
-        >
-          <SelectedDateCard
-            title={"Departure"}
-            content={
-              selectedStartDate ? formatDate(selectedStartDate) : "Select Date"
-            }
-          />
 
-          <SelectedDateCard
-            onPress={toggleReturnDatePicker}
-            title={"Return"}
-            content={
-              selectedReturnDate
-                ? formatDate(selectedReturnDate)
-                : "Select Date"
-            }
-          />
-        </View>
+	return (
+		<DynamicBackground>
+			<CenterViewContainer>
+				<View
+					style={{
+						flexDirection: "row",
+						alignItems: "center",
+						justifyContent: "center",
+						paddingHorizontal: 40,
+						paddingBottom: 10,
+					}}
+				>
+					<SelectedDateCard
+						title={"Departure"}
+						content={
+							selectedStartDate ? formatDate(selectedStartDate) : "Select Date"
+						}
+					/>
 
-        <View style={{ flex: 1 }}>
-          <View style={{ flex: 0.5 }}>
-            <View
-              style={[
-                defultBoxStyle.container,
-                defultBoxStyle.sizes,
-                { marginTop: 1, marginBottom: 5 },
-              ]}
-            >
-              <CalendarPicker
-                width={280}
-                selectedDayColor={"#84BCFF"}
-                textStyle={[textStyles.title3, { color: "white" }]}
-                onDateChange={(date) => onDateChange(date, "START_DATE")}
-                disabledDates={(date) => isDateDisabled(date, "START_DATE")}
-              />
-            </View>
-          </View>
+					<SelectedDateCard
+						onPress={toggleReturnDatePicker}
+						title={"Return"}
+						content={
+							selectedReturnDate
+								? formatDate(selectedReturnDate)
+								: "Select Date"
+						}
+					/>
+				</View>
 
-          <View style={{ flex: 0.5 }}>
-            {showReturnDatePicker && (
-              <View
-                style={[
-                  defultBoxStyle.container,
-                  defultBoxStyle.sizes,
-                  { marginTop: 1, marginBottom: 5 },
-                ]}
-              >
-                <CalendarPicker
-                  width={280}
-                  selectedDayColor={"#84BCFF"}
-                  textStyle={[textStyles.title3, { color: "white" }]}
-                  onDateChange={(date) => onDateChange(date, "RETURN_DATE")}
-                  disabledDates={(date) => isDateDisabled(date, "RETURN_DATE")}
-                />
-              </View>
-            )}
-          </View>
-        </View>
+				<View style={{ flex: 1 }}>
+					<View style={{ flex: 0.45 }}>
+						<View
+							style={[
+								defultBoxStyle.container,
+								defultBoxStyle.sizes,
+								{ marginTop: 1, marginBottom: 5 },
+							]}
+						>
+							<CalendarPicker
+								width={280}
+								selectedDayColor={"#84BCFF"}
+								textStyle={[textStyles.title3, { color: "white" }]}
+								onDateChange={(date) => onDateChange(date, "START_DATE")}
+								disabledDates={(date) => isDateDisabled(date, "START_DATE")}
+							/>
+						</View>
+					</View>
 
-        <CustomButton onPress={handleSelectPress} title={"Select"} />
-      </CenterViewContainer>
-    </DynamicBackground>
-  );
+					<View style={{ flex: 0.45 }}>
+						{showReturnDatePicker && (
+							<View
+								style={[
+									defultBoxStyle.container,
+									defultBoxStyle.sizes,
+									{ marginTop: 1, marginBottom: 5 },
+								]}
+							>
+								<CalendarPicker
+									width={280}
+									selectedDayColor={"#84BCFF"}
+									textStyle={[textStyles.title3, { color: "white" }]}
+									onDateChange={(date) => onDateChange(date, "RETURN_DATE")}
+									disabledDates={(date) => isDateDisabled(date, "RETURN_DATE")}
+								/>
+							</View>
+						)}
+					</View>
+					<View
+						style={{
+							alignContent: "center",
+							justifyContent: "center",
+							alignItems: "center",
+							marginTop: 10,
+						}}
+					>
+						<CustomButton
+							style={styles.btn}
+							onPress={handleSelectPress}
+							title={"Select"}
+						/>
+					</View>
+				</View>
+			</CenterViewContainer>
+		</DynamicBackground>
+	);
 }
 
 const styles = StyleSheet.create({
-  iconContainer: {
-    position: "absolute",
-    left: 0,
-    top: "50%",
-    transform: [{ translateY: -8 }],
-    paddingHorizontal: 10,
-    flex: 1,
-  },
+	iconContainer: {
+		position: "absolute",
+		left: 0,
+		top: "50%",
+		transform: [{ translateY: -8 }],
+		paddingHorizontal: 10,
+		flex: 1,
+	},
+	btn: {
+		// width: "90%",
+		// alignContent: "center",
+		// justifyContent: "center",
+		marginTop: 20,
+		marginBottom: 50,
+	},
 });

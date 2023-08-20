@@ -4,6 +4,7 @@ import { View, StyleSheet, Text } from "react-native";
 import DynamicBackground from "../templates/DynamicBackground";
 import CenterViewContainer from "../atoms/view-containers/CenterViewContainer";
 import NumberedSelectButtonRow from "../molecules/NumberedSelectButtonRow";
+import ClassSelectRaw from "../molecules/ClassSelectRaw";
 import textStyles from "../atoms/text/Styles";
 import Body2 from "../atoms/text/Body2";
 import Title4 from "../atoms/text/Title4";
@@ -16,6 +17,7 @@ export default function ExploreScreen({ navigation }) {
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
+  const [pclass, setClass] = useState(0);
 
   // Handle button press to set selected option
   const handleButtonPress = (buttonNumber) => {
@@ -83,6 +85,21 @@ export default function ExploreScreen({ navigation }) {
               numberOfButtons={10}
             />
           </View>
+
+		  <View style={styles.container}>
+            <View style={styles.textContainer}>
+              <View style={{ flex: 3 }}>
+                <Title4>Classes</Title4>
+              </View>
+            </View>
+            <ClassSelectRaw
+              handlePress={(buttonNumber) => {
+                setClass(buttonNumber);
+              }}
+              selectedButton={pclass}
+              Classes={["Economy","Premium Economy","Business"]}
+            />
+          </View>
         </View>
         <CustomButton
           onPress={() => {
@@ -98,6 +115,7 @@ export default function ExploreScreen({ navigation }) {
 // Styles for the component
 const styles = StyleSheet.create({
   container: {
+    
     // flex: 3,
     marginBottom: 50,
     // flexDirection: "column",
