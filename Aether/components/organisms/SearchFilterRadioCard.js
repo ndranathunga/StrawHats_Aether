@@ -10,42 +10,44 @@ const SearchFilterRadioCard = ({ value, setValue }) => {
 				<Title3 style={styles.cardLabel}>Sort</Title3>
 			</View>
 
-			<Card style={styles.radioGroupCard}>
-				<RadioButton.Group
-					onValueChange={(newValue) => setValue(newValue)}
-					value={value}
-				>
-					<RadioGroupItem
-						icon={"arrow-up"}
-						label="Price - Lowest first"
-						value={"price-lowest"}
-					/>
-					<RadioGroupItem
-						icon={"arrow-down"}
-						label="Price - Highest first"
-						value={"price-highest"}
-					/>
-					<RadioGroupItem
-						icon={"stopwatch-outline"}
-						label="Travel duration - Lowest first"
-						value={"duration-lowest"}
-					/>
-					<RadioGroupItem
-						icon={"calendar-outline"}
-						label="Departure date - Latest first"
-						value={"date-latest"}
-					/>
-					<RadioGroupItem
-						icon={"location-outline"}
-						label="Closest to you"
-						value={"closest"}
-					/>
-					<RadioGroupItem
-						icon={"stats-chart-outline"}
-						label="Most Popular"
-						value={"most-popular"}
-					/>
-				</RadioButton.Group>
+			<Card style={styles.radioGroupCard} mode="outlined">
+				<Card.Content>
+					<RadioButton.Group
+						onValueChange={(newValue) => setValue(newValue)}
+						value={value}
+					>
+						<RadioGroupItem
+							icon={"arrow-up"}
+							label="Price - Lowest first"
+							value={"price-lowest"}
+						/>
+						<RadioGroupItem
+							icon={"arrow-down"}
+							label="Price - Highest first"
+							value={"price-highest"}
+						/>
+						<RadioGroupItem
+							icon={"stopwatch-outline"}
+							label="Travel duration - Lowest first"
+							value={"duration-lowest"}
+						/>
+						<RadioGroupItem
+							icon={"calendar-outline"}
+							label="Departure date - Latest first"
+							value={"date-latest"}
+						/>
+						<RadioGroupItem
+							icon={"location-outline"}
+							label="Closest to you"
+							value={"closest"}
+						/>
+						<RadioGroupItem
+							icon={"stats-chart-outline"}
+							label="Most Popular"
+							value={"most-popular"}
+						/>
+					</RadioButton.Group>
+				</Card.Content>
 			</Card>
 		</>
 	);
@@ -57,13 +59,15 @@ const styles = StyleSheet.create({
 		textAlign: "left",
 		marginBottom: 5,
 		marginTop: 10,
-		width: "80%",
+		width: "90%",
 	},
 	radioGroupCard: {
 		marginHorizontal: 10,
 		marginBottom: 10,
-		padding: 10,
-		width: "80%",
+		// padding: 10,
+		width: "90%",
+		backgroundColor: "rgba(0, 0, 0, 0.70)",
+		borderColor: "rgba(255, 255, 255, 0.40)",
 	},
 	cardLabel: {
 		display: "block",

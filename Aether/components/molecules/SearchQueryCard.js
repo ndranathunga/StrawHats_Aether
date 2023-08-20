@@ -2,7 +2,7 @@ import TextContainer from "../atoms/text-container/TextContainer";
 import Title3 from "../atoms/text/Title3";
 import Body2 from "../atoms/text/Body2";
 
-const SearchQueryCard = ({ query }) => {
+const SearchQueryCard = ({ query, large = false }) => {
 	const searchQueryTitle = (
 		<Title3>
 			{query.startingLocation} - {query.destination} | {query.departureDate}
@@ -15,7 +15,11 @@ const SearchQueryCard = ({ query }) => {
 		</Body2>
 	);
 	return (
-		<TextContainer title={searchQueryTitle} content={searchQueryContent} />
+		<TextContainer
+			title={searchQueryTitle}
+			content={searchQueryContent}
+			large={large}
+		/>
 	);
 };
 
