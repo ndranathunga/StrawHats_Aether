@@ -56,7 +56,11 @@ export default function DestinationSearchBlock({ navigation }) {
       </View>
 
       <View style={styles.resultCards}>
-        <DestinationResults navigation={navigation} />
+        <DestinationResults
+          navigation={navigation}
+          endLocation={endLocation}
+          startLocation={startLocation}
+        />
       </View>
     </View>
   );

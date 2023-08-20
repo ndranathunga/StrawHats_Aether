@@ -6,9 +6,13 @@ import MarsportHub from "../../assets/images/destinations/marsport-hub.png";
 import AscendantLaunch from "../../assets/images/destinations/ascendant-launch.png";
 import AitkenBasin from "../../assets/images/destinations/aitken-basin.png";
 
-export default function DestinationResults({ navigation }) {
+export default function DestinationResults({
+  navigation,
+  endLocation,
+  startLocation,
+}) {
   const onCardPress = () => {
-    navigation.navigate("Date Picker");
+    navigation.navigate("Date Picker"), { endLocation, startLocation };
   };
 
   return (
