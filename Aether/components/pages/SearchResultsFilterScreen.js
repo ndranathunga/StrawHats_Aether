@@ -7,7 +7,6 @@ import DynamicBackground from "../templates/DynamicBackground";
 
 import SelectInput from "../molecules/SelectInput";
 import NumSlider from "../molecules/NumSlider";
-import DynamicBackground from "../templates/DynamicBackground";
 
 export default function SearchResultsFilterScreen({ route, navigation }) {
 	const { filters, searchQuery } = route.params;
