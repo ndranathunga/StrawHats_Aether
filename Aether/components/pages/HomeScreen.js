@@ -5,6 +5,7 @@ import TextContainer from "../atoms/text-container/TextContainer";
 import TransparentCard from "../molecules/TransparentCard";
 import DynamicBackground from "../templates/DynamicBackground";
 import NebulaButton from "../atoms/buttons/NebulaButton";
+import CarouselCards from "../molecules/CarouselCards";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -12,6 +13,7 @@ export default function HomeScreen({ navigation }) {
       <View style={styles.container}>
         <TransparentCard navigation={navigation} />
         <NebulaButton navigation={navigation} />
+        <CarouselCards />
 
         <CustomButton
           onPress={() => navigation.navigate("Date Picker")}
