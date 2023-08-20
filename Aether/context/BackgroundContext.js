@@ -19,6 +19,14 @@ const items = [
 		id: "003",
 		image: require("../assets/images/backgrounds/black-hole-bg-temp.jpeg"),
 	},
+	{
+		id: "004",
+		image: require("../assets/images/backgrounds/mars-bg-1.jpeg"),
+	},
+	{
+		id: "005",
+		image: require("../assets/images/backgrounds/mars-bg-2.jpeg"),
+	},
 ];
 
 export const BackgroundProvider = ({ children }) => {
