@@ -3,6 +3,7 @@ import CenterViewContainer from "../atoms/view-containers/CenterViewContainer";
 import SearchQueryCard from "../molecules/SearchQueryCard";
 import { StyleSheet, View } from "react-native";
 import SearchFilterRadioCard from "../organisms/SearchFilterRadioCard";
+import DynamicBackground from "../templates/DynamicBackground";
 
 import SelectInput from "../molecules/SelectInput";
 import NumSlider from "../molecules/NumSlider";
@@ -49,7 +50,7 @@ export default function SearchResultsFilterScreen({ route, navigation }) {
 		<DynamicBackground>
 			<CenterViewContainer>
 				<View style={styles.container}>
-					<SearchQueryCard query={searchQuery} large={true} />
+					<SearchQueryCard query={searchQuery} />
 				</View>
 				<SearchFilterRadioCard value={filterValue} setValue={setFilterValue} />
 				<SelectInput
@@ -80,7 +81,6 @@ export default function SearchResultsFilterScreen({ route, navigation }) {
 
 const styles = StyleSheet.create({
 	container: {
-		marginTop: 30,
 		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",

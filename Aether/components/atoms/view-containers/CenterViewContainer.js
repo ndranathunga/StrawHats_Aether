@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		alignItems: "center",
-		padding: 10,
+		// padding: 5,
 	},
 });
 

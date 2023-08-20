@@ -152,7 +152,6 @@ const SEARCH_RESULT_DATA = [
 
 const styles = StyleSheet.create({
 	container: {
-		marginTop: 30,
 		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",
