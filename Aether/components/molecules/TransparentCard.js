@@ -166,8 +166,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.1)",
     // backgroundColor: "FFFFFF10",
     width: "90%",
-    padding: 15,
-    margin: 10,
+    marginBottom: 10,
     borderColor: "white",
     borderWidth: 1,
     borderRadius: 10,
@@ -182,7 +181,7 @@ const styles = StyleSheet.create({
   cardHeader: {
     flexDirection: "row",
     justifyContent: "space-evenly",
-    margin: 15,
+    margin: 10,
     marginTop: 30,
   },
   optionButton: {
