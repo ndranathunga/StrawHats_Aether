@@ -50,7 +50,8 @@ const DestinationSearchBlock = () => {
         <IconButton icon={"swap-vertical"} size={25} onPress={handleFlip} />
       </View>
       <View style={styles.resultText}>
-        <Title3>Results for "Mars"</Title3>
+        {!endLocation && <Title3>Search for a destination</Title3>}
+        {endLocation && <Title3>Results for {endLocation}</Title3>}
         <IconButton icon={"filter"} size={25} />
       </View>
 
