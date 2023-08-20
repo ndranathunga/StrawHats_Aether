@@ -5,7 +5,7 @@ import IconButton from "../atoms/buttons/IconButton";
 import DestinationResults from "../molecules/DestinationResults";
 import Title3 from "../atoms/text/Title3";
 
-const DestinationSearchBlock = () => {
+export default function DestinationSearchBlock({ navigation }) {
   const [startLocation, setStartLocation] = useState("");
   const [endLocation, setEndLocation] = useState("");
   const [isFlipped, setIsFlipped] = useState(false);
@@ -50,18 +50,17 @@ const DestinationSearchBlock = () => {
         <IconButton icon={"swap-vertical"} size={25} onPress={handleFlip} />
       </View>
       <View style={styles.resultText}>
-        <Title3>Results for "Mars"</Title3>
+        {!endLocation && <Title3>Search for a destination</Title3>}
+        {endLocation && <Title3>Results for {endLocation}</Title3>}
         <IconButton icon={"filter"} size={25} />
       </View>
 
       <View style={styles.resultCards}>
-        <DestinationResults />
+        <DestinationResults navigation={navigation} />
       </View>
     </View>
   );
-};
-
-export default DestinationSearchBlock;
+}
 
 const styles = StyleSheet.create({
   container: {
