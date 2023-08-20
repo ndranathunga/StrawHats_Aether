@@ -22,6 +22,7 @@ import DestinationSearchScreen from "../components/pages/DestinationSearchScreen
 import SearchResultsFilterScreen from "../components/pages/SearchResultsFilterScreen";
 import NebulaScreen from "../components/pages/NebulaScreen";
 import SelectPassengersScreen from "../components/pages/SelectPassengersScreen";
+import HelpScreen from "../components/pages/HelpScreen";
 import NotificaitonsScreen from "../components/pages/NotificationsScreen";
 
 // Theming
@@ -72,6 +73,7 @@ const destinationSearchName = "Destination Search";
 const searchResultFilterName = "Sort & Filter";
 const nebulaName = "Nebula";
 const SelectPassengersName = "Select Passengers";
+const HelpScreenName = "Help";
 const notificationsName = "Notifications";
 
 const MainTabNavigator = () => (
@@ -234,6 +236,11 @@ function MainContainer() {
             component={NotificaitonsScreen}
             options={{ tabBarVisible: false }}
           />
+          <Stack.Screen
+						name={HelpScreenName}
+						component={HelpScreen}
+						options={{ tabBarVisible: false, headerShown: false }}
+					/>
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>

@@ -2,6 +2,7 @@ import * as React from "react";
 import { View } from "react-native";
 import { Text } from "react-native-paper";
 import DynamicBackground from "../templates/DynamicBackground";
+import CustomButton from "../atoms/buttons/CustomButton";
 
 export default function ExploreScreen({ navigation }) {
 	return (
@@ -13,6 +14,10 @@ export default function ExploreScreen({ navigation }) {
 				>
 					Explore Screen
 				</Text>
+				<CustomButton
+					onPress={() => navigation.navigate("Help")}
+					title={"Go to help screen"}
+				/>
 			</View>
 		</DynamicBackground>
 	);
