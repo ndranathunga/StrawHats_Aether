@@ -50,7 +50,7 @@ const SearchResultCard = ({ result, navigation }) => (
       </View>
     </Card.Content>
     <Button
-      onPress={() => navigation.navigate("Home")}
+      onPress={() => navigation.navigate("Choose Pod")}
       mode="outlined"
       theme={styles.btnTheme}
       style={styles.btn}
