@@ -20,6 +20,7 @@ const CarouselCards = () => {
 				itemWidth={ITEM_WIDTH}
 				inactiveSlideShift={0}
 				useScrollView={true}
+				loop={true}
 			/>
 		</View>
 	);
