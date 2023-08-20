@@ -38,9 +38,9 @@ const NumSlider = ({
 const styles = StyleSheet.create({
 	container: {
 		marginVertical: 10,
-		width: "80%",
+		width: "90%",
 	},
-	label: { width: "80%" },
+	label: { width: "90%" },
 	slider: { width: "100%", height: 40 },
 	value: { display: "block", textAlign: "center" },
 });

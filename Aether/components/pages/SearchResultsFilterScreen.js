@@ -6,6 +6,7 @@ import SearchFilterRadioCard from "../organisms/SearchFilterRadioCard";
 
 import SelectInput from "../molecules/SelectInput";
 import NumSlider from "../molecules/NumSlider";
+import DynamicBackground from "../templates/DynamicBackground";
 
 export default function SearchResultsFilterScreen({ route, navigation }) {
 	const { filters, searchQuery } = route.params;
@@ -45,33 +46,35 @@ export default function SearchResultsFilterScreen({ route, navigation }) {
 	}, [filterValue, companyValue, spaceshipTypeValue, maxPriceValue]);
 
 	return (
-		<CenterViewContainer>
-			<View style={styles.container}>
-				<SearchQueryCard query={searchQuery} />
-			</View>
-			<SearchFilterRadioCard value={filterValue} setValue={setFilterValue} />
-			<SelectInput
-				label={"Company"}
-				value={companyValue}
-				setValue={setCompanyValue}
-				items={companyItems}
-			/>
-			<SelectInput
-				label={"Spaceship Type"}
-				value={spaceshipTypeValue}
-				setValue={setSpaceshipTypeValue}
-				items={spaceshipTypeItems}
-			/>
-			<NumSlider
-				label={"Max Price"}
-				minValue={0}
-				maxValue={1000000}
-				value={maxPriceValue}
-				setValue={setMaxPriceValue}
-				valueLabel={"$0 - $" + maxPriceValue}
-				step={50000}
-			/>
-		</CenterViewContainer>
+		<DynamicBackground>
+			<CenterViewContainer>
+				<View style={styles.container}>
+					<SearchQueryCard query={searchQuery} large={true} />
+				</View>
+				<SearchFilterRadioCard value={filterValue} setValue={setFilterValue} />
+				<SelectInput
+					label={"Company"}
+					value={companyValue}
+					setValue={setCompanyValue}
+					items={companyItems}
+				/>
+				<SelectInput
+					label={"Spaceship Type"}
+					value={spaceshipTypeValue}
+					setValue={setSpaceshipTypeValue}
+					items={spaceshipTypeItems}
+				/>
+				<NumSlider
+					label={"Max Price"}
+					minValue={0}
+					maxValue={1000000}
+					value={maxPriceValue}
+					setValue={setMaxPriceValue}
+					valueLabel={"$0 - $" + maxPriceValue}
+					step={50000}
+				/>
+			</CenterViewContainer>
+		</DynamicBackground>
 	);
 }
 

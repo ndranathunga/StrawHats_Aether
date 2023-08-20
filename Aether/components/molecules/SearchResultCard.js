@@ -6,7 +6,7 @@ import Body2 from "../atoms/text/Body2";
 import { StyleSheet, View } from "react-native";
 
 const SearchResultCard = ({ result }) => (
-	<Card>
+	<Card mode="outlined" style={styles.card}>
 		<Card.Content>
 			<View style={styles.cardHeader}>
 				<View style={styles.headerLeft}>
@@ -49,6 +49,11 @@ const SearchResultCard = ({ result }) => (
 );
 
 const styles = StyleSheet.create({
+	card: {
+		borderRadius: 10,
+		backgroundColor: "rgba(0, 0, 0, 0.70)",
+		borderColor: "rgba(255, 255, 255, 0.40)",
+	},
 	cardHeader: {
 		flexDirection: "row",
 		marginBottom: 10,
@@ -75,6 +80,8 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 	},
 	btn: {
+		backgroundColor: "rgba(129, 194, 255, 0.25)",
+
 		width: "100%",
 		borderRadius: 0,
 		borderTopRightRadius: 0,
@@ -83,6 +90,8 @@ const styles = StyleSheet.create({
 		borderBottomLeftRadius: 10,
 	},
 	btnLabel: {
+		color: "#fff",
+		fontFamily: "Inter-SemiBold",
 		paddingBottom: 5,
 		paddingTop: 5,
 	},
