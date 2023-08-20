@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   btn: {
-    width: "100%",
+    width: "88%",
     flex: 1,
     alignItems: "center",
     marginTop: 20,
