@@ -13,7 +13,9 @@ const SearchResultList = ({ data, navigation }) => {
           paddingRight: 10,
         }}
         data={data}
-        renderItem={({ item }) => <SearchResultCard result={item} navigation={navigation} />}
+        renderItem={({ item }) => (
+          <SearchResultCard result={item} navigation={navigation} />
+        )}
         keyExtractor={(item) => item.id}
         ItemSeparatorComponent={() => <Divider style={{ margin: 12 }} />}
       />

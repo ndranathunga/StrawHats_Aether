@@ -52,7 +52,11 @@ export default function PaymentFormContainer({ navigation }) {
           onBlur={() => setTouched({ ...touched, name: true })}
           placeholderTextColor={"grey"}
         />
-        <HelperText type="error" visible={nameError}  style={{display: nameError ? "flex" : "none"}}>
+        <HelperText
+          type="error"
+          visible={nameError}
+          style={{ display: nameError ? "flex" : "none" }}
+        >
           Cardholder Name is required
         </HelperText>
 
@@ -65,36 +69,48 @@ export default function PaymentFormContainer({ navigation }) {
           onBlur={() => setTouched({ ...touched, cardNumber: true })}
           placeholderTextColor={"grey"}
         />
-        <HelperText type="error" visible={cardNumberError}  style={{display: cardNumberError ? "flex" : "none"}}>
+        <HelperText
+          type="error"
+          visible={cardNumberError}
+          style={{ display: cardNumberError ? "flex" : "none" }}
+        >
           Card Number is required and must be 16 digits
         </HelperText>
 
         <View style={[styles.row, { justifyContent: "space-between" }]}>
-          <View style={{flex: 3, width: "100%"}}>
-          <TextInput
-            style={[styles.textField, { marginRight: 24, width: "90%" }]}
-            placeholder="Security Code"
-            value={cvv}
-            onChangeText={setCvv}
-            onBlur={() => setTouched({ ...touched, cvv: true })}
-            placeholderTextColor={"grey"}
-          />
-          <HelperText type="error" visible={cvvError} style={{display: cvvError ? "flex" : "none"}}>
-            Security Code is required and must be 3 digits
-          </HelperText>
+          <View style={{ flex: 3, width: "100%" }}>
+            <TextInput
+              style={[styles.textField, { marginRight: 24, width: "90%" }]}
+              placeholder="Security Code"
+              value={cvv}
+              onChangeText={setCvv}
+              onBlur={() => setTouched({ ...touched, cvv: true })}
+              placeholderTextColor={"grey"}
+            />
+            <HelperText
+              type="error"
+              visible={cvvError}
+              style={{ display: cvvError ? "flex" : "none" }}
+            >
+              Security Code is required and must be 3 digits
+            </HelperText>
           </View>
-          <View  style={{flex: 3, width: "100%"}}>
-          <TextInput
-            style={[styles.textField, { width: "100%" }]}
-            placeholder="Expiration Date"
-            value={expiration}
-            onChangeText={setExpiration}
-            onBlur={() => setTouched({ ...touched, expiration: true })}
-            placeholderTextColor={"grey"}
-          />
-          <HelperText type="error" visible={expirationError} style={{display: expirationError ? "flex" : "none"}}>
-            Expiration Date is required
-          </HelperText>
+          <View style={{ flex: 3, width: "100%" }}>
+            <TextInput
+              style={[styles.textField, { width: "100%" }]}
+              placeholder="Expiration Date"
+              value={expiration}
+              onChangeText={setExpiration}
+              onBlur={() => setTouched({ ...touched, expiration: true })}
+              placeholderTextColor={"grey"}
+            />
+            <HelperText
+              type="error"
+              visible={expirationError}
+              style={{ display: expirationError ? "flex" : "none" }}
+            >
+              Expiration Date is required
+            </HelperText>
           </View>
         </View>
 
@@ -121,12 +137,14 @@ export default function PaymentFormContainer({ navigation }) {
           justifyContent: "space-evenly",
         }}
       >
-        <View style={{
-          width: "100%",
-          justifyContent: "center",
-          alignItems: "center",
-        }}>
-        <CustomButton title="Confirm" onPress={handleConfirm} />
+        <View
+          style={{
+            width: "100%",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <CustomButton title="Confirm" onPress={handleConfirm} />
         </View>
         <TouchableOpacity style={styles.button}>
           <Text
@@ -160,15 +178,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   textField: {
-    height: 60,
-    borderColor: "gray",
+    height: 65,
+    borderRadius: 10,
     borderWidth: 1,
-    borderRadius: 5,
+    borderColor: "rgba(255, 255, 255, 0.40)",
+    backgroundColor: "rgba(0, 0, 0, 0.25)",
     paddingLeft: 10,
     marginTop: 10,
     fontSize: 18,
     color: "white",
-    backgroundColor: "rgba(0,0,0,0.7)",
   },
   btn: {
     width: "50%",

@@ -1,3 +1,4 @@
+// Import necessary modules and components
 import { useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import DynamicBackground from "../templates/DynamicBackground";
@@ -9,17 +10,21 @@ import Body2 from "../atoms/text/Body2";
 import Title4 from "../atoms/text/Title4";
 import CustomButton from "../atoms/buttons/CustomButton";
 
+// ExploreScreen component
 export default function ExploreScreen({ navigation }) {
+  // State variables for managing selected options
   const [selectedButton, setSelectedButton] = useState(null);
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
   const [pclass, setClass] = useState(0);
 
+  // Handle button press to set selected option
   const handleButtonPress = (buttonNumber) => {
     setSelectedButton(buttonNumber);
   };
 
+  // Render the ExploreScreen UI
   return (
     <DynamicBackground>
       <CenterViewContainer>
@@ -107,6 +112,7 @@ export default function ExploreScreen({ navigation }) {
   );
 }
 
+// Styles for the component
 const styles = StyleSheet.create({
   container: {
     

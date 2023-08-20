@@ -8,6 +8,7 @@ import NebulaButton from "../atoms/buttons/NebulaButton";
 import CarouselCards from "../molecules/CarouselCards";
 
 export default function HomeScreen({ navigation }) {
+
 	return (
 		<DynamicBackground>
 			<ScrollView>

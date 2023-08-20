@@ -1,18 +1,9 @@
 import React, { useState } from "react";
-import { Divider } from "react-native-paper";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Button,
-  SafeAreaView,
-  FlatList,
-} from "react-native";
+import { View, StyleSheet } from "react-native";
 import BoardingInfoCard from "../molecules/BoardingInfoCard";
 
 export default function BoardingInfoContainer({ data }) {
-      console.log(data);
+  console.log(data);
   return (
     <View style={[styles.container, styles.row]}>
       <BoardingInfoCard data={data.flight} />
@@ -30,8 +21,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   row: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignContent: "center",
-  }
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignContent: "center",
+  },
 });

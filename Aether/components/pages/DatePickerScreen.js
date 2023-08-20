@@ -11,57 +11,65 @@ import DynamicBackground from "../templates/DynamicBackground";
 
 import { defultBoxStyle } from "../atoms/Styles/defultBoxStyle";
 
+// DatePickerScreen component
 export default function DatePickerScreen() {
 	const navigation = useNavigation();
 
-	const [selectedStartDate, setSelectedStartDate] = useState(null);
-	const [selectedReturnDate, setSelectedReturnDate] = useState(null);
-	const [showReturnDatePicker, setShowReturnDatePicker] = useState(true);
+// State variables to manage selected dates and calendar visibility
+  const [selectedStartDate, setSelectedStartDate] = useState(null);
+  const [selectedReturnDate, setSelectedReturnDate] = useState(null);
+  const [showReturnDatePicker, setShowReturnDatePicker] = useState(false);
 
-	const onDateChange = (date, type) => {
-		if (type === "START_DATE") {
-			setSelectedStartDate(date);
-			if (selectedReturnDate && selectedReturnDate.isBefore(date, "day")) {
-				setSelectedReturnDate(null);
-			}
-		} else if (type === "RETURN_DATE") {
-			setSelectedReturnDate(date);
-		}
-	};
+  // Function to handle date selection
+  const onDateChange = (date, type) => {
+    if (type === "START_DATE") {
+      setSelectedStartDate(date);
+      if (selectedReturnDate && selectedReturnDate.isBefore(date, "day")) {
+        setSelectedReturnDate(null);
+      }
+    } else if (type === "RETURN_DATE") {
+      setSelectedReturnDate(date);
+    }
+  };
 
-	const toggleReturnDatePicker = () => {
-		if (showReturnDatePicker) {
-			setSelectedReturnDate(null); // Reset the return date when calendar is hidden
-		}
-		setShowReturnDatePicker(!showReturnDatePicker);
-	};
+  // Function to toggle return date picker visibility
+  const toggleReturnDatePicker = () => {
+    if (showReturnDatePicker) {
+      setSelectedReturnDate(null); // Reset the return date when calendar is hidden
+    }
+    setShowReturnDatePicker(!showReturnDatePicker);
+  };
 
-	const handleSelectPress = () => {
-		// TODO: Implement saving selectedStartDate and selectedReturnDate to the database
-		navigation.navigate("Select Passengers");
-	};
+  // Function to handle the "Select" button press
+  const handleSelectPress = () => {
+    // TODO: Implement saving selectedStartDate and selectedReturnDate to the database
+    navigation.navigate("Select Passengers");
+  };
 
-	const formatDate = (date) => {
-		if (date) {
-			const formattedDate = date.format("DD MMM YYYY");
-			return formattedDate;
-		}
-		return "Select Date";
-	};
+  // Function to format date for display
+  const formatDate = (date) => {
+    if (date) {
+      const formattedDate = date.format("DD MMM YYYY");
+      return formattedDate;
+    }
+    return "Select Date";
+  };
 
-	const isDateDisabled = (date, type) => {
-		const today = moment();
-		if (type === "START_DATE" && selectedReturnDate) {
-			return (
-				date.isAfter(selectedReturnDate, "day") || date.isBefore(today, "day")
-			);
-		} else if (type === "RETURN_DATE" && selectedStartDate) {
-			return (
-				date.isBefore(selectedStartDate, "day") || date.isBefore(today, "day")
-			);
-		}
-		return date.isBefore(today, "day");
-	};
+  // Function to determine if a date should be disabled
+  const isDateDisabled = (date, type) => {
+    const today = moment();
+    if (type === "START_DATE" && selectedReturnDate) {
+      return (
+        date.isAfter(selectedReturnDate, "day") || date.isBefore(today, "day")
+      );
+    } else if (type === "RETURN_DATE" && selectedStartDate) {
+      return (
+        date.isBefore(selectedStartDate, "day") || date.isBefore(today, "day")
+      );
+    }
+    return date.isBefore(today, "day");
+  };
+
 
 	return (
 		<DynamicBackground>
