@@ -53,12 +53,15 @@ export default function BoardingPassScreen({ navigation }) {
 
         <BarCodeContainer data={boarding_pass} />
 
+        <View style={{width: "90%"}}>
         <CustomButton
           title="Download"
           onPress={() => {
             navigation.navigate("Boarding Pass");
           }}
         />
+        </View>
+
         <TouchableOpacity style={styles.button}>
           <Text
             style={styles.buttonText}

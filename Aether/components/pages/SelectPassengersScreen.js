@@ -86,7 +86,7 @@ export default function ExploreScreen({ navigation }) {
             />
           </View>
 
-		  <View style={styles.container}>
+          <View style={styles.container}>
             <View style={styles.textContainer}>
               <View style={{ flex: 3 }}>
                 <Title4>Classes</Title4>
@@ -97,16 +97,24 @@ export default function ExploreScreen({ navigation }) {
                 setClass(buttonNumber);
               }}
               selectedButton={pclass}
-              Classes={["Economy","Premium Economy","Business"]}
+              Classes={["Economy", "Premium", "Business"]}
             />
           </View>
         </View>
-        <CustomButton
-          onPress={() => {
-            navigation.navigate("Search Results");
+
+        <View
+          style={{
+            width: "88%",
+            marginBottom: 20,
           }}
-          title={"Next"}
-        />
+        >
+          <CustomButton
+            onPress={() => {
+              navigation.navigate("Search Results");
+            }}
+            title={"Next"}
+          />
+        </View>
       </CenterViewContainer>
     </DynamicBackground>
   );
@@ -115,7 +123,6 @@ export default function ExploreScreen({ navigation }) {
 // Styles for the component
 const styles = StyleSheet.create({
   container: {
-    
     // flex: 3,
     marginBottom: 50,
     // flexDirection: "column",

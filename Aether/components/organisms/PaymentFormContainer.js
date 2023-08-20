@@ -15,10 +15,10 @@ import { PaymentIcon } from "react-native-payment-icons";
 import CustomButton from "../atoms/buttons/CustomButton";
 
 export default function PaymentFormContainer({ navigation }) {
-  const [name, setName] = useState("");
-  const [cardNumber, setCardNumber] = useState("");
-  const [cvv, setCvv] = useState("");
-  const [expiration, setExpiration] = useState("");
+  const [name, setName] = useState("John Doe");
+  const [cardNumber, setCardNumber] = useState("5299640000000000");
+  const [cvv, setCvv] = useState("453");
+  const [expiration, setExpiration] = useState("11/24");
   const [submitted, setSubmitted] = useState(false);
   const [touched, setTouched] = useState({
     name: false,

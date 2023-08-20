@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   View,
   Text,
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  Animated,
 } from "react-native";
 import { HelperText } from "react-native-paper";
 import CustomButton from "../atoms/buttons/CustomButton";
@@ -26,9 +27,27 @@ export default function LoginScreen({ navigation }) {
     }
   };
 
+  const scaleValue = useRef(new Animated.Value(0)).current;
+  const logoImage = require("../../assets/images/splash-logo.png");
+
+  useEffect(() => {
+    Animated.spring(scaleValue, {
+      toValue: 1, // Final scale value
+      duration: 1000, // Duration of the animation in milliseconds
+      useNativeDriver: true,
+    }).start();
+  }, []);
+
   return (
     <DynamicBackground>
       <View style={styles.container}>
+        <View style={{height: 200, alignItems: "center"}}>
+          <Animated.Image
+            source={logoImage}
+            style={[styles.logo, { transform: [{ scale: scaleValue }] }]}
+          />
+        </View>
+
         <Text style={styles.title}>Login</Text>
         <TextInput
           style={[styles.textField, { marginBottom: 0 }]}
@@ -74,7 +93,7 @@ export default function LoginScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+//     justifyContent: "center",
     alignItems: "center",
     padding: 20,
   },
@@ -110,5 +129,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "white",
     fontWeight: "bold",
+  },
+  logo: {
+    width: 150, // Adjust the logo width as needed
+    height: 150, // Adjust the logo height as needed
+    resizeMode: "contain",
   },
 });

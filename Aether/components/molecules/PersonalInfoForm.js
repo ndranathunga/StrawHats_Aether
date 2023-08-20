@@ -18,12 +18,12 @@ export default function PersonalInfoForm({ navigation }) {
   const [currentPassengerIndex, setCurrentPassengerIndex] = useState(0);
   const [passengerDetails, setPassengerDetails] = useState(
     Array.from({ length: passengerCount }, () => ({
-      email: "",
-      address: "",
-      passport: "",
-      dob: "",
-      country: "",
-      phone: "",
+      email: "johndoe@gmail.com",
+      address: "4976 Meadow Drive, Mason, Illinois",
+      passport: "533380006",
+      dob: "2000-05-16",
+      country: "US",
+      phone: "405-909-8564",
     }))
   );
 
@@ -178,6 +178,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     marginBottom: 36,
+    width: "97%",
   },
   passengerNo: {
     fontSize: 18,
