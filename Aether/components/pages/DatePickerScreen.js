@@ -10,7 +10,6 @@ import textStyles from "../atoms/text/Styles";
 import DynamicBackground from "../templates/DynamicBackground";
 
 import { defultBoxStyle } from "../atoms/Styles/defultBoxStyle";
-import DynamicBackground from "../templates/DynamicBackground";
 
 export default function DatePickerScreen() {
 	const navigation = useNavigation();
