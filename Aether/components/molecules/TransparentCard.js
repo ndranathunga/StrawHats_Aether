@@ -22,7 +22,7 @@ const TransparentCard = (navigation) => {
   };
 
   return (
-    <Card style={{ ...styles.card, padding: "20" }}>
+    <Card style={{ ...styles.card, padding: "20" }} elevation={0}>
       <View style={styles.cardHeader}>
         <TouchableOpacity
           style={[
@@ -146,20 +146,21 @@ const TransparentCard = (navigation) => {
 
 const styles = StyleSheet.create({
   card: {
-    color: "#FFFFFF01",
+    backgroundColor: "rgba(0, 0, 0, 0.1)",
+    // backgroundColor: "FFFFFF10",
     width: "90%",
     padding: 15,
     margin: 10,
     borderColor: "white",
     borderWidth: 1,
     borderRadius: 10,
-    shadowColor: "white",
-    shadowOpacity: 0.5,
-    shadowRadius: 2,
-    shadowOffset: {
-      height: 1,
-      width: 1,
-    },
+    // shadowColor: "white",
+    // shadowOpacity: 0.1,
+    // shadowRadius: 10,
+    // shadowOffset: {
+    //   height: 1,
+    //   width: 1,
+    // },
   },
   cardHeader: {
     flexDirection: "row",
