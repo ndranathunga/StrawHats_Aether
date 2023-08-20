@@ -25,6 +25,9 @@ import SelectPassengersScreen from "../components/pages/SelectPassengersScreen";
 import HelpScreen from "../components/pages/HelpScreen";
 import NotificaitonsScreen from "../components/pages/NotificationsScreen";
 
+import PaymentsScreen from "../components/pages/PaymentsScreen";
+import BoardingPassScreen from "../components/pages/BoardingPassScreen";
+
 // Theming
 import { DarkTheme as NavigationDarkTheme } from "@react-navigation/native";
 import {
@@ -75,6 +78,9 @@ const nebulaName = "Nebula";
 const SelectPassengersName = "Select Passengers";
 const HelpScreenName = "Help";
 const notificationsName = "Notifications";
+
+const paymentsName = "Payments";
+const boardingPassName = "Boarding Pass";
 
 const MainTabNavigator = () => (
   <Tab.Navigator
@@ -234,6 +240,18 @@ function MainContainer() {
           <Stack.Screen
             name={notificationsName}
             component={NotificaitonsScreen}
+            options={{ tabBarVisible: false }}
+          />
+
+          <Stack.Screen
+            name={paymentsName}
+            component={PaymentsScreen}
+            options={{ tabBarVisible: false }}
+          />
+
+          <Stack.Screen
+            name={boardingPassName}
+            component={BoardingPassScreen}
             options={{ tabBarVisible: false }}
           />
           <Stack.Screen

@@ -14,7 +14,7 @@ import CustomButton from "../atoms/buttons/CustomButton";
 
 const passengerCount = 3; // Change this to the desired number of passengers
 
-const PersonalInfoForm = () => {
+export default function PersonalInfoForm({ navigation }) {
   const [currentPassengerIndex, setCurrentPassengerIndex] = useState(0);
   const [passengerDetails, setPassengerDetails] = useState(
     Array.from({ length: passengerCount }, () => ({
@@ -64,6 +64,7 @@ const PersonalInfoForm = () => {
   const handleSubmit = () => {
     // Handle form submission here
     console.log(passengerDetails);
+    navigation.navigate("Payments");
   };
 
   const currentPassengerData = passengerDetails[currentPassengerIndex];
@@ -145,7 +146,7 @@ const PersonalInfoForm = () => {
       </View>
     </ScrollView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -184,5 +185,3 @@ const styles = StyleSheet.create({
     color: "#E0E2EB",
   },
 });
-
-export default PersonalInfoForm;

@@ -81,7 +81,7 @@ export default function ExploreScreen({ navigation }) {
         </View>
         <CustomButton
           onPress={() => {
-            navigation.navigate("Home");
+            navigation.navigate("Search Results");
           }}
           title={"Next"}
         />

@@ -6,11 +6,11 @@ import CenterViewContainer from "../atoms/view-containers/CenterViewContainer";
 import DynamicBackground from "../templates/DynamicBackground";
 
 export default function PersonalInfoScreen({ navigation }) {
-	return (
-		<DynamicBackground>
-			<CenterViewContainer>
-				<PersonalInfoContainer />
-			</CenterViewContainer>
-		</DynamicBackground>
-	);
+  return (
+    <DynamicBackground>
+      <CenterViewContainer>
+        <PersonalInfoContainer navigation={navigation} />
+      </CenterViewContainer>
+    </DynamicBackground>
+  );
 }
