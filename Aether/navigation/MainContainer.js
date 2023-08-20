@@ -21,6 +21,7 @@ import DatePickerScreen from "../components/pages/DatePickerScreen";
 import DestinationSearchScreen from "../components/pages/DestinationSearchScreen";
 import SearchResultsFilterScreen from "../components/pages/SearchResultsFilterScreen";
 import SelectPassengersScreen from "../components/pages/SelectPassengersScreen";
+import HelpScreen from "../components/pages/HelpScreen";
 
 // Theming
 import { DarkTheme as NavigationDarkTheme } from "@react-navigation/native";
@@ -69,6 +70,7 @@ const searchResultsName = "Search Results";
 const destinationSearchName = "Destination Search";
 const searchResultFilterName = "Sort & Filter";
 const SelectPassengersName = "Select Passengers";
+const HelpScreenName = "Help";
 
 const MainTabNavigator = () => (
 	<Tab.Navigator
@@ -218,6 +220,11 @@ function MainContainer() {
 						name={SelectPassengersName}
 						component={SelectPassengersScreen}
 						options={{ tabBarVisible: false }}
+					/>
+					<Stack.Screen
+						name={HelpScreenName}
+						component={HelpScreen}
+						options={{ tabBarVisible: false, headerShown: false }}
 					/>
 				</Stack.Navigator>
 			</NavigationContainer>
