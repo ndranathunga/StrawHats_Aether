@@ -97,6 +97,7 @@ export default function DatePickerScreen() {
 						<View
 							style={[
 								defultBoxStyle.container,
+								defultBoxStyle.sizes,
 								{ marginTop: 1, marginBottom: 5 },
 							]}
 						>
@@ -115,6 +116,7 @@ export default function DatePickerScreen() {
 							<View
 								style={[
 									defultBoxStyle.container,
+									defultBoxStyle.sizes,
 									{ marginTop: 1, marginBottom: 5 },
 								]}
 							>

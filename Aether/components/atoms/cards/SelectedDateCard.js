@@ -8,7 +8,7 @@ import Body1 from '../text/Body1';
 
 const SelectedDateCard = ({ title, content,onPress}) => (
     <TouchableOpacity
-    style={[defultBoxStyle.container, styles.container]}
+    style={[defultBoxStyle.container,defultBoxStyle.sizes, styles.container]}
     onPress={onPress}
     >
         <Body1>{title}</Body1>

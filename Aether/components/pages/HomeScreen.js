@@ -18,6 +18,11 @@ export default function HomeScreen({ navigation }) {
           title={"date picker"}
         />
 
+				<CustomButton
+					onPress={() => navigation.navigate("Select Passengers")}
+					title={"Select Passengers"}
+				/>
+
         <TextContainer title={"hi"} />
 
         <CustomButton
