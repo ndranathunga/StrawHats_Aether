@@ -5,6 +5,16 @@ import Body1 from "../atoms/text/Body1";
 import Body2 from "../atoms/text/Body2";
 import { StyleSheet, View } from "react-native";
 
+import blueOrigin from "../../assets/images/flight-companies/blue-origin.jpeg";
+import spaceX from "../../assets/images/flight-companies/space-x.jpeg";
+import virginGalactic from "../../assets/images/flight-companies/virgin-galactic.png";
+
+const flightCompanies = {
+	"Blue Origin": blueOrigin,
+	SpaceX: spaceX,
+	"Virgin Galactic": virginGalactic,
+};
+
 const SearchResultCard = ({ result }) => (
 	<Card mode="outlined" style={styles.card}>
 		<Card.Content>
@@ -13,7 +23,7 @@ const SearchResultCard = ({ result }) => (
 					<Avatar.Image
 						size={40}
 						style={styles.avatar}
-						source={require("../../assets/images/flight-companies/blue-origin.jpeg")}
+						source={flightCompanies[result.flightCompany]}
 					/>
 					<View style={styles.flightDetails}>
 						<Title4>{result.flightCompany}</Title4>
@@ -81,7 +91,7 @@ const styles = StyleSheet.create({
 	},
 	btn: {
 		backgroundColor: "rgba(129, 194, 255, 0.25)",
-
+		borderColor: "rgba(255, 255, 255, 0.3)",
 		width: "100%",
 		borderRadius: 0,
 		borderTopRightRadius: 0,
