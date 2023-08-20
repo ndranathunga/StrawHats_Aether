@@ -12,13 +12,17 @@ import Body2 from "../atoms/text/Body2";
 import Icon from "react-native-vector-icons/Ionicons";
 import { Card, Divider, Button } from "react-native-paper";
 
-const TransparentCard = (navigation) => {
+export default function TransparentCard({ navigation }) {
   const [selectedOption, setSelectedOption] = useState("oneWay");
   const [showReturnDate, setShowReturnDate] = useState(false);
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
     setShowReturnDate(option === "roundTrip");
+  };
+
+  const handleSearch = () => {
+    navigation.navigate("Search Results");
   };
 
   return (
@@ -133,7 +137,8 @@ const TransparentCard = (navigation) => {
 
       <View>
         <Button
-          onPress={() => console.log("Hello")}
+          onPress={handleSearch}
+          //   onPress={() => console.log("Hello")}
           style={styles.btn}
           labelStyle={styles.btnLabel}
         >
@@ -142,7 +147,7 @@ const TransparentCard = (navigation) => {
       </View>
     </Card>
   );
-};
+}
 
 const styles = StyleSheet.create({
   card: {
@@ -256,5 +261,3 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
 });
-
-export default TransparentCard;

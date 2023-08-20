@@ -10,7 +10,7 @@ export default function HomeScreen({ navigation }) {
   return (
     <DynamicBackground>
       <View style={styles.container}>
-        <TransparentCard />
+        <TransparentCard navigation={navigation} />
         <NebulaButton navigation={navigation} />
 
         <CustomButton
