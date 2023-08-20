@@ -11,7 +11,7 @@ export default function HomeScreen({ navigation }) {
     <DynamicBackground>
       <View style={styles.container}>
         <TransparentCard />
-        <NebulaButton />
+        <NebulaButton navigation={navigation} />
 
         <CustomButton
           onPress={() => navigation.navigate("Date Picker")}
