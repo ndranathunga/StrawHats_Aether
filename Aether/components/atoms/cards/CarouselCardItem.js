@@ -30,8 +30,9 @@ const CarouselCardItem = ({ item, index }) => {
 
 const styles = StyleSheet.create({
   container: {
+    paddingBottom: 20,
     borderRadius: 10,
-    height: 220,
+    height: 210,
     width: ITEM_WIDTH,
     overflow: "hidden", // Prevent content overflow
     borderColor: "white",
@@ -55,7 +56,6 @@ const styles = StyleSheet.create({
   body: {
     marginTop: 15,
     fontSize: 14,
-    fontWeight: "bold",
     color: "white",
     textAlign: "left",
     marginLeft: 10, // Align body towards the left
