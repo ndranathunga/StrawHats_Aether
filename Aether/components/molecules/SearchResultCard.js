@@ -15,6 +15,10 @@ const flightCompanies = {
 	"Virgin Galactic": virginGalactic,
 };
 
+const numberWithCommas = (x) => {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 const SearchResultCard = ({ result }) => (
 	<Card mode="outlined" style={styles.card}>
 		<Card.Content>
@@ -41,7 +45,7 @@ const SearchResultCard = ({ result }) => (
 					<Body2>{result.launchLocation}</Body2>
 				</View>
 				<View style={styles.price}>
-					<Title3>{result.price}</Title3>
+					<Title3>${numberWithCommas(result.price)}</Title3>
 				</View>
 			</View>
 		</Card.Content>
