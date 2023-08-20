@@ -6,6 +6,7 @@ export default function SeatBlock({
   handleSeatPress,
   selectedSeats,
   SeatNumbers,
+  unavailbleSeats,
 }) {
   return (
     <View style={styles.container}>
@@ -14,11 +15,13 @@ export default function SeatBlock({
           seatNumber={SeatNumbers[0]}
           isSelected={selectedSeats.includes(SeatNumbers[0])}
           onPress={handleSeatPress}
+          isUnavailable={unavailbleSeats[0]}
         />
         <SeatButton
           seatNumber={SeatNumbers[1]}
           isSelected={selectedSeats.includes(SeatNumbers[1])}
           onPress={handleSeatPress}
+          isUnavailable={unavailbleSeats[1]}
         />
       </View>
       <View style={styles.seatRow}>
@@ -26,11 +29,13 @@ export default function SeatBlock({
           seatNumber={SeatNumbers[2]}
           isSelected={selectedSeats.includes(SeatNumbers[2])}
           onPress={handleSeatPress}
+          isUnavailable={unavailbleSeats[2]}
         />
         <SeatButton
           seatNumber={SeatNumbers[3]}
           isSelected={selectedSeats.includes(SeatNumbers[3])}
           onPress={handleSeatPress}
+          isUnavailable={unavailbleSeats[3]}
         />
       </View>
     </View>

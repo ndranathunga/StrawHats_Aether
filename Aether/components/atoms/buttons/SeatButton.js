@@ -1,11 +1,16 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
-const SeatButton = ({ seatNumber, isSelected, onPress }) => {
+const SeatButton = ({ seatNumber, isSelected, onPress, isUnavailable }) => {
   return (
     <TouchableOpacity
-      style={[styles.seatButton, isSelected && styles.selectedSeat]}
+      style={[
+        styles.seatButton,
+        isSelected && styles.selectedSeat,
+        isUnavailable && styles.isUnavailableSeat,
+      ]}
       onPress={() => onPress(seatNumber)}
+      disabled={isUnavailable}
     >
       <Text style={styles.seatText}>{seatNumber}</Text>
     </TouchableOpacity>
@@ -18,18 +23,21 @@ const styles = StyleSheet.create({
     height: 40,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
-    borderWidth: 1,
+    backgroundColor: "#AEAEAE",
     borderRadius: 4,
     margin: 8,
     borderColor: "gray",
   },
   selectedSeat: {
-    backgroundColor: "blue",
-    borderColor: "blue",
+    backgroundColor: "#77BEFF",
+    borderColor: "#f0f0f0",
+  },
+  isUnavailableSeat: {
+    backgroundColor: "#595959",
+    borderColor: "#f0f0f0",
   },
   seatText: {
-    color: "black",
+    color: "#f0f0f0",
     fontSize: 18,
   },
 });
