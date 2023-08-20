@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View } from "react-native";
-import { Button, Text } from "react-native-paper";
+import { Button, Button, Text } from "react-native-paper";
 import DynamicBackground from "../templates/DynamicBackground";
 
 export default function ExploreScreen({ navigation }) {
@@ -14,6 +14,12 @@ export default function ExploreScreen({ navigation }) {
 					Explore Screen
 				</Text>
 				<Button onPress={() => {navigation.navigate("Payments")}}>
+				<Text>Payments</Text>
+			</Button>
+			<Button onPress={() => {navigation.navigate("Boarding Pass")}}>
+				<Text>Boarding Pass</Text>
+			</Button>
+			<Button onPress={() => {navigation.navigate("Payments")}}>
 				<Text>Payments</Text>
 			</Button>
 			<Button onPress={() => {navigation.navigate("Boarding Pass")}}>

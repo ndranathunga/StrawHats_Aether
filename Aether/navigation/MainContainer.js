@@ -22,6 +22,7 @@ import DestinationSearchScreen from "../components/pages/DestinationSearchScreen
 import SearchResultsFilterScreen from "../components/pages/SearchResultsFilterScreen";
 import NebulaScreen from "../components/pages/NebulaScreen";
 import SelectPassengersScreen from "../components/pages/SelectPassengersScreen";
+import BoardingPassScreen from "../components/pages/BoardingPassScreen";import PaymentsScreen from "../components/pages/PaymentsScreen";
 import BoardingPassScreen from "../components/pages/BoardingPassScreen";
 
 // Theming
@@ -74,6 +75,8 @@ const destinationSearchName = "Destination Search";
 const searchResultFilterName = "Sort & Filter";
 const nebulaName = "Nebula";
 const SelectPassengersName = "Select Passengers";
+const paymentsName = "Payments";
+const boardingPassName = "Boarding Pass";
 
 const MainTabNavigator = () => (
   <Tab.Navigator
