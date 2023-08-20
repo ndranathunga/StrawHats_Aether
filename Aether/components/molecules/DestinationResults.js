@@ -12,7 +12,8 @@ export default function DestinationResults({
   startLocation,
 }) {
   const onCardPress = () => {
-    navigation.navigate("Date Picker"), { endLocation, startLocation };
+    navigation.navigate("Date Picker"),
+      { endLocation: { endLocation }, startLocation: { startLocation } };
   };
 
   return (
