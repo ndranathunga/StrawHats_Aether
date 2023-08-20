@@ -55,7 +55,7 @@ const SlideItem = ({ item }) => {
 					<Button
 						mode="contained"
 						onPress={() => {
-							navigation.navigate("Home");
+							navigation.navigate("Login");
 						}}
 						style={{
 							display: "block",
