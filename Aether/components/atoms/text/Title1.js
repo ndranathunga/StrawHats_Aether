@@ -1,8 +1,8 @@
 import { Text } from "react-native-paper";
 import textStyles from "./Styles";
 
-const Title1 = (props) => {
-	return <Text style={textStyles.title1}>{props.children}</Text>;
+const Title1 = ({ children, style }) => {
+	return <Text style={{ ...textStyles.title1, ...style }}>{children}</Text>;
 };
 
 export default Title1;
