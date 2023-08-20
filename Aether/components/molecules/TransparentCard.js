@@ -222,6 +222,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderTopRightRadius: 0,
     borderTopLeftRadius: 0,
+    backgroundColor: "rgba(129, 194, 255, 0.25)",
+    width: "100%",
+    borderRadius: 10,
+    // paddingVertical: 12,
+    paddingHorizontal: 20,
+    alignItems: "center",
+    justifyContent: "center",
   },
   btnLabel: {
     padding: 5,
