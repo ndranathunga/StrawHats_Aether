@@ -1,3 +1,4 @@
+// Import necessary modules and components
 import * as React from "react";
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
@@ -9,7 +10,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 // import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Icon from "react-native-vector-icons/Ionicons";
 
-// Screens
+// Import screens
 import HomeScreen from "../components/pages/HomeScreen";
 import MyFlightsScreen from "../components/pages/MyFlightsScreen";
 import ExploreScreen from "../components/pages/ExploreScreen";
@@ -30,7 +31,7 @@ import RegisterScreen from "../components/pages/RegisterScreen";
 import PaymentsScreen from "../components/pages/PaymentsScreen";
 import BoardingPassScreen from "../components/pages/BoardingPassScreen";
 
-// Theming
+// Import theming components
 import { DarkTheme as NavigationDarkTheme } from "@react-navigation/native";
 import {
   MD3DarkTheme,
@@ -46,26 +47,31 @@ import CustomNavigationBar from "./CustomNavigationBar";
 import { AppRegistry } from "react-native";
 import { name as appName } from "../app.json";
 
+// Create a bottom tab navigator
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
+// Adapt the dark theme for navigation
 const { DarkTheme } = adaptNavigationTheme({
   reactNavigationDark: NavigationDarkTheme,
 });
 
+// Combine dark themes
 const CombinedDarkTheme = merge(MD3DarkTheme, DarkTheme);
 
+// Configure font
 const fontConfig = {
   fontFamily: "Inter-Regular",
 };
 
+// Define the theme for the app
 const theme = {
   ...CombinedDarkTheme,
   colors: customPallete.colors,
   fonts: configureFonts({ config: fontConfig }),
 };
 
-//Screen names
+// Define screen names
 const homeName = "Home";
 const FlightsName = "My Flights";
 const ExploreName = "Explore";
@@ -86,6 +92,7 @@ const registerName = "Register";
 const paymentsName = "Payments";
 const boardingPassName = "Boarding Pass";
 
+// Define the main tab navigator
 const MainTabNavigator = () => (
   <Tab.Navigator
     initialRouteName={homeName}
@@ -182,6 +189,7 @@ const MainTabNavigator = () => (
   </Tab.Navigator>
 );
 
+// Define the main container of the app
 function MainContainer() {
   return (
     <PaperProvider theme={theme}>
@@ -258,6 +266,7 @@ function MainContainer() {
             component={BoardingPassScreen}
             options={{ tabBarVisible: false }}
           />
+
           <Stack.Screen
 						name={HelpScreenName}
 						component={HelpScreen}
@@ -273,7 +282,10 @@ function MainContainer() {
             component={RegisterScreen}
             options={{ tabBarVisible: false, headerShown: false }}
           />
-
+            name={HelpScreenName}
+            component={HelpScreen}
+            options={{ tabBarVisible: false, headerShown: false }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
@@ -282,4 +294,5 @@ function MainContainer() {
 
 export default MainContainer;
 
+// Register the app component
 AppRegistry.registerComponent(appName, () => Main);

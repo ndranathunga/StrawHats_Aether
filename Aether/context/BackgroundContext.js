@@ -1,11 +1,14 @@
 import React, { createContext, useContext, useState } from "react";
 
+// Create a context for managing background-related data
 const BackgroundContext = createContext();
 
+// Custom hook to access the background context
 export const useBackground = () => {
 	return useContext(BackgroundContext);
 };
 
+// Array of background items with images
 const items = [
 	{
 		id: "001",
@@ -21,16 +24,20 @@ const items = [
 	},
 ];
 
+// BackgroundProvider component to provide background data to its children
 export const BackgroundProvider = ({ children }) => {
+	// State variables to manage background data
 	const [backgroundColor, setBackgroundColor] = useState("black");
 	const [backgroundImage, setBackgroundImage] = useState(items[0].image);
 	const [imageList, setImageList] = useState(items);
 
+	// Function to set the background color and image
 	const setBackground = (color, image) => {
 		setBackgroundColor(color);
 		setBackgroundImage(image);
 	};
 
+	// Provide the background data through the context
 	return (
 		<BackgroundContext.Provider
 			value={{ backgroundColor, backgroundImage, setBackground, imageList }}
