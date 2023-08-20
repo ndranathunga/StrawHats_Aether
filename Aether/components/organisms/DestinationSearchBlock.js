@@ -5,7 +5,7 @@ import IconButton from "../atoms/buttons/IconButton";
 import DestinationResults from "../molecules/DestinationResults";
 import Title3 from "../atoms/text/Title3";
 
-const DestinationSearchBlock = () => {
+export default function DestinationSearchBlock({ navigation }) {
   const [startLocation, setStartLocation] = useState("");
   const [endLocation, setEndLocation] = useState("");
   const [isFlipped, setIsFlipped] = useState(false);
@@ -56,13 +56,11 @@ const DestinationSearchBlock = () => {
       </View>
 
       <View style={styles.resultCards}>
-        <DestinationResults />
+        <DestinationResults navigation={navigation} />
       </View>
     </View>
   );
-};
-
-export default DestinationSearchBlock;
+}
 
 const styles = StyleSheet.create({
   container: {
