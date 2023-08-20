@@ -18,7 +18,7 @@ export default function DatePickerScreen() {
 // State variables to manage selected dates and calendar visibility
   const [selectedStartDate, setSelectedStartDate] = useState(null);
   const [selectedReturnDate, setSelectedReturnDate] = useState(null);
-  const [showReturnDatePicker, setShowReturnDatePicker] = useState(false);
+  const [showReturnDatePicker, setShowReturnDatePicker] = useState(true);
 
   // Function to handle date selection
   const onDateChange = (date, type) => {
