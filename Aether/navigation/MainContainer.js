@@ -282,10 +282,6 @@ function MainContainer() {
             component={RegisterScreen}
             options={{ tabBarVisible: false, headerShown: false }}
           />
-            name={HelpScreenName}
-            component={HelpScreen}
-            options={{ tabBarVisible: false, headerShown: false }}
-          />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
