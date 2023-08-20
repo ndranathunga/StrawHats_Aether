@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Divider } from "react-native-paper";
 import Barcode from "@kichiyaki/react-native-barcode-generator";
 import {
   View,
@@ -11,12 +10,9 @@ import {
   FlatList,
   Dimensions,
 } from "react-native";
-import BookingInfoCard from "../molecules/BookingInfoCard";
-import BoardingInfoCard from "../molecules/BoardingInfoCard";
 
 const calculateWidthPercentage = (percentage) => {
   const screenWidth = Dimensions.get("window").width;
-  //   console.log(screenWidth);
   return Math.floor(screenWidth * (percentage / 100));
 };
 
@@ -32,9 +28,7 @@ export default function BarCodeContainer({ data }) {
       <View>
         <Barcode
           value={removeNonAlphanumeric(boardingPassString)}
-      //     value={removeNonAlphanumeric(boardingPassString)}
           format="CODE39"
-          //     component={boardingPassString}
           maxWidth={calculateWidthPercentage(90)}
         />
       </View>

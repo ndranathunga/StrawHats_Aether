@@ -14,9 +14,6 @@ import BookingInfoCard from "../molecules/BookingInfoCard";
 
 export default function BookingInfoContainer({ data }) {
   return (
-    //     <SafeAreaView style={styles.container}>
-
-    //     </SafeAreaView>
     <View style={styles.container}>
       <View
         style={{
@@ -33,11 +30,7 @@ export default function BookingInfoContainer({ data }) {
 
 const styles = StyleSheet.create({
   container: {
-//     flex: 1,
     width: "95%",
-    // padding: 10,
     marginTop: 10,
-//     backgroundColor: "red",
-    //     justifyContent: "center",
   },
 });

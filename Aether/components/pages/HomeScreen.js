@@ -14,23 +14,6 @@ export default function HomeScreen({ navigation }) {
         <TransparentCard navigation={navigation} />
         <NebulaButton navigation={navigation} />
         <CarouselCards />
-
-        <CustomButton
-          onPress={() => navigation.navigate("Date Picker")}
-          title={"date picker"}
-        />
-
-        <CustomButton
-          onPress={() => navigation.navigate("Select Passengers")}
-          title={"Select Passengers"}
-        />
-
-        <TextContainer title={"hi"} />
-
-        <CustomButton
-          onPress={() => navigation.navigate("Destination Search")}
-          title={"Destination Search"}
-        />
       </View>
     </DynamicBackground>
   );

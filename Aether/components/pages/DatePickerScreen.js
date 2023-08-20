@@ -11,13 +11,16 @@ import DynamicBackground from "../templates/DynamicBackground";
 
 import { defultBoxStyle } from "../atoms/Styles/defultBoxStyle";
 
+// DatePickerScreen component
 export default function DatePickerScreen() {
   const navigation = useNavigation();
 
+  // State variables to manage selected dates and calendar visibility
   const [selectedStartDate, setSelectedStartDate] = useState(null);
   const [selectedReturnDate, setSelectedReturnDate] = useState(null);
   const [showReturnDatePicker, setShowReturnDatePicker] = useState(false);
 
+  // Function to handle date selection
   const onDateChange = (date, type) => {
     if (type === "START_DATE") {
       setSelectedStartDate(date);
@@ -29,6 +32,7 @@ export default function DatePickerScreen() {
     }
   };
 
+  // Function to toggle return date picker visibility
   const toggleReturnDatePicker = () => {
     if (showReturnDatePicker) {
       setSelectedReturnDate(null); // Reset the return date when calendar is hidden
@@ -36,11 +40,13 @@ export default function DatePickerScreen() {
     setShowReturnDatePicker(!showReturnDatePicker);
   };
 
+  // Function to handle the "Select" button press
   const handleSelectPress = () => {
     // TODO: Implement saving selectedStartDate and selectedReturnDate to the database
     navigation.navigate("Select Passengers");
   };
 
+  // Function to format date for display
   const formatDate = (date) => {
     if (date) {
       const formattedDate = date.format("DD MMM YYYY");
@@ -49,6 +55,7 @@ export default function DatePickerScreen() {
     return "Select Date";
   };
 
+  // Function to determine if a date should be disabled
   const isDateDisabled = (date, type) => {
     const today = moment();
     if (type === "START_DATE" && selectedReturnDate) {
