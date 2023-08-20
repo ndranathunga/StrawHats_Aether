@@ -25,6 +25,18 @@ export default function TransparentCard({ navigation }) {
     navigation.navigate("Search Results");
   };
 
+  const handleDatePicker = () => {
+    navigation.navigate("Date Picker");
+  };
+
+  const handleDestinatioSelect = () => {
+    navigation.navigate("Destination Search");
+  };
+
+  const handlePassengerSelection = () => {
+    navigation.navigate("Select Passengers");
+  };
+
   return (
     <Card style={{ ...styles.card, padding: "20" }} elevation={0}>
       <View style={styles.cardHeader}>
@@ -67,7 +79,10 @@ export default function TransparentCard({ navigation }) {
           <Icon name="arrow-forward" color={"white"} size={10}></Icon>
           <Icon name="arrow-back" color={"white"} size={10}></Icon>
         </View>
-        <View style={styles.location}>
+        <TouchableOpacity
+          style={styles.location}
+          onPress={handleDestinatioSelect}
+        >
           <Icon
             name="location-outline"
             color={"white"}
@@ -75,7 +90,7 @@ export default function TransparentCard({ navigation }) {
             style={styles.icon}
           ></Icon>
           <Body1>Select Destination</Body1>
-        </View>
+        </TouchableOpacity>
       </View>
       <Divider style={styles.divider} />
       <View style={styles.dateContainer}>
@@ -86,10 +101,7 @@ export default function TransparentCard({ navigation }) {
             size={25}
             style={styles.icon}
           />
-          <Text
-            onPress={() => console.log("Need to go to date picker")}
-            title={"date picker"}
-          >
+          <Text onPress={handleDatePicker} title={"date picker"}>
             <Body1>Add Departure Date</Body1>
           </Text>
           {/* ... */}
@@ -102,10 +114,7 @@ export default function TransparentCard({ navigation }) {
               size={25}
               style={styles.icon}
             />
-            <Text
-              onPress={() => console.log("Need to go to date picker")}
-              title={"date picker"}
-            >
+            <Text onPress={handleDatePicker} title={"date picker"}>
               <Body1>Add Return Date</Body1>
             </Text>
             {/* ... */}
@@ -115,7 +124,10 @@ export default function TransparentCard({ navigation }) {
 
       <Divider style={styles.divider} />
 
-      <View style={styles.passengerContainer}>
+      <TouchableOpacity
+        style={styles.passengerContainer}
+        onPress={handlePassengerSelection}
+      >
         <View style={styles.passengerItem}>
           <Icon
             name="people-outline"
@@ -131,7 +143,7 @@ export default function TransparentCard({ navigation }) {
         <View style={styles.passengerItem}>
           <Body1>Class</Body1>
         </View>
-      </View>
+      </TouchableOpacity>
 
       <Divider style={{ ...styles.divider, marginBottom: 0 }} />
 
