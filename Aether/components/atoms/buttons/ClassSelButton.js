@@ -1,12 +1,13 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
-import Title3 from "../text/Title2";
+import Body1 from "../text/Body1";
 import { defultBoxStyle } from "../Styles/defultBoxStyle";
 
 const ClassSelButton = ({ text, isSelected, onPress }) => {
-  const buttonWidth = 40 + text.length * 5; // Adjust the multiplier as needed
+  const buttonWidth = 60 + text.length * 5; // Adjust the multiplier as needed
 
   return (
+    <View style={{marginRight:5}}>
     <TouchableOpacity
       style={[
         defultBoxStyle.container,
@@ -17,20 +18,20 @@ const ClassSelButton = ({ text, isSelected, onPress }) => {
       onPress={() => onPress(text)} // Pass seatNumber to onPress
     >
       <View>
-        <Title3 style={styles.seatText}>{text}</Title3>
+        <Body1 style={styles.seatText}>{text}</Body1>
       </View>
     </TouchableOpacity>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   passengerButton: {
-    height: 60,
-    justifyContent: "center",
-    alignItems: "center",
+    paddingVertical: 10,
+    borderRadius: 50,
     borderWidth: 1,
-    borderRadius: 10,
-    margin: 5,
+    borderColor: "#ccc",
+    alignItems: "center",
   },
   selectedSeat: {
     backgroundColor: "#84BCFF",

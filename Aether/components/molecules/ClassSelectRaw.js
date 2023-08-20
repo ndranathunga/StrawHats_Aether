@@ -28,10 +28,9 @@ export default function NumberedSelectButtonRow({
 
 const styles = StyleSheet.create({
   container: {
-    // justifyContent: "center",
-    // alignItems: "center",
-    // padding: 16,
-    // flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 5,
   },
   seatRow: {
     flexDirection: "row",

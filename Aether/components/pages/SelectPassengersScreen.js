@@ -109,6 +109,7 @@ export default function ExploreScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
+    
     // flex: 3,
     marginBottom: 50,
     // flexDirection: "column",
