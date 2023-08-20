@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import TextInputContainer from "../atoms/text-container/TextInputContainer";
 import IconButton from "../atoms/buttons/IconButton";
+import CustomButton from "../atoms/buttons/CustomButton";
 
 const passengerCount = 3; // Change this to the desired number of passengers
 
@@ -128,7 +129,10 @@ const PersonalInfoForm = () => {
             onPress={handlePreviousPassenger}
             disabled={currentPassengerIndex === 0}
           />
-          <Text> Passenger {currentPassengerIndex + 1} </Text>
+          <Text style={styles.passengerNo}>
+            {" "}
+            Passenger {currentPassengerIndex + 1}{" "}
+          </Text>
           <IconButton
             icon="chevron-right"
             onPress={handleNextPassenger}
@@ -136,7 +140,9 @@ const PersonalInfoForm = () => {
           />
         </View>
       </View>
-      <Button title="Submit Details" onPress={handleSubmit} />
+      <View style={styles.subButCont}>
+        <CustomButton title="Submit Details" onPress={handleSubmit} />
+      </View>
     </ScrollView>
   );
 };
@@ -164,7 +170,18 @@ const styles = StyleSheet.create({
   navigationButtons: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     marginTop: 10,
+  },
+  subButCont: {
+    flex: 1,
+    alignItems: "center",
+    marginBottom: 36,
+  },
+  passengerNo: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#E0E2EB",
   },
 });
 
