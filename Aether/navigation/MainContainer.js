@@ -22,6 +22,7 @@ import DestinationSearchScreen from "../components/pages/DestinationSearchScreen
 import SearchResultsFilterScreen from "../components/pages/SearchResultsFilterScreen";
 import NebulaScreen from "../components/pages/NebulaScreen";
 import SelectPassengersScreen from "../components/pages/SelectPassengersScreen";
+import NotificaitonsScreen from "../components/pages/NotificationsScreen";
 
 // Theming
 import { DarkTheme as NavigationDarkTheme } from "@react-navigation/native";
@@ -71,6 +72,7 @@ const destinationSearchName = "Destination Search";
 const searchResultFilterName = "Sort & Filter";
 const nebulaName = "Nebula";
 const SelectPassengersName = "Select Passengers";
+const notificationsName = "Notifications";
 
 const MainTabNavigator = () => (
   <Tab.Navigator
@@ -221,11 +223,17 @@ function MainContainer() {
             options={{ tabBarVisible: false }}
           />
 
-					<Stack.Screen
-						name={SelectPassengersName}
-						component={SelectPassengersScreen}
-						options={{ tabBarVisible: false }}
-					/>
+          <Stack.Screen
+            name={SelectPassengersName}
+            component={SelectPassengersScreen}
+            options={{ tabBarVisible: false }}
+          />
+
+          <Stack.Screen
+            name={notificationsName}
+            component={NotificaitonsScreen}
+            options={{ tabBarVisible: false }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
