@@ -10,9 +10,10 @@ import {
 import Title3 from "../text/Title3";
 import Title4 from "../text/Title4";
 import RatingCircle from "../rating-container/RatingCircle";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
-const DestinationCard = ({ title, content, image, rating }) => (
-  <View style={styles.container}>
+const DestinationCard = ({ title, content, image, rating, onPress }) => (
+  <TouchableOpacity style={styles.container} onPress={onPress}>
     <ImageBackground
       source={image}
       style={styles.imageContainer}
@@ -26,7 +27,7 @@ const DestinationCard = ({ title, content, image, rating }) => (
         </View>
       </View>
     </ImageBackground>
-  </View>
+  </TouchableOpacity>
 );
 
 export default DestinationCard;

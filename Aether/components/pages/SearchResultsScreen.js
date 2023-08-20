@@ -108,7 +108,7 @@ export default function SearchResultsScreen({ route, navigation }) {
 					/>
 				</View>
 
-				<SearchResultList data={searchResultsFiltered} />
+				<SearchResultList data={searchResultsFiltered} navigation={navigation}/>
 			</CenterViewContainer>
 		</DynamicBackground>
 	);

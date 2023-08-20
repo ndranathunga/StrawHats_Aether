@@ -6,7 +6,11 @@ import MarsportHub from "../../assets/images/destinations/marsport-hub.png";
 import AscendantLaunch from "../../assets/images/destinations/ascendant-launch.png";
 import AitkenBasin from "../../assets/images/destinations/aitken-basin.png";
 
-const DestinationResults = () => {
+export default function DestinationResults({ navigation }) {
+  const onCardPress = () => {
+    navigation.navigate("Date Picker");
+  };
+
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <DestinationCard
@@ -14,28 +18,32 @@ const DestinationResults = () => {
         content="384.4 Mm - Polar - Wellness and Relaxation"
         image={VallesBase}
         rating={4.5}
+        onPress={onCardPress}
       />
       <DestinationCard
         title="Marsport Hub - Mars"
         content="43.26 Gm - Dry - Adventure and Exploration"
         image={MarsportHub}
         rating={2.5}
+        onPress={onCardPress}
       />
       <DestinationCard
         title="Ascendant Launch - Mars"
         content="1.314 Tm - Tropical - Naturalistic and Eco-Friendly"
         image={AscendantLaunch}
         rating={4.8}
+        onPress={onCardPress}
       />
       <DestinationCard
         title="Aitken basin Water Park - Moon"
         content="1.23 Tm - Polar - Wellness and Relaxation"
         image={AitkenBasin}
         rating={2.8}
+        onPress={onCardPress}
       />
     </ScrollView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -44,5 +52,3 @@ const styles = StyleSheet.create({
     height: "75%",
   },
 });
-
-export default DestinationResults;
