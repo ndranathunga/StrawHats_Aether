@@ -23,10 +23,11 @@ const styles = StyleSheet.create({
 		height: 40,
 		justifyContent: "center",
 		alignItems: "center",
-		backgroundColor: "#AEAEAE",
+		backgroundColor: "rgba(0,0,0,0.5)",
 		borderRadius: 10,
 		margin: 8,
 		borderColor: "gray",
+		borderWidth: 1,
 	},
 	selectedSeat: {
 		backgroundColor: "#77BEFF",
