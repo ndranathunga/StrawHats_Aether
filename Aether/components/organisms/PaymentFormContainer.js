@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Divider } from "react-native-paper";
+import { Divider, HelperText } from "react-native-paper";
 import {
   View,
   Text,
@@ -10,102 +10,129 @@ import {
   FlatList,
   TextInput,
 } from "react-native";
+import { useForm, Controller } from "react-hook-form";
 import { PaymentIcon } from "react-native-payment-icons";
 import CustomButton from "../atoms/buttons/CustomButton";
 
 export default function PaymentFormContainer({ navigation }) {
   const [name, setName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
-  const [expiration, setExpiration] = useState("");
   const [cvv, setCvv] = useState("");
+  const [expiration, setExpiration] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [touched, setTouched] = useState({
+    name: false,
+    cardNumber: false,
+    cvv: false,
+    expiration: false,
+  });
 
-  function onSubmit() {
-    console.log("form submitted");
-  }
+  const nameError = (submitted || touched.name) && !name;
+  const cardNumberError =
+    (submitted || touched.cardNumber) &&
+    (!cardNumber || cardNumber.length < 16);
+  const cvvError = (submitted || touched.cvv) && (!cvv || cvv.length !== 3);
+  const expirationError = (submitted || touched.expiration) && !expiration;
+
+  const handleConfirm = () => {
+    setSubmitted(true);
+    if (!nameError && !cardNumberError && !cvvError && !expirationError) {
+      navigation.navigate("Boarding Pass");
+    }
+  };
 
   return (
     <View style={styles.container}>
       <View>
-          <TextInput
-            style={styles.textField}
-            name="holderName"
-            placeholder="Cardholder Name"
-            value={name}
-            onChangeText={(text) => setName(text)}
-            placeholderTextColor={"grey"}
-          />
-          <TextInput
-            style={styles.textField}
-            name="cardNumber"
-            placeholder="Card Number"
-            keyboardType="number-pad"
-            value={cardNumber}
-            onChangeText={(text) => setCardNumber(text)}
-            placeholderTextColor={"grey"}
-          />
-          <View
-            style={[
-              styles.row,
-              {
-                justifyContent: "space-between",
-              },
-            ]}
-          >
-            <TextInput
-              style={[
-                styles.textField,
-                {
-                  marginRight: 24,
-                  width: "40%",
-                },
-              ]}
-              placeholder="Security Code"
-              value={cvv}
-              onChangeText={(text) => setCvv(text)}
-              placeholderTextColor={"grey"}
-            />
-            <TextInput
-              style={[styles.textField, { width: "50%" }]}
-              placeholder="Expiration Date"
-              value={expiration}
-              onChangeText={(text) => setExpiration(text)}
-              placeholderTextColor={"grey"}
-            />
-          </View>
+        <TextInput
+          style={styles.textField}
+          placeholder="Cardholder Name"
+          value={name}
+          onChangeText={setName}
+          onBlur={() => setTouched({ ...touched, name: true })}
+          placeholderTextColor={"grey"}
+        />
+        <HelperText type="error" visible={nameError}>
+          Cardholder Name is required
+        </HelperText>
 
-          <View
-            style={[
-              {
-                flexDirection: "row",
-                justifyContent: "space-evenly",
-                marginTop: 20,
-                width: "55%",
-              },
-            ]}
-          >
-            <PaymentIcon type="visa" />
-            <PaymentIcon type="master" />
-            <PaymentIcon type="paypal" />
-            <PaymentIcon type="discover" />
+        <TextInput
+          style={styles.textField}
+          placeholder="Card Number"
+          keyboardType="number-pad"
+          value={cardNumber}
+          onChangeText={setCardNumber}
+          onBlur={() => setTouched({ ...touched, cardNumber: true })}
+          placeholderTextColor={"grey"}
+        />
+        <HelperText type="error" visible={cardNumberError}>
+          Card Number is required and must be 16 digits
+        </HelperText>
+
+        <View style={[styles.row, { justifyContent: "space-between" }]}>
+          <View style={{flex: 3, width: "100%"}}>
+          <TextInput
+            style={[styles.textField, { marginRight: 24, width: "90%" }]}
+            placeholder="Security Code"
+            value={cvv}
+            onChangeText={setCvv}
+            onBlur={() => setTouched({ ...touched, cvv: true })}
+            placeholderTextColor={"grey"}
+          />
+          <HelperText type="error" visible={cvvError} style={{display: cvvError ? "flex" : "none"}}>
+            Security Code is required and must be 3 digits
+          </HelperText>
+          </View>
+          <View  style={{flex: 3, width: "100%"}}>
+          <TextInput
+            style={[styles.textField, { width: "90%" }]}
+            placeholder="Expiration Date"
+            value={expiration}
+            onChangeText={setExpiration}
+            onBlur={() => setTouched({ ...touched, expiration: true })}
+            placeholderTextColor={"grey"}
+          />
+          <HelperText type="error" visible={expirationError} style={{display: expirationError ? "flex" : "none"}}>
+            Expiration Date is required
+          </HelperText>
           </View>
         </View>
 
         <View
-          style={[
-            {
-              marginTop: 20,
-              marginBottom: 50,
-              height: 120,
-              justifyContent: "space-evenly",
-            //   backgroundColor: "green",
-            },
-          ]}
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            marginTop: 20,
+            width: "55%",
+          }}
         >
-          <CustomButton title="Confirm" onPress={() => {navigation.navigate("Boarding Pass")}} />
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText} onPress={() => {navigation.navigate("Home")}}>Cancel</Text>
-          </TouchableOpacity>
+          <PaymentIcon type="visa" />
+          <PaymentIcon type="master" />
+          <PaymentIcon type="paypal" />
+          <PaymentIcon type="discover" />
         </View>
+      </View>
+
+      <View
+        style={{
+          marginTop: 20,
+          marginBottom: 50,
+          height: 120,
+          justifyContent: "space-evenly",
+        }}
+      >
+        <CustomButton title="Confirm" onPress={handleConfirm} />
+        <TouchableOpacity style={styles.button}>
+          <Text
+            style={styles.buttonText}
+            onPress={() => {
+              navigation.navigate("Home");
+            }}
+          >
+            Cancel
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -118,7 +145,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     justifyContent: "center",
-//     backgroundColor: "lightblue",
+    //     backgroundColor: "lightblue",
     paddingLeft: 10,
     paddingRight: 10,
     justifyContent: "space-between",
