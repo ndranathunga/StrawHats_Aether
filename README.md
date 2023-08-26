@@ -44,6 +44,10 @@ To run the application, navigate to the Aether folder and use:
 
     npx expo start
 
+## Screenshots
+
+![Aether Screnshots](img/Screenshots.png)
+
 ## Sections and Features
 
 ### Home Page
@@ -94,6 +98,4 @@ Here's how to book a flight using our app:
 - Some sections and features of the app are currently under construction.
 - We appreciate your patience as we work to deliver an exceptional space travel experience.
 - If you have any questions, use the Nebula chat bot or contact our support team.
-
-Thank you for choosing our app for your space adventures!
 
