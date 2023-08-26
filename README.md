@@ -1,6 +1,6 @@
 # Aether
 
-![Aether Banner](img/Banner.png)
+![Aether Banner](img/Banner-md.png)
 
 ## Background
 
