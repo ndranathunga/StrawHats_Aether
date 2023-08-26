@@ -1,5 +1,7 @@
 # Aether
 
+![Aether Banner](img/Banner.png)
+
 ## Background
 
 This project was developed by _Team Straw Hats_ during the Tech Triathlon hosted by [Rootcode](https://rootcodelabs.com/).
